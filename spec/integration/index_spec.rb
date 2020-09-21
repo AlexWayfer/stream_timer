@@ -13,9 +13,23 @@ describe '/' do
 		it { is_expected.to be_ok }
 
 		describe 'body' do
-			subject { super().body }
+			subject { Oga.parse_html super().body }
 
-			it { is_expected.to include 'Hello, world!' }
+			describe '<title>' do
+				subject { super().css('title').text }
+
+				it { is_expected.to eq 'Stream Timer' }
+			end
+
+			describe '<body>' do
+				subject { super().css('body').first }
+
+				describe 'project title' do
+					subject { super().css('> h1').first.text }
+
+					it { is_expected.to eq 'Stream Timer' }
+				end
+			end
 		end
 	end
 end

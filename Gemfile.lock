@@ -65,6 +65,7 @@ GEM
     alt_memery (2.0.0)
       module_methods (~> 0.1.0)
       ruby2_keywords (~> 0.0.2)
+    ansi (1.5.0)
     ast (2.4.1)
     bcrypt (3.1.16)
     benchmark-ips (2.8.3)
@@ -153,6 +154,9 @@ GEM
     multipart-post (2.1.1)
     netaddr (2.0.4)
     nio4r (2.5.4)
+    oga (3.3)
+      ast
+      ruby-ll (~> 2.1)
     paint (2.2.0)
     parallel (1.19.2)
     parser (2.7.1.4)
@@ -220,6 +224,9 @@ GEM
       rubocop-ast (>= 0.4.0)
     rubocop-rspec (1.43.2)
       rubocop (~> 0.87)
+    ruby-ll (2.1.2)
+      ansi
+      ast
     ruby-progressbar (1.10.1)
     ruby2_keywords (0.0.2)
     sentry-raven (3.1.0)
@@ -283,6 +290,7 @@ DEPENDENCIES
   letter_opener
   locales_toys
   mail
+  oga
   pg
   pry-byebug
   psql_toys

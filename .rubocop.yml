@@ -42,3 +42,5 @@ Metrics/BlockLength:
 RSpec/DescribeClass:
   Exclude:
     - spec/integration/**/*
+RSpec/NestedGroups:
+  Enabled: false

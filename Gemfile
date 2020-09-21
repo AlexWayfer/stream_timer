@@ -68,6 +68,7 @@ end
 group :test do
 	# gem 'database_cleaner'
 	# gem 'fabrication'
+	gem 'oga'
 	# gem 'page-object'
 	gem 'rack-test'
 	# gem 'retriable'
