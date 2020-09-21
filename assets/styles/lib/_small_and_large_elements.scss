@@ -1,0 +1,57 @@
+@mixin small-and-large-elements(
+	// Probably here should be something like `$large_element_container`,
+	// for example, for Cccombo input like this:
+	// https://gitlab.gettransport.com/site/site/merge_requests/80/diffs#28551ac9184a7e08499c6a0b6a17f78126a4defa_124_124
+	// Discussion:
+	// https://gitlab.gettransport.com/site/site/merge_requests/522#note_324681
+	$small_element: '> button', $large_element: '> input',
+	$small_element_on_right: false, $inline: false
+) {
+	display: if($inline, inline-flex, flex);
+	align-items: stretch;
+
+	#{$large_element},
+	#{$small_element} {
+		border-radius: $input_border_radius;
+
+		// Fix for Safari
+		margin: {
+			top: 0;
+			bottom: 0;
+		}
+
+		&:focus {
+			z-index: 2;
+		}
+	}
+
+	#{$large_element} {
+		flex-grow: 2;
+
+		&,
+		> * {
+			width: 100%;
+		}
+	}
+
+	#{$small_element} {
+		flex-grow: 0;
+	}
+
+	// Left element
+	#{if($small_element_on_right, $large_element, $small_element)} {
+		margin-right: -$common_border_width;
+
+		border: {
+			top-right-radius: 0;
+			bottom-right-radius: 0;
+		}
+	}
+
+	#{if($small_element_on_right, $small_element, $large_element)} {
+		border: {
+			top-left-radius: 0;
+			bottom-left-radius: 0;
+		}
+	}
+}

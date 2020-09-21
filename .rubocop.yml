@@ -1,0 +1,44 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+Layout/IndentationStyle:
+  EnforcedStyle: tabs
+  IndentationWidth: 2
+Layout/IndentationWidth:
+  Width: 1
+Layout/LineLength:
+  Max: 100
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+Layout/FirstArgumentIndentation:
+  EnforcedStyle: consistent
+Layout/FirstParameterIndentation:
+  EnforcedStyle: consistent
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+Layout/MultilineArrayBraceLayout:
+  EnforcedStyle: new_line
+Layout/MultilineHashBraceLayout:
+  EnforcedStyle: new_line
+
+AllCops:
+  TargetRubyVersion: 2.6
+  NewCops: enable
+
+Metrics/BlockLength:
+  Exclude:
+    - Rakefile
+    - db/migrations/*
+
+RSpec/DescribeClass:
+  Exclude:
+    - spec/integration/**/*

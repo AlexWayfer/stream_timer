@@ -1,0 +1,16 @@
+@function inputs_with_types($types...) {
+	$result: ();
+
+	@each $type in $types {
+		$result: append($result, 'input[type="' + $type + '"]', comma);
+	}
+
+	@return $result;
+}
+
+@function all_horizontal_inputs() {
+	@return inputs_with_types(
+		'text', 'email', 'password', 'number', 'url', 'search', 'date', 'time',
+		'file'
+	);
+}

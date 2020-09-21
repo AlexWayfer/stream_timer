@@ -1,0 +1,41 @@
+{
+	"private": true,
+	"dependencies": {
+		"@babel/core": "*",
+		"@babel/plugin-transform-object-assign": "*",
+		"@babel/preset-env": "*",
+		"@rollup/plugin-babel": "*",
+		"@rollup/plugin-commonjs": "*",
+		"@rollup/plugin-json": "*",
+		"@rollup/plugin-node-resolve": "*",
+		"autoprefixer": "^9.8.6",
+		"core-js": "*",
+		"postcss-cli": "^7.0.0",
+		"postcss-flexbugs-fixes": "*",
+		"promise-polyfill": "*",
+		"rollup": "*",
+		"sass": "*",
+		"simplify-js": "*",
+		"whatwg-fetch": "*"
+	},
+	"devDependencies": {
+		"eslint": "*",
+		"remark-cli": "*",
+		"remark-preset-lint-recommended": "*",
+		"stylelint": "*",
+		"stylelint-config-standard": "*",
+		"stylelint-no-unsupported-browser-features": "*"
+	},
+	"scripts": {
+		"build:styles": "sass assets/styles/main.scss public/styles/main.css -s compressed && postcss public/styles/main.css -o public/styles/main.css",
+		"build:scripts": "rollup assets/scripts/application.js -o public/scripts/application/compiled/application.js -c",
+		"build": "npm run build:styles && npm run build:scripts",
+		"clean:styles": "rm -f public/styles/main.css public/styles/main.css.map",
+		"clean:scripts": "rm -rvf public/scripts/application/compiled",
+		"clean": "npm run clean:styles && npm run clean:scripts",
+		"lint:docs": "remark .",
+		"lint:styles": "stylelint assets/styles/",
+		"lint:scripts": "eslint assets/scripts/ ./*.js",
+		"lint": "npm run lint:docs; docs_lint_result=$?; npm run lint:styles; styles_lint_result=$?; npm run lint:scripts && $styles_lint_result && $docs_lint_result"
+	}
+}

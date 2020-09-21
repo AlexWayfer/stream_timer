@@ -1,0 +1,83 @@
+$form_vertical_label_margin: 0.8em;
+$form_vertical_input_margin: 0.4em;
+
+form {
+	label {
+		font-weight: bold;
+
+		> p {
+			font-weight: normal;
+		}
+	}
+
+	input.with_clear_button + button {
+		margin-bottom: 0;
+	}
+
+	p.error {
+		height: 0;
+		overflow: hidden;
+		margin: 0;
+		padding-left: 0.4em;
+		color: lighten($error_color, 15%);
+	}
+
+	.invalid {
+		input {
+			border: $input_border_width solid lighten($error_color, 15%);
+			box-shadow: 0 0 3px lighten($error_color, 15%);
+		}
+
+		& ~ .error {
+			height: inherit;
+			margin-top: 0.4em;
+		}
+	}
+
+	&.inline {
+		&,
+		label {
+			display: inline-block;
+		}
+	}
+
+	&.vertical {
+		text-align: center;
+
+		label,
+		ul,
+		table,
+		p,
+		article {
+			text-align: left;
+		}
+
+		label,
+		table {
+			margin-bottom: $form_vertical_label_margin;
+		}
+
+		label {
+			display: block;
+			// Because of inputs outline
+			// padding: 5px;
+
+			#{all_horizontal_inputs()},
+			textarea,
+			select,
+			.cccombo {
+				display: block;
+				width: 100%;
+				margin-top: $form_vertical_input_margin;
+			}
+
+			> label {
+				margin-bottom: $form_vertical_input_margin;
+
+				&:first-of-type {
+					margin-top: $form_vertical_input_margin;
+				}
+			}
+		}
+	}
+}

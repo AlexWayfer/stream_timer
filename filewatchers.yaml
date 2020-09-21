@@ -1,0 +1,14 @@
+- :pattern: '**/{Gemfile,*.{rb,ru,y{a,}ml}}'
+  :exclude: '**/{spec/**/*,config/**/*.example*}'
+  ## Don't use `bundle exec`, it's already required by `toys`
+  ## https://github.com/dazuma/toys/issues/65
+  :command: pumactl restart
+
+- :pattern: '{assets/styles/**/*,postcss.config.js}'
+  :command: pnpm run build:styles
+
+- :pattern: '{assets/scripts/**/*,rollup.config.js}'
+  :command: pnpm run build:scripts
+
+- :pattern: 'package.json'
+  :command: pnpm install && pnpm run build

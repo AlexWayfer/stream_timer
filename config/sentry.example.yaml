@@ -1,0 +1,7 @@
+:host: sentry.streamtimer.com
+back-end:
+  :api_key: abcdef
+  :project_id: 1
+front-end:
+  :api_key: ghijkl
+  :project_id: 2

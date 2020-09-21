@@ -1,0 +1,13 @@
+inherit_from: ../.rubocop.yml
+
+Layout/IndentationStyle:
+  EnforcedStyle: spaces
+  IndentationWidth: ~
+Layout/IndentationWidth:
+  Width: 2
+Layout/EmptyLines:
+  Enabled: false
+Layout/EmptyLineBetweenDefs:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false

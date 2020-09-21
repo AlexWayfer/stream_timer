@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<title><%= config[:site][:site_name] %></title>
+
+		<%
+			%i[
+				main
+			].each do |name|
+		%>
+			<link rel="stylesheet" href="<%= url_to "styles/#{name}.css", version: true %>" />
+		<% end %>
+
+		<% if Raven.configuration.environments.include?(config[:environment]) && !request.bot? %>
+			<script src="https://cdn.ravenjs.com/3.27.0/raven.min.js" crossorigin="anonymous"></script>
+
+			<script type="text/javascript">
+				var
+					frames_exceptions = new RegExp([
+						'jivo',
+						'kaspersky',
+						'simple-finder\.com',
+						'com\.lge\.browser',
+						'countmake\.cool',
+						'alfawebing\.info',
+						'local\.adguard\.{com,org}',
+						'moz-extension:\/\/',
+						'file:\/\/'
+					].join('|'), 'i'),
+
+					value_exceptions = new RegExp([
+						'jivo',
+						'tropif\.ru',
+						'lapuso.ru',
+						'gCrWeb'
+					].join('|'), 'i');
+
+				Raven.config('<%= config[:sentry]['front-end'][:url] %>', {
+					environment: '<%= config[:environment] %>',
+					release: '<%= Raven.configuration.release %>',
+					shouldSendCallback: function (data) {
+						return !data.exception || data.exception.values.some(
+							function (exception) {
+								if (exception.value.match(value_exceptions)) return false;
+
+								return !exception.stacktrace.frames.some(function (frame) {
+									return frame.filename.match(frames_exceptions);
+								});
+							}
+						);
+					}
+				}).install();
+			</script>
+		<% end %>
+
+		<%
+			{
+				libs: %w[],
+				# 	dom4.max
+				# 	modernizr-custom
+				# 	svgxuse.min
+				# 	cccombo
+				# ],
+				'application/compiled': %w[application]
+			}
+				.each do |dir, file_names|
+		%>
+			<% file_names.each do |name| %>
+				<script
+					type="text/javascript" src="<%= url_to "/scripts/#{dir}/#{name}.js", version: true %>"
+				></script>
+			<% end %>
+		<% end %>
+	</head>
+	<body>
+		<%= yield %>
+	</body>
+</html>

@@ -1,0 +1,82 @@
+.page {
+	max-width: 800px;
+	padding: 20px 15px;
+	margin: 0 auto;
+	text-align: justify;
+
+	#{headings()},
+	pre {
+		text-align: left;
+	}
+
+	&.error {
+		&,
+		#{headings()} {
+			text-align: center;
+		}
+
+		pre {
+			#{headings()} {
+				text-align: left;
+			}
+
+			padding: 0.8em 1.6em;
+			max-height: 40em;
+			overflow: auto;
+			background: #f5f5f5;
+			border: $common_border_width solid #ddd;
+
+			.sql {
+				white-space: normal;
+				line-height: inherit;
+			}
+		}
+
+		/**
+			* There is a bug in stylelint which marks vw as unsupported when
+			* only vmax is unsupported
+			* https://github.com/anandthakker/doiuse/issues/83
+			*/
+		/* stylelint-disable plugin/no-unsupported-browser-features */
+		&.development {
+			max-width: none;
+
+			padding: {
+				left: 3vw;
+				right: 3vw;
+			}
+		}
+		/* stylelint-enable plugin/no-unsupported-browser-features */
+	}
+
+	table {
+		border-collapse: collapse;
+
+		td {
+			border: $common_border_width solid #bbb;
+			padding: 10px 15px;
+		}
+	}
+
+	pre,
+	code {
+		background-color: lighten($accent_background_color, 40%);
+		padding: 0.2em 0.4em;
+	}
+
+	code {
+		display: inline-block;
+	}
+
+	pre {
+		overflow: auto;
+	}
+
+	pre code {
+		padding: 0;
+	}
+
+	li {
+		margin: 0.6em 0;
+	}
+}

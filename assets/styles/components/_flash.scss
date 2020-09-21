@@ -1,0 +1,23 @@
+.flash {
+	margin: 1em 0;
+	padding: 0 1em;
+	text-align: center;
+	font-weight: 600;
+	line-height: 1.4em;
+
+	&::first-letter {
+		text-transform: capitalize;
+	}
+
+	&.notice {
+		color: black;
+	}
+
+	&.warning {
+		color: $warning_text_color;
+	}
+
+	&.error {
+		color: $error_color;
+	}
+}

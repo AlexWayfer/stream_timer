@@ -1,0 +1,21 @@
+$accent_background_color: #f24900;
+$accent_text_color: darken($accent_background_color, 15%);
+
+$footer_background_color: #2a2a2a;
+$footer_text_color: white;
+
+// $tertiary_background_color: #ffffff;
+
+$danger_background_color: lighten(red, 15%);
+$danger_text_color: red;
+$error_color: $danger_text_color;
+$warning_background_color: orange;
+$warning_text_color: #e67e00; // darken(darkorange, 5%);
+$success_background_color: #2db92d; // darken(limegreen, 5%);
+$success_text_color: green;
+$highlight_background_color: #eee;
+$disabled_text_color: gray;
+
+$link_text_color: darken($accent_text_color, 10%);
+
+$input_border_color: #ccc;

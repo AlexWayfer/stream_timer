@@ -1,0 +1,23 @@
+default: &default
+  :adapter: 'postgres'
+  # :host: 'localhost'
+  :database: 'stream_timer'
+  :user: 'stream_timer'
+  # :password: 'password'
+  :superuser: 'postgres'
+
+  # :servers:
+  #   :replica:
+  #     :host: 'localhost'
+  #     :database: 'replica'
+  #     :user: 'replicauser'
+  #     :password: 'replicapassword'
+
+production:
+  <<: *default
+
+demo:
+  <<: *default
+
+development:
+  <<: *default

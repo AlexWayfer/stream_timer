@@ -1,0 +1,314 @@
+GIT
+  remote: https://github.com/AlexWayfer/Voight-Kampff.git
+  revision: 84ce41275e959bdcc073ed2634803018490d99c6
+  branch: v2
+  specs:
+    voight_kampff (2.0.0)
+
+GIT
+  remote: https://github.com/AlexWayfer/flame-flash.git
+  revision: 0ff74e1be4ee6d818591bb485db76998eb7a650b
+  specs:
+    flame-flash (3.0.0)
+      flame (>= 5.0.0.rc3, < 6)
+      gorilla_patch (>= 1, < 5)
+
+GIT
+  remote: https://github.com/AlexWayfer/flame-r18n.git
+  revision: 159785e3e598fd7aa3d667550f3394621e511b19
+  specs:
+    flame-r18n (2.3.1)
+      flame (>= 5.0.0.rc3, < 6)
+      r18n-core (~> 4.0)
+
+GIT
+  remote: https://github.com/AlexWayfer/flame.git
+  revision: e0b8b6841084fa690fbdc8d6a04a6c93b38ea8fd
+  specs:
+    flame (5.0.0.rc5)
+      addressable (~> 2.5)
+      alt_memery (~> 2.0)
+      gorilla_patch (>= 3.0, < 5)
+      rack (~> 2.1)
+      tilt (~> 2.0)
+
+GIT
+  remote: https://github.com/AlexWayfer/flame_server_toys.git
+  revision: 282ec8c64551b002244c59ffa842231dcb8535a3
+  specs:
+    flame_server_toys (0.2.1)
+      alt_memery (~> 2.0)
+      filewatcher-cli (~> 1.0.0.beta1)
+      gorilla_patch (~> 4.0)
+      toys-core (~> 0.11.0)
+
+GIT
+  remote: https://github.com/AlexWayfer/rack-protection-maximum_cookie.git
+  revision: 8714e64ca1bef37984b7c26245d91f2353da59bb
+  branch: update_rack_dependency
+  specs:
+    rack-protection-maximum_cookie (0.4.2)
+      public_suffix (>= 3.0, < 5)
+      rack (>= 2.2, < 3.0)
+
+GIT
+  remote: https://github.com/r18n/r18n.git
+  revision: 443dec6480fc95e3cc74540fbf5aa98a48328b7d
+  specs:
+    r18n-core (4.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
+    alt_memery (2.0.0)
+      module_methods (~> 0.1.0)
+      ruby2_keywords (~> 0.0.2)
+    ast (2.4.1)
+    bcrypt (3.1.16)
+    benchmark-ips (2.8.3)
+    benchmark-memory (0.1.2)
+      memory_profiler (~> 0.9)
+    benchmark_toys (0.2.0)
+      benchmark-ips (~> 2.8)
+      benchmark-memory (~> 0.1.0)
+      example_file (~> 0.1.0)
+      toys-core (~> 0.11.0)
+    bundler-audit (0.7.0.1)
+      bundler (>= 1.2.0, < 3)
+      thor (>= 0.18, < 2)
+    byebug (11.1.3)
+    clamp (1.3.2)
+    coderay (1.1.3)
+    config_toys (0.2.0)
+      example_file (~> 0.1.0)
+      toys-core (~> 0.11.0)
+    content_disposition (1.0.0)
+    diff-lcs (1.4.4)
+    diffy (3.4.0)
+    down (5.2.0)
+      addressable (~> 2.5)
+    dry-inflector (0.2.0)
+    email_address (0.1.18)
+      netaddr (>= 2.0.4, < 3)
+      simpleidn
+    erubi (1.9.0)
+    example_file (0.1.0)
+      diffy (~> 3.0)
+      highline (~> 2.0)
+      paint (~> 2.0)
+    faraday (1.0.1)
+      multipart-post (>= 1.2, < 3)
+    filewatcher (2.0.0.beta2)
+    filewatcher-cli (1.0.0.beta1)
+      clamp (~> 1.3)
+      filewatcher (~> 2.0.0.beta1)
+    flame-pagination (0.3.0)
+      alt_memery (~> 2.0)
+      flame (>= 4, < 6)
+      module_methods (~> 0.1.0)
+    flame-raven_context (0.1.2)
+      alt_memery (~> 2.0)
+      gorilla_patch (~> 4.0)
+      sentry-raven (~> 3.0)
+    flame_deploy_toys (0.3.0)
+      toys-core (~> 0.11.0)
+    flame_generate_toys (0.2.0)
+      dry-inflector (~> 0.2.0)
+      formalism-model_forms (~> 0.4.0)
+      toys-core (~> 0.11.0)
+    flame_routes_toys (0.3.0)
+      alt_memery (~> 2.0)
+      toys-core (~> 0.11.0)
+    formalism (0.1.0)
+      gorilla_patch (~> 4)
+    formalism-model_forms (0.4.0)
+      alt_memery (~> 2.0)
+      flame-pagination (~> 0.3.0)
+      formalism (~> 0.1.0)
+      gorilla_patch (~> 4.0)
+      module_methods (~> 0.1.0)
+      sequel (~> 5.0)
+    formalism-r18n_errors (0.1.0)
+      formalism (~> 0.1.0)
+      r18n-core (~> 4.0)
+    formalism-sequel_transactions (0.1.0)
+      formalism (~> 0.1.0)
+      sequel (~> 5.0)
+    gorilla_patch (4.0.0)
+    highline (2.0.3)
+    launchy (2.5.0)
+      addressable (~> 2.7)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
+    locales_toys (0.1.1)
+      toys-core (~> 0.11.0)
+    mail (2.7.1)
+      mini_mime (>= 0.1.1)
+    memory_profiler (0.9.14)
+    method_source (1.0.0)
+    mini_mime (1.0.2)
+    module_methods (0.1.0)
+    multipart-post (2.1.1)
+    netaddr (2.0.4)
+    nio4r (2.5.4)
+    paint (2.2.0)
+    parallel (1.19.2)
+    parser (2.7.1.4)
+      ast (~> 2.4.1)
+    pg (1.2.3)
+    pry (0.13.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-byebug (3.9.0)
+      byebug (~> 11.0)
+      pry (~> 0.13.0)
+    psql_toys (0.3.1)
+      alt_memery (~> 2.0)
+      gorilla_patch (> 3, < 5)
+      toys-core (~> 0.11.0)
+    public_suffix (4.0.6)
+    puma (5.0.0)
+      nio4r (~> 2.0)
+    rack (2.2.3)
+    rack-console (1.3.1)
+      rack (>= 1.1)
+      rack-test
+    rack-contrib (2.2.0)
+      rack (~> 2.0)
+    rack-slashenforce (0.0.3)
+      rack
+    rack-test (1.1.0)
+      rack (>= 1.0, < 3)
+    rack-utf8_sanitizer (1.7.0)
+      rack (>= 1.0, < 3.0)
+    rack_console_toys (0.1.1)
+      rack-console (~> 1.3)
+      toys-core (~> 0.11.0)
+    rack_csrf (2.6.0)
+      rack (>= 1.1.0)
+    rainbow (3.0.0)
+    regexp_parser (1.8.0)
+    rexml (3.2.4)
+    rspec (3.9.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+    rspec-core (3.9.2)
+      rspec-support (~> 3.9.3)
+    rspec-expectations (3.9.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-mocks (3.9.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-support (3.9.3)
+    rubocop (0.91.0)
+      parallel (~> 1.10)
+      parser (>= 2.7.1.1)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.7)
+      rexml
+      rubocop-ast (>= 0.4.0, < 1.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 2.0)
+    rubocop-ast (0.4.2)
+      parser (>= 2.7.1.4)
+    rubocop-performance (1.8.1)
+      rubocop (>= 0.87.0)
+      rubocop-ast (>= 0.4.0)
+    rubocop-rspec (1.43.2)
+      rubocop (~> 0.87)
+    ruby-progressbar (1.10.1)
+    ruby2_keywords (0.0.2)
+    sentry-raven (3.1.0)
+      faraday (>= 1.0)
+    sequel (5.36.0)
+    sequel-enum_values (1.2.1)
+      sequel (>= 4.1.0, <= 6)
+    sequel_migrations_toys (0.2.2)
+      alt_memery (~> 2.0)
+      sequel (~> 5.0)
+      toys-core (~> 0.11.0)
+    sequel_pg (1.13.0)
+      pg (>= 0.18.0, != 1.2.0)
+      sequel (>= 4.38.0)
+    sequel_secure_password (0.2.15)
+      bcrypt (>= 3.1, < 4.0)
+      sequel (>= 4.1.0, < 6.0)
+    shrine (3.2.2)
+      content_disposition (~> 1.0)
+      down (~> 5.1)
+    simpleidn (0.1.1)
+      unf (~> 0.1.4)
+    static_files_toys (0.2.0)
+      highline (~> 2.0)
+      toys-core (~> 0.11.0)
+    thor (1.0.1)
+    tilt (2.0.10)
+    toys (0.11.3)
+      toys-core (= 0.11.3)
+    toys-core (0.11.3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.7)
+    unicode-display_width (1.7.0)
+    warning (1.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  alt_memery
+  benchmark_toys
+  bundler
+  bundler-audit
+  config_toys
+  email_address
+  erubi
+  flame!
+  flame-flash!
+  flame-r18n!
+  flame-raven_context
+  flame_deploy_toys
+  flame_generate_toys
+  flame_routes_toys
+  flame_server_toys!
+  formalism
+  formalism-model_forms
+  formalism-r18n_errors
+  formalism-sequel_transactions
+  gorilla_patch
+  letter_opener
+  locales_toys
+  mail
+  pg
+  pry-byebug
+  psql_toys
+  puma
+  r18n-core!
+  rack-contrib
+  rack-protection-maximum_cookie!
+  rack-slashenforce
+  rack-test
+  rack-utf8_sanitizer
+  rack_console_toys
+  rack_csrf
+  rspec
+  rubocop
+  rubocop-performance
+  rubocop-rspec
+  sequel
+  sequel-enum_values
+  sequel_migrations_toys
+  sequel_pg
+  sequel_secure_password
+  shrine
+  static_files_toys
+  toys
+  voight_kampff!
+  warning
+
+BUNDLED WITH
+   2.1.4

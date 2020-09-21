@@ -1,0 +1,23 @@
+:from:
+  :name: 'StreamTimer.com'
+  :email: 'info@streamtimer.com'
+
+:site_url:
+  :scheme: http
+  :host: localhost
+  :port: 3000
+
+## Remove `_` in the beginning of key for enabling
+## If nothing enabled letter_opener would be used
+
+:_smtp:
+  :address: 'smtp.gmail.com'
+  :port: 587
+  :user_name: 'info@streamtimer.com'
+  :password: 'your_password'
+  :authentication: 'plain'
+  :enable_starttls_auto: true
+  :content_type: 'text/html; charset=UTF-8'
+
+:_send_grid:
+  :api_key: 'your_api_key'

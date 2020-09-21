@@ -1,0 +1,32 @@
+# configuration
+config/**/*
+!config/**/*.example*
+!config/**/*.rb
+!config/**/*.erb
+!config/nginx
+!config/nginx/snippets
+!config/nginx/snippets/*.example*
+!config/nginx/snippets/ssl-params.conf
+!config/nginx/sites
+!config/nginx/sites/*.example*
+!config/processors
+
+# temp
+.sass-cache/
+logs/
+tmp/
+*.bak
+*~
+
+# uploaded files
+#public/files
+
+# dumps
+*.sql
+
+# seo files
+#views/site/sitemap.html
+#public/robots.txt
+
+# node modules
+/node_modules/

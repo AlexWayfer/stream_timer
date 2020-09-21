@@ -1,0 +1,30 @@
+:environment: development
+# :environment: production
+
+:default: &default
+  :puma_pid_file: 'puma.pid'
+  :binds:
+    :tcp:
+      :host: '0.0.0.0'
+      :port: 3000
+    # :unix: 'tmp/sockets/puma.sock'
+  :output: :stdout # can be `:file`
+  # :workers_count: 1
+  # :threads_count: 4
+
+development: &development
+  <<: *default
+  :workers_count: 1
+  :threads_count: 4
+
+test: &test
+  <<: *default
+  :output: :stdout
+
+production: &production
+  <<: *default
+  :binds:
+    # :tcp:
+    #   :host: '0.0.0.0'
+    #   :port: 3000
+    :unix: 'tmp/sockets/puma.sock'

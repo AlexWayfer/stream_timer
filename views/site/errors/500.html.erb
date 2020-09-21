@@ -1,0 +1,28 @@
+<div class="page error <%= config[:environment] %>">
+	<h1><%= t.error.unexpected_error.title %></h1>
+	<h4><%= t.error.unexpected_error.subtitle %></h4>
+
+	<p>
+		<%= t.error.unexpected_error.text %>
+	</p>
+
+	<% if config[:environment] == 'development' %>
+		<pre><h3><b><%==
+			"#{@exception.class} - #{@exception.message}"
+		%></b></h3><%
+			if @exception.respond_to? :sql
+		%><h4 class="sql"><%=
+			@exception.sql
+		%></h4><% end %><%=
+			highlighted_backtrace_for @exception
+		%></pre>
+	<% end %>
+
+	<br />
+
+	<a href="<%= path_to_back %>">
+		<%= t.button.back %>
+	</a>
+
+	<br /><br />
+</div>
