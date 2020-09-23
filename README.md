@@ -1,4 +1,4 @@
-# StreamTimer
+# Stream Timer
 
 ## Tech stack
 
