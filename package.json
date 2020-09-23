@@ -29,13 +29,13 @@
 	"scripts": {
 		"build:styles": "sass assets/styles/main.scss public/styles/main.css -s compressed && postcss public/styles/main.css -o public/styles/main.css",
 		"build:scripts": "rollup assets/scripts/application.js -o public/scripts/application/compiled/application.js -c",
-		"build": "npm run build:styles && npm run build:scripts",
+		"build": "pnpm run build:styles && pnpm run build:scripts",
 		"clean:styles": "rm -f public/styles/main.css public/styles/main.css.map",
 		"clean:scripts": "rm -rvf public/scripts/application/compiled",
-		"clean": "npm run clean:styles && npm run clean:scripts",
+		"clean": "pnpm run clean:styles && pnpm run clean:scripts",
 		"lint:docs": "remark .",
 		"lint:styles": "stylelint assets/styles/",
 		"lint:scripts": "eslint assets/scripts/ ./*.js",
-		"lint": "npm run lint:docs; docs_lint_result=$?; npm run lint:styles; styles_lint_result=$?; npm run lint:scripts && $styles_lint_result && $docs_lint_result"
+		"lint": "pnpm run lint:docs; docs_lint_result=$?; pnpm run lint:styles; styles_lint_result=$?; pnpm run lint:scripts && $styles_lint_result && $docs_lint_result"
 	}
 }

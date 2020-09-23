@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../application'
-
 config = ST::Application.config
 
 class << config

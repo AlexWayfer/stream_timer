@@ -1,0 +1,133 @@
+<section class="configuration create">
+	<h2><%= t.site.configuration.create.header %></h2>
+
+	<form class="inline table">
+		<fieldset>
+			<legend><%= t.label.configuration.text.common %></legend>
+
+			<fieldset>
+				<legend><%= t.label.configuration.text.countdown.common %></legend>
+
+				<label>
+					<span><%= t.label.configuration.text.countdown.before %>:</span>
+					<span>
+						<input
+							type="text"
+							name="configuration[countdown_text_before]"
+							value="<%= @form.countdown_text_before %>"
+							size="10"
+						/>
+					</span>
+				</label>
+			</fieldset>
+
+			<fieldset>
+				<legend><%= t.label.configuration.text.lateness.common %></legend>
+
+				<label>
+					<span><%= t.label.configuration.text.lateness.before %>:</span>
+					<span>
+						<input
+							type="text"
+							name="configuration[lateness_text_before]"
+							value="<%= @form.lateness_text_before %>"
+							size="10"
+						/>
+					</span>
+				</label>
+			</fieldset>
+		</fieldset>
+
+		<fieldset class="time">
+			<legend><%= t.label.configuration.time.common %></legend>
+
+			<%
+				%i[hours minutes seconds].each do |time_component|
+					time_limits = @form.class::TIME_LIMITS[time_component]
+			%>
+				<label>
+					<span><%= t.label.configuration.time[time_component] %>:</span>
+					<span>
+						<input
+							type="number"
+							name="configuration[<%= time_component %>]"
+							value="<%= @form.public_send(time_component) %>"
+							min="<%= time_limits.begin %>"
+							<% if (max = time_limits.end) %>
+								max="<%= max %>"
+							<% end %>
+							required
+						/>
+					</span>
+				</label>
+			<% end %>
+		</fieldset>
+
+		<fieldset>
+			<legend><%= t.label.configuration.style.common %></legend>
+
+			<fieldset>
+				<legend><%= t.label.configuration.style.background.common %></legend>
+
+				<label>
+					<span><%= t.label.configuration.style.background.color %>:</span>
+					<span>
+						<input
+							type="color"
+							name="configuration[background_color]"
+							value="<%= @form.background_color %>"
+							required
+						/>
+					</span>
+				</label>
+
+				<label>
+					<span><%= t.label.configuration.style.background.opacity %>:</span>
+					<span>
+						<input
+							type="range"
+							name="configuration[background_opacity]"
+							value="<%= @form.background_opacity %>"
+							min="0"
+							max="1"
+							step="0.05"
+							required
+						/>
+						<!-- TODO: Add JavaScript -->
+						<span>{{ background.opacity | opacity }}</span>
+					</span>
+				</label>
+			</fieldset>
+
+			<fieldset>
+				<legend><%= t.label.configuration.style.font.common %></legend>
+
+				<label>
+					<span><%= t.label.configuration.style.font.size %>:</span>
+					<span>
+						<input
+							type="number"
+							name="configuration[font_size]"
+							value="<%= @form.font_size %>"
+							required
+						/>
+					</span>
+				</label>
+
+				<label>
+					<span><%= t.label.configuration.style.font.color %>:</span>
+					<span>
+						<input
+							type="color"
+							name="configuration[font_color]"
+							value="<%= @form.font_color %>"
+							required
+						/>
+					</span>
+				</label>
+			</fieldset>
+		</fieldset>
+
+		<button type="submit" class="success"><%= t.button.create %></button>
+	</form>
+</section>

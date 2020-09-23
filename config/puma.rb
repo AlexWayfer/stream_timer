@@ -3,7 +3,7 @@
 require 'fileutils'
 require 'etc'
 
-require_relative 'main'
+require_relative '../application'
 
 config = ST::Application.config
 
@@ -47,7 +47,7 @@ workers workers_count
 worker_timeout config[:environment] == 'development' ? 1_000_000 : 15
 threads 0, server_config[:threads_count] || 4
 
-lowlevel_error_handler do |_exception, _env|
+lowlevel_error_handler do |exception, env|
 	request_context = Flame::RavenContext.new(:puma, env: env, exception: exception)
 	Raven.capture_exception(*request_context.exception_with_context)
 	## Rack response

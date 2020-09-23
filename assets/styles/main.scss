@@ -19,7 +19,7 @@ body {
 	@import 'sizes';
 	@import 'fonts';
 
-	margin: 0;
+	margin: 1em;
 	font-family: $main_font_family;
 
 	.hidden {
@@ -255,11 +255,17 @@ body {
 		}
 	}
 
+	> section {
+		margin: 1em 0;
+	}
+
 	@import 'components/header';
 	@import 'components/footer';
 	@import 'components/flash';
 	@import 'components/forms';
 	@import 'components/page';
+
+	@import 'components/configuration';
 
 	@include sticky_footer;
 }

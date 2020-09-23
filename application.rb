@@ -59,11 +59,26 @@ module StreamTimer
 				}
 			end
 
+			def setup
+				## Initialize Sequel connection before models requiring
+				db_connection
+
+				## Require dirs
+				require_dirs APP_DIRS, ignore: [%r{config/puma.rb}, %r{lib/\w+/spec/}]
+
+				class_exec do
+					## Site
+					mount :site, '/'
+				end
+			end
+
 			private
 
 			memoize def development_or_toys
 				(config[:environment] == 'development') || (File.basename($PROGRAM_NAME) == 'toys')
 			end
 		end
+
+		require "#{config[:config_dir]}/main"
 	end
 end

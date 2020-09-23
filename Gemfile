@@ -102,8 +102,7 @@ group :toys do
 	gem 'flame_deploy_toys'
 	gem 'flame_generate_toys'
 	gem 'flame_routes_toys'
-	## TODO: Switch to stable version after `filewatcher-cli` release
-	gem 'flame_server_toys', github: 'AlexWayfer/flame_server_toys'
+	gem 'flame_server_toys'
 	gem 'locales_toys'
 	gem 'psql_toys'
 	gem 'rack_console_toys'

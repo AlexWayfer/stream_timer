@@ -24,10 +24,13 @@ shared_context 'with Rack Test' do
 	include Rack::Test::Methods
 
 	let(:app) do
-		root_dir = '../..'
-		require_relative "#{root_dir}/application"
-		require_relative "#{root_dir}/routes"
+		require_relative '../../application'
 
-		ST::Application
+		app = ST::Application
+
+		## Require project directories, define routes, etc.
+		app.setup
+
+		app
 	end
 end

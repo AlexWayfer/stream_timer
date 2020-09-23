@@ -2,9 +2,31 @@ $form_vertical_label_margin: 0.8em;
 $form_vertical_input_margin: 0.4em;
 
 form {
-	label {
-		font-weight: bold;
+	text-align: center;
 
+	fieldset {
+		text-align: initial;
+		margin-bottom: 0.8em;
+		padding: 0.4em 0.8em 1em;
+		border-radius: $common_border_radius;
+		border-style: solid;
+		border-width: $input_border_width;
+		border-color: $input_border_color;
+
+		> fieldset {
+			margin-top: 0.2em;
+		}
+
+		+ fieldset {
+			margin-top: 0.8em;
+		}
+
+		> legend {
+			font-weight: bold;
+		}
+	}
+
+	label {
 		> p {
 			font-weight: normal;
 		}
@@ -48,7 +70,8 @@ form {
 		ul,
 		table,
 		p,
-		article {
+		article,
+		fieldset {
 			text-align: left;
 		}
 
@@ -76,6 +99,23 @@ form {
 
 				&:first-of-type {
 					margin-top: $form_vertical_input_margin;
+				}
+			}
+		}
+	}
+
+	&.table {
+		label {
+			display: table-row;
+
+			> span {
+				display: table-cell;
+				padding: 0.3em 0;
+				vertical-align: middle;
+
+				&:first-of-type {
+					text-align: right;
+					padding-right: 0.4em;
 				}
 			}
 		}

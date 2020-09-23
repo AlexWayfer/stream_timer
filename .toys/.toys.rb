@@ -14,7 +14,7 @@ expand BenchmarkToys::Template
 alias_tool :b, :benchmark
 
 application_proc = proc do
-	require "#{config_dir}/main"
+	require "#{root_dir}/application"
 	ST::Application
 end
 
@@ -63,5 +63,3 @@ expand RackConsoleToys::Template
 
 require 'static_files_toys'
 expand StaticFilesToys::Template
-
-expand :rubocop

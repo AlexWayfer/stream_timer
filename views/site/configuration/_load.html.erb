@@ -1,0 +1,21 @@
+<section class="configuration load">
+	<h2><%= t.site.configuration.load.header %></h2>
+
+	<form class="inline table">
+		<fieldset>
+			<legend>Keys</legend>
+
+			<label>
+				<span><%= t.label.configuration.configuration_key %>:</span>
+				<span><input type="password" name="configuration[configuration_key]" size="36" /></span>
+			</label>
+
+			<label>
+				<span><%= t.label.configuration.timer_key %>:</span>
+				<span><input type="password" name="configuration[timer_key]" size="36" /></span>
+			</label>
+		</fieldset>
+
+		<button type="submit" class="success"><%= t.button.load %></button>
+	</form>
+</section>

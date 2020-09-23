@@ -3,8 +3,8 @@
 ## Require application
 require_relative 'application'
 
-## Require routes
-require_relative 'routes'
+## Require project directories, define routes, etc.
+ST::Application.setup
 
 ## Use session middleware
 if ST::Application.config[:session]

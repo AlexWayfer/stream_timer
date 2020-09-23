@@ -19,8 +19,9 @@
 4.  Install [`nodenv`](https://github.com/nodenv/nodenv).
 5.  Clone this repository and checkout to directory.
 6.  Set the [`EDITOR` environment variable][1] (`nano`, `vim`, `mcedit`, etc.).
-7.  Run `exe/setup.sh` to install Ruby (with gems), Node (with modules),
-    fill configs, create database (if needed) and run database migrations.
+7.  Run `exe/setup.sh` to install Ruby (with gems) and fill configs.
+8.  Run `toys db create` to create database.
+9.  Run `toys db migrate` to run database migrations.
 
 [1]: https://en.wikibooks.org/wiki/Guide_to_Unix/Environment_Variables#EDITOR
 

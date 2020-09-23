@@ -76,6 +76,10 @@
 		<% end %>
 	</head>
 	<body>
+		<header>
+			<h1><%= config[:site][:site_name] %></h1>
+		</header>
+
 		<%= yield %>
 	</body>
 </html>

@@ -1,0 +1,38 @@
+site:
+  configuration:
+    create:
+      header: Create a new configuration
+    load:
+      header: Load existing configuration
+
+label:
+  configuration:
+    configuration_key: Configuration key
+    timer_key: Timer key
+    text:
+      common: Text
+      countdown:
+        common: Countdown
+        before: Before
+      lateness:
+        common: Lateness
+        before: Before
+    time:
+      common: Time
+      hours: Hours
+      minutes: Minutes
+      seconds: Seconds
+    style:
+      common: Style
+      background:
+        common: Background
+        color: Color
+        opacity: Opacity
+      font:
+        common: Font
+        size: Size
+        color: Color
+
+button:
+  create: Create
+  load: Load
