@@ -28,10 +28,10 @@
 	},
 	"scripts": {
 		"build:styles": "sass assets/styles/main.scss public/styles/main.css -s compressed && postcss public/styles/main.css -o public/styles/main.css",
-		"build:scripts": "rollup assets/scripts/application.js -o public/scripts/application/compiled/application.js -c",
+		"build:scripts": "rollup assets/scripts/main.js -o public/scripts/compiled/main.js -c",
 		"build": "pnpm run build:styles && pnpm run build:scripts",
 		"clean:styles": "rm -f public/styles/main.css public/styles/main.css.map",
-		"clean:scripts": "rm -rvf public/scripts/application/compiled",
+		"clean:scripts": "rm -rvf public/scripts/compiled",
 		"clean": "pnpm run clean:styles && pnpm run clean:scripts",
 		"lint:docs": "remark .",
 		"lint:styles": "stylelint assets/styles/",
