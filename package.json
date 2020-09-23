@@ -36,6 +36,6 @@
 		"lint:docs": "remark .",
 		"lint:styles": "stylelint assets/styles/",
 		"lint:scripts": "eslint assets/scripts/ ./*.js",
-		"lint": "pnpm run lint:docs; docs_lint_result=$?; pnpm run lint:styles; styles_lint_result=$?; pnpm run lint:scripts && $styles_lint_result && $docs_lint_result"
+		"lint": "pnpm run lint:docs; docs_lint_result=$?; pnpm run lint:styles; styles_lint_result=$?; pnpm run lint:scripts && [ $styles_lint_result -eq 0 ] && [ $docs_lint_result -eq 0 ]"
 	}
 }
