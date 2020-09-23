@@ -34,4 +34,4 @@
 # compiled assets
 /public/styles/main.css
 /public/styles/main.css.map
-/public/scripts/app/compiled/
+/public/scripts/application/compiled/
