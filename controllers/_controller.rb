@@ -37,5 +37,12 @@ module StreamTimer
 		def csrf_tag
 			Rack::Csrf.tag(request.env)
 		end
+
+		def view_validation_errors(
+			template, form_outcome = nil, errors: form_outcome.errors.translations, **options
+		)
+			status 422
+			view template, error: errors, **options
+		end
 	end
 end

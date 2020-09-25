@@ -1,7 +1,22 @@
-<section class="configuration create">
-	<h2><%= t.site.configuration.create.header %></h2>
+<%
+	method =
+		case action
+		when :create then 'POST'
+		when :update then 'PUT'
+		else raise 'Unsupported action for configuration change form'
+		end
+%>
 
-	<form class="inline table">
+<section class="configuration change">
+	<h2><%= t.site.configuration[action].header %></h2>
+
+	<form
+		class="inline table"
+		method="<% method %>"
+		action="<%= path_to ST::Site::ConfigurationController, action %>"
+	>
+		<%= csrf_tag %>
+
 		<fieldset>
 			<legend><%= t.label.configuration.text.common %></legend>
 
@@ -127,6 +142,6 @@
 			</fieldset>
 		</fieldset>
 
-		<button type="submit" class="success"><%= t.button.create %></button>
+		<button type="submit" class="success"><%= t.button[action] %></button>
 	</form>
 </section>

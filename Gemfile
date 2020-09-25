@@ -9,6 +9,7 @@ group :system do
 	gem 'alt_memery'
 	gem 'pry-byebug'
 	# gem 'rubyzip'
+	gem 'uuid'
 end
 
 group :server do

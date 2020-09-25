@@ -2,13 +2,14 @@ site:
   configuration:
     create:
       header: Create a new configuration
+    update:
+      header: Update existing configuration
     load:
       header: Load existing configuration
 
 label:
   configuration:
     configuration_key: Configuration key
-    timer_key: Timer key
     text:
       common: Text
       countdown:
@@ -35,4 +36,11 @@ label:
 
 button:
   create: Create
+  update: Update
   load: Load
+
+error:
+  configuration:
+    not_found:
+      by_given_key: Configuration not found by given key
+      by_key_from_cookies: Configuration not found by key from cookies
