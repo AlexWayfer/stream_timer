@@ -73,4 +73,17 @@ document.addEventListener('DOMContentLoaded', () => {
 			form.appendChild(input)
 		})
 	})
+
+	// Components
+
+	document.querySelectorAll('input[name="configuration[background_opacity]"]')
+		.forEach(rangeElement => {
+			const hintElement = rangeElement.nextElementSibling
+
+			rangeElement.addEventListener('input', event => {
+				hintElement.innerText = (Number.parseFloat(event.target.value) * 100).toFixed()
+			})
+
+			rangeElement.dispatchEvent(new Event('input'))
+		})
 })
