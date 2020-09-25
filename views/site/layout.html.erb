@@ -77,7 +77,9 @@
 	</head>
 	<body>
 		<header>
-			<h1><%= config[:site][:site_name] %></h1>
+			<a href="<%= path_to ST::Site::IndexController %>">
+				<h1><%= config[:site][:site_name] %></h1>
+			</a>
 		</header>
 
 		<%= yield %>
