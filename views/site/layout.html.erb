@@ -82,6 +82,20 @@
 			</a>
 		</header>
 
-		<%= yield %>
+		<main>
+			<%
+				%i[error warning notice].each do |type|
+					flash[type].each do |text|
+			%>
+						<div class="flash <%= type %>">
+							<%= text %>
+						</div>
+			<%
+					end
+				end
+			%>
+
+			<%= yield %>
+		</main>
 	</body>
 </html>

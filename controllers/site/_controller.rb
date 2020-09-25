@@ -4,8 +4,7 @@ module StreamTimer
 	module Site
 		## Base controller for site-section
 		class Controller < ST::Controller
-			# include Flame::Flash
-			# include Flame::R18n::LocaleInPath
+			include Flame::Flash
 
 			protected
 
