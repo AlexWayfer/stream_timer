@@ -1,4 +1,7 @@
-- :pattern: '**/{Gemfile,*.{rb,ru,y{a,}ml}}'
+- :pattern: 'Gemfile{,.lock}'
+  :command: bundle install && pumactl restart
+
+- :pattern: '**/{*.{rb,ru,y{a,}ml}}'
   :exclude: '**/{spec/**/*,config/**/*.example*}'
   ## Don't use `bundle exec`, it's already required by `toys`
   ## https://github.com/dazuma/toys/issues/65
