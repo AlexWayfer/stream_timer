@@ -127,7 +127,7 @@ GEM
       gorilla_patch (~> 4.0)
       module_methods (~> 0.1.0)
       sequel (~> 5.0)
-    formalism-r18n_errors (0.2.0)
+    formalism-r18n_errors (0.3.0)
       formalism (~> 0.2.0)
       gorilla_patch (~> 4.0)
       r18n-core (~> 4.0)
