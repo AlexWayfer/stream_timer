@@ -23,6 +23,16 @@ module StreamTimer
 			rescue Flame::Errors::TemplateNotFoundError
 				"<h1>#{super}</h1>"
 			end
+
+			private
+
+			def highlighted_backtrace_for(exception)
+				root_dir = config[:root_dir]
+				lines = exception.backtrace.map do |line|
+					line[root_dir] ? "#{root_dir}<b>#{line.split(root_dir).last}</b>" : line
+				end
+				lines.join($RS)
+			end
 		end
 	end
 end

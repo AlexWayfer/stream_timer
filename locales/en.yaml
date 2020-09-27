@@ -40,11 +40,22 @@ label:
         color: Color
 
 button:
+  back: Back
+  home: Home
   create: Create
   update: Update
   load: Load
 
 error:
+  unexpected_error:
+    title: Unexpected error occurred.
+    subtitle: Try to go back and refresh the page.
+    text: Information for fixing has been already sent to our developers.
+
+  page:
+    itself:
+      not_found: Page not found.
+
   configuration:
     not_found:
       by_given_key: Configuration not found by given key

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/flame/raven_context/patch'
+require_relative '../../lib/flame/raven_context_patch'
 
 module StreamTimer
 	module Config
