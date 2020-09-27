@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	document.querySelectorAll('input[name="configuration[background_opacity]"]')
 		.forEach(rangeElement => {
-			const hintElement = rangeElement.nextElementSibling
+			const hintElement = rangeElement.parentElement.querySelector('.range-value')
 
 			rangeElement.addEventListener('input', event => {
 				hintElement.innerText = (Number.parseFloat(event.target.value) * 100).toFixed()
