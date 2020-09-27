@@ -67,7 +67,7 @@ body {
 
 	@mixin custom-background-color($background-color) {
 		background: $background-color;
-		border-color: $background-color;
+		border-color: darken($background-color, 6%);
 
 		&:focus {
 			$focus_color: darken($background-color, 10%);
