@@ -19,7 +19,7 @@ body {
 	@import 'sizes';
 	@import 'fonts';
 
-	margin: 1em;
+	margin: 0;
 	font-family: $main_font_family;
 
 	.hidden {
@@ -148,6 +148,20 @@ body {
 		white-space: normal;
 	}
 
+	input {
+		&[type="range"] {
+			padding-left: 0;
+			padding-right: 0;
+			border: none;
+		}
+
+		&[type="color"] {
+			box-sizing: content-box;
+			padding: 0 0.2em;
+			height: $input_line_height + $input_vertical_padding * 2;
+		}
+	}
+
 	@mixin primary {
 		@include custom-background-color($accent_background_color);
 
@@ -256,6 +270,8 @@ body {
 	}
 
 	> main {
+		text-align: center;
+
 		> section {
 			margin: 2em 0;
 		}

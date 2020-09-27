@@ -6,6 +6,11 @@ site:
       header: Update existing configuration
     load:
       header: Load existing configuration
+    form:
+      time:
+        hours: hours
+        minutes: minutes
+        seconds: seconds
 
 label:
   configuration:

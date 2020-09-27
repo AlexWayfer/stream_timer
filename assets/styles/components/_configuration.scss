@@ -1,11 +1,49 @@
 .configuration {
+	margin-bottom: 2em;
+
 	form {
+		width: max-content;
+
 		fieldset {
 			&.time {
-				input {
-					width: 6em;
+				label {
+					display: inline;
+
+					+ label {
+						margin-left: 0.5em;
+					}
+
+					input {
+						margin-left: 0;
+						margin-right: 0.1em;
+
+						&[max="59"] {
+							width: 4em;
+						}
+
+						&:not([max]) {
+							width: 6em;
+						}
+					}
 				}
 			}
+
+			label {
+				&.opacity {
+					> span > * {
+						vertical-align: middle;
+					}
+
+					input {
+						width: 15em;
+					}
+				}
+			}
+		}
+
+		button {
+			padding: 0.3em 0.8em;
+			font-size: 1.1em;
 		}
 	}
 }

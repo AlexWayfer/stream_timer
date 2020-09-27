@@ -11,6 +11,6 @@
 @function all_horizontal_inputs() {
 	@return inputs_with_types(
 		'text', 'email', 'password', 'number', 'url', 'search', 'date', 'time',
-		'file'
+		'file', 'color', 'range'
 	);
 }

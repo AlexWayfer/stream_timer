@@ -61,19 +61,21 @@
 					time_limits = @form.class::TIME_LIMITS[time_component]
 			%>
 				<label>
-					<span><%= t.label.configuration.time[time_component] %>:</span>
-					<span>
-						<input
-							type="number"
-							name="configuration[<%= time_component %>]"
-							value="<%= @form.public_send(time_component) %>"
-							min="<%= time_limits.begin %>"
-							<% if (max = time_limits.end) %>
-								max="<%= max %>"
-							<% end %>
-							required
-						/>
-					</span>
+					<input
+						type="number"
+						name="configuration[<%= time_component %>]"
+						value="<%= @form.public_send(time_component) %>"
+						min="<%= time_limits.begin %>"
+						<% if (max = time_limits.end) %>
+							max="<%= max %>"
+						<% end %>
+						required
+					/>
+					<%= t.site.configuration.form.time[time_component] %><%
+						unless time_component == :seconds
+							%>,<%
+						end
+					%>
 				</label>
 			<% end %>
 		</fieldset>
@@ -96,7 +98,7 @@
 					</span>
 				</label>
 
-				<label>
+				<label class="opacity">
 					<span><%= t.label.configuration.style.background.opacity %>:</span>
 					<span>
 						<input
@@ -123,6 +125,8 @@
 							type="number"
 							name="configuration[font_size]"
 							value="<%= @form.font_size %>"
+							min="0"
+							max="9000"
 							required
 						/>
 					</span>

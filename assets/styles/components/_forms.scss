@@ -6,24 +6,30 @@ form {
 
 	fieldset {
 		text-align: initial;
-		margin-bottom: 0.8em;
-		padding: 0.4em 0.8em 1em;
+		margin: 1em 0;
+		padding: 0.4em 1em 0.9em;
 		border-radius: $common_border_radius;
 		border-style: solid;
 		border-width: $input_border_width;
 		border-color: $input_border_color;
 
 		> fieldset {
-			margin-top: 0.2em;
-		}
+			&:first-of-type {
+				margin-top: 0.4em;
+			}
 
-		+ fieldset {
-			margin-top: 0.8em;
+			&:last-of-type {
+				margin-bottom: 0.4em;
+			}
 		}
 
 		> legend {
 			font-weight: bold;
 		}
+	}
+
+	> fieldset:first-of-type {
+		margin-top: 0;
 	}
 
 	label {
@@ -110,12 +116,24 @@ form {
 
 			> span {
 				display: table-cell;
-				padding: 0.3em 0;
+				padding: 0.4em 0;
 				vertical-align: middle;
 
 				&:first-of-type {
 					text-align: right;
 					padding-right: 0.4em;
+				}
+			}
+
+			&:first-of-type {
+				> span {
+					padding-top: 0.2em;
+				}
+			}
+
+			&:last-of-type {
+				> span {
+					padding-bottom: 0.2em;
 				}
 			}
 		}
