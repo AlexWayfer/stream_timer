@@ -28,6 +28,21 @@
 				}
 			}
 
+			&.configuration_key {
+				> div {
+					display: flex;
+
+					> input {
+						flex-grow: 1;
+						font-family: monospace;
+					}
+
+					> button {
+						margin-left: 0.4em;
+					}
+				}
+			}
+
 			label {
 				&.opacity {
 					> span > * {
@@ -41,7 +56,7 @@
 			}
 		}
 
-		button {
+		fieldset ~ button {
 			padding: 0.3em 0.8em;
 			font-size: 1.1em;
 		}

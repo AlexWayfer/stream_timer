@@ -17,6 +17,31 @@
 	>
 		<%= csrf_tag %>
 
+		<% if action == :update %>
+			<fieldset class="configuration_key">
+				<legend><%= t.label.configuration.configuration_key %></legend>
+
+				<p>
+					<%= t.site.configuration.form.edit.configuration_key.hint %>
+				</p>
+
+				<div>
+					<input type="password" value="<%= @form.instance.configuration_key %>" readonly />
+
+					<button type="button" class="show warning" data-toggle-text="<%= t.button.hide %>">
+						<%= t.button.show %>
+					</button>
+					<button
+						type="button"
+						class="success copy"
+						data-toggle-text="<%= t.site.configuration.form.edit.configuration_key.copied %>"
+					>
+						<%= t.button.copy %>
+					</button>
+				</div>
+			</fieldset>
+		<% end %>
+
 		<fieldset>
 			<legend><%= t.label.configuration.text.common %></legend>
 

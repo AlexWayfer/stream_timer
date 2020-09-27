@@ -11,6 +11,10 @@ site:
         hours: hours
         minutes: minutes
         seconds: seconds
+      edit:
+        configuration_key:
+          hint: Save this key privately and use it later for your configuration loading!
+          copied: Copied!
 
 label:
   configuration:
@@ -45,6 +49,9 @@ button:
   create: Create
   update: Update
   load: Load
+  show: Show
+  hide: Hide
+  copy: Copy
 
 error:
   unexpected_error:

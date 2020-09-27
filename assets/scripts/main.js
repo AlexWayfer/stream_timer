@@ -8,6 +8,8 @@ import 'core-js/stable/array/from'
 import 'core-js/stable/object/entries'
 import 'core-js/stable/dom-collections/for-each'
 
+import ConfigurationForm from './components/configuration-form'
+
 document.addEventListener('DOMContentLoaded', () => {
 	// Prevent double form submission
 	document.querySelectorAll('form').forEach(
@@ -76,14 +78,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Components
 
-	document.querySelectorAll('input[name="configuration[background_opacity]"]')
-		.forEach(rangeElement => {
-			const hintElement = rangeElement.parentElement.querySelector('.range-value')
-
-			rangeElement.addEventListener('input', event => {
-				hintElement.innerText = (Number.parseFloat(event.target.value) * 100).toFixed()
-			})
-
-			rangeElement.dispatchEvent(new Event('input'))
-		})
+	document.querySelectorAll('.configuration form').forEach(form => new ConfigurationForm(form))
 })

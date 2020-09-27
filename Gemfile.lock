@@ -120,7 +120,7 @@ GEM
     formalism (0.2.1)
       gorilla_patch (~> 4)
       module_methods (~> 0.1.0)
-    formalism-model_forms (0.6.0)
+    formalism-model_forms (0.6.1)
       alt_memery (~> 2.0)
       flame-pagination (~> 0.3.0)
       formalism (~> 0.2.0)
