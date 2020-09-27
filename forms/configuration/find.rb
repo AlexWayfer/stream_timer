@@ -12,7 +12,7 @@ module StreamTimer
 				private
 
 				def validate
-					return true if UUID.validate :configuration_key
+					return true if UUID.validate configuration_key
 
 					add_error :configuration_key, :not_valid_uuid
 				end
