@@ -7,6 +7,10 @@ module StreamTimer
 			include ST::ConfigurationHelper
 
 			def index
+				initialize_find_form_outcome
+
+				halt redirect ConfigurationController, :edit if @find_form_outcome.success?
+
 				initialize_configuration_create_form
 
 				view

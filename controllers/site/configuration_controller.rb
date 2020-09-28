@@ -41,13 +41,13 @@ module StreamTimer
 			end
 
 			post def load
-				find_form_outcome = Forms::Configuration::Find.new(configuration_params).run
+				initialize_find_form_outcome configuration_params
 
-				unless find_form_outcome.success?
+				unless @find_form_outcome.success?
 					halt redirect :new, error: t.error.configuration.not_found.by_given_key
 				end
 
-				cookies[:configuration_key] = find_form_outcome.result.configuration_key
+				cookies[:configuration_key] = @find_form_outcome.result.configuration_key
 
 				redirect :edit
 			end

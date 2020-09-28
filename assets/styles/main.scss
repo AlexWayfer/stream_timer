@@ -275,6 +275,10 @@ body {
 		> section {
 			margin: 2em 0;
 		}
+
+		.you_have_existing_configuration {
+			color: $warning_text_color;
+		}
 	}
 
 	@import 'components/header';

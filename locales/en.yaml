@@ -2,6 +2,7 @@ site:
   configuration:
     create:
       header: Create a new configuration
+      you_have_existing_configuration: You have an existing configuration
     update:
       header: Update existing configuration
     load:
@@ -47,6 +48,7 @@ button:
   back: Back
   home: Home
   create: Create
+  edit: Edit
   update: Update
   load: Load
   show: Show
