@@ -12,10 +12,12 @@
 
 	<form
 		class="inline table"
-		method="<%= method %>"
+		method="POST"
 		action="<%= path_to ST::Site::ConfigurationController, action %>"
 	>
 		<%= csrf_tag %>
+
+		<input type="hidden" name="_method" value="<%= method %>" />
 
 		<% if action == :update %>
 			<fieldset class="configuration_key">
