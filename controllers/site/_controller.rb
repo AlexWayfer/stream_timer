@@ -9,7 +9,7 @@ module StreamTimer
 			protected
 
 			def execute(method)
-				response.headers[Rack::CONTENT_TYPE] = 'text/html; charset=utf-8'
+				response.headers[Rack::CONTENT_TYPE] = 'text/html; charset=UTF-8'
 				super
 			end
 
