@@ -21,7 +21,7 @@ module StreamTimer
 				field :seconds, Integer, default: 0
 
 				field :background_color, String, default: 'white'
-				field :background_opacity, Float, default: 0
+				field :background_opacity, BigDecimal, default: 0
 
 				field :font_size, Integer, default: 160
 				field :font_color, String, default: 'black'
