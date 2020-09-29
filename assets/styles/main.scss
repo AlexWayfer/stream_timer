@@ -149,6 +149,12 @@ body {
 	}
 
 	input {
+		&.monospace {
+			font-family: monospace;
+			font-size: 1.2em;
+			padding-top: 0.28em;
+		}
+
 		&[type="range"] {
 			padding-left: 0;
 			padding-right: 0;
@@ -288,6 +294,7 @@ body {
 	@import 'components/page';
 
 	@import 'components/configuration';
+	@import 'components/timer';
 
 	@include sticky_footer;
 }

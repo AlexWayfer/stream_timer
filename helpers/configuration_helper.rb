@@ -14,7 +14,7 @@ module StreamTimer
 		end
 
 		def initialize_configuration_update_form
-			initialize_find_form_outcome
+			initialize_configuration_find_form_outcome
 
 			unless @find_form_outcome.success?
 				cookies[:configuration_key] = nil
@@ -25,7 +25,7 @@ module StreamTimer
 			@form = Forms::Configuration::Update.new(configuration_params, @find_form_outcome.result)
 		end
 
-		def initialize_find_form_outcome(
+		def initialize_configuration_find_form_outcome(
 			form_params = { configuration_key: cookies[:configuration_key] }
 		)
 			@find_form_outcome = Forms::Configuration::Find.new(form_params).run

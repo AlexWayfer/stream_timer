@@ -12,31 +12,32 @@ export default class ConfigurationForm {
 			rangeElement.dispatchEvent(new Event('input'))
 		})
 
-		// Enhance configuration key fieldset
+		// Show button scripts
 
-		form.querySelectorAll('fieldset.configuration_key').forEach(fieldset => {
-			const
-				input = fieldset.querySelector('input[type="password"]'),
-				showButton = fieldset.querySelector('button.show'),
-				copyButton = fieldset.querySelector('button.copy')
-
-			// Implement "Show" button for configuration key
+		form.querySelectorAll('button.show').forEach(showButton => {
+			const input = showButton.closest('fieldset').querySelector('input[type="password"]')
 
 			showButton.addEventListener('click', () => {
 				input.type = input.type == 'password' ? 'text' : 'password'
 				this._toggleButtonText(showButton)
 			})
+		})
 
-			// Implement "Copy" button for configuration key
+		// Copy button scripts
+
+		form.querySelectorAll('button.copy').forEach(copyButton => {
+			const input = copyButton.closest('fieldset').querySelector('input')
 
 			copyButton.addEventListener('click', () => {
-				if (this.copyButtonToggleTimeout) return
+				if (copyButton.toggleTimeout) return
 
 				navigator.clipboard.writeText(input.value).then(() => {
 					this._toggleButtonText(copyButton)
-					this.copyButtonToggleTimeout = setTimeout(() => {
+					copyButton.disabled = true
+					copyButton.toggleTimeout = setTimeout(() => {
 						this._toggleButtonText(copyButton)
-						this.copyButtonToggleTimeout = null
+						copyButton.toggleTimeout = null
+						copyButton.disabled = false
 					}, 2000)
 				})
 			})

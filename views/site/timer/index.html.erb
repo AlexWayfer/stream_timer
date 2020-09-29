@@ -1,0 +1,15 @@
+<section class="timer" style="<%= styles %>">
+	<p>
+		<span class="text-before" data-lateness-text-before="<%= lateness_text_before %>">
+			<%= countdown_text_before %>
+		</span>
+
+		<span class="hours-container <% if hours == 0 %>hidden<% end %>"><span class="hours"><%=
+			padded_hours
+		%></span>:</span><span class="minutes"><%=
+			padded_minutes
+		%></span>:<span class="seconds"><%=
+			padded_seconds
+		%></span>
+	</p>
+</section>

@@ -27,20 +27,57 @@
 					<%= t.site.configuration.form.edit.configuration_key.hint %>
 				</p>
 
-				<div>
-					<input type="password" value="<%= @form.instance.configuration_key %>" readonly />
+				<p>
+					<input
+						type="password"
+						class="monospace"
+						value="<%= @form.instance.configuration_key %>"
+						readonly
+					/>
+				</p>
+
+				<p>
+					<button
+						type="button"
+						class="success copy"
+						data-toggle-text="<%= t.site.configuration.form.edit.copied %>"
+					>
+						<%= t.button.copy %>
+					</button>
 
 					<button type="button" class="show warning" data-toggle-text="<%= t.button.hide %>">
 						<%= t.button.show %>
 					</button>
+				</p>
+			</fieldset>
+
+			<fieldset>
+				<legend><%= t.label.configuration.timer_link %></legend>
+
+				<% timer_link = url_to ST::Site::TimerController, :index, key: @form.instance.timer_key %>
+
+				<!-- For "Copy" button -->
+				<input type="hidden" value="<%= timer_link %>" />
+
+				<p>
+					<a
+						target="_blank"
+						rel="noreferrer noopener"
+						href="<%= timer_link %>"
+					><%=
+						timer_link
+					%></a>
+				</p>
+
+				<p>
 					<button
 						type="button"
 						class="success copy"
-						data-toggle-text="<%= t.site.configuration.form.edit.configuration_key.copied %>"
+						data-toggle-text="<%= t.site.configuration.form.edit.copied %>"
 					>
 						<%= t.button.copy %>
 					</button>
-				</div>
+				</p>
 			</fieldset>
 		<% end %>
 
@@ -156,6 +193,7 @@
 							max="9000"
 							required
 						/>
+						pixels
 					</span>
 				</label>
 

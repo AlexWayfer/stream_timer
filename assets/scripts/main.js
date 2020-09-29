@@ -9,6 +9,7 @@ import 'core-js/stable/object/entries'
 import 'core-js/stable/dom-collections/for-each'
 
 import ConfigurationForm from './components/configuration-form'
+import Timer from './components/timer'
 
 document.addEventListener('DOMContentLoaded', () => {
 	// Prevent double form submission
@@ -79,4 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Components
 
 	document.querySelectorAll('.configuration form').forEach(form => new ConfigurationForm(form))
+
+	document.querySelectorAll('.timer').forEach(container => new Timer(container))
 })

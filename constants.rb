@@ -12,7 +12,7 @@ module StreamTimer
 		'mailers',
 		# 'actions',
 		'forms',
-		# 'view_objects',
+		'view_objects',
 		'controllers'
 	].freeze
 end

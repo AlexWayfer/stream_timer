@@ -13,13 +13,16 @@ form {
 		border-width: $input_border_width;
 		border-color: $input_border_color;
 
-		> fieldset {
+		> fieldset,
+		> p {
+			$decreased-margin: 0.4em;
+
 			&:first-of-type {
-				margin-top: 0.4em;
+				margin-top: $decreased-margin;
 			}
 
 			&:last-of-type {
-				margin-bottom: 0.4em;
+				margin-bottom: $decreased-margin;
 			}
 		}
 

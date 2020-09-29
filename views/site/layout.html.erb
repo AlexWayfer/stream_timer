@@ -76,30 +76,8 @@
 		<% end %>
 	</head>
 	<body>
-		<header>
-			<div class="container">
-				<a href="<%= path_to ST::Site::IndexController %>">
-					<h1><%= config[:site][:site_name] %></h1>
-				</a>
-			</div>
-		</header>
 
-		<main>
-			<div class="container">
-				<%
-					%i[error warning notice].each do |type|
-						flash[type].each do |text|
-				%>
-							<div class="flash <%= type %>">
-								<%= text %>
-							</div>
-				<%
-						end
-					end
-				%>
+		<%= yield %>
 
-				<%= yield %>
-			</div>
-		</main>
 	</body>
 </html>

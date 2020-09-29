@@ -8,13 +8,13 @@ module StreamTimer
 				remove_field :id
 
 				field :configuration_key, String
+				field :timer_key, String
 
 				private
 
 				def validate
-					return true if UUID.validate configuration_key
-
-					add_error :configuration_key, :not_valid_uuid
+					validate_uuid :configuration_key if configuration_key
+					validate_uuid :timer_key if timer_key
 				end
 			end
 		end

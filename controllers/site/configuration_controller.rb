@@ -41,7 +41,7 @@ module StreamTimer
 			end
 
 			post def load
-				initialize_find_form_outcome configuration_params
+				initialize_configuration_find_form_outcome configuration_params
 
 				unless @find_form_outcome.success?
 					halt redirect :new, error: t.error.configuration.not_found.by_given_key

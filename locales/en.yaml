@@ -15,7 +15,7 @@ site:
       edit:
         configuration_key:
           hint: Save this key privately and use it later for your configuration loading!
-          copied: Copied!
+        copied: Copied!
 
 label:
   configuration:
@@ -43,6 +43,7 @@ label:
         common: Font
         size: Size
         color: Color
+    timer_link: Timer link
 
 button:
   back: Back

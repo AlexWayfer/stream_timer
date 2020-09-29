@@ -6,6 +6,8 @@ module StreamTimer
 		include Flame::R18n::Initialization
 		R18n::Filters.on(:named_variables)
 
+		include ST::ViewObjectHelper
+
 		protected
 
 		def not_found
