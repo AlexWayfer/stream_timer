@@ -2,7 +2,10 @@
 	margin-bottom: 2em;
 
 	form {
+		// `max-content` is supported by Firefox
+		/* stylelint-disable plugin/no-unsupported-browser-features */
 		width: max-content;
+		/* stylelint-enable plugin/no-unsupported-browser-features */
 
 		fieldset {
 			&.time {
