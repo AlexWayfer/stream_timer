@@ -1,0 +1,24 @@
+# temp
+.sass-cache/
+/log/
+/tmp/
+*.bak
+*~
+
+# uploaded files
+#/public/files
+
+# dumps
+/db/dumps/**/*
+
+# seo files
+#/views/site/sitemap.html
+#/public/robots.txt
+
+# node modules
+# /node_modules/
+
+# compiled assets
+/public/styles/main.css
+/public/styles/main.css.map
+/public/scripts/compiled/
