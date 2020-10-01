@@ -16,7 +16,7 @@ module StreamTimer
 		def initialize_configuration_update_form
 			initialize_configuration_find_form_outcome
 
-			unless @find_form_outcome.success?
+			unless @find_form_outcome.result
 				cookies[:configuration_key] = nil
 
 				halt redirect :new, error: t.error.configuration.not_found.by_key_from_cookies

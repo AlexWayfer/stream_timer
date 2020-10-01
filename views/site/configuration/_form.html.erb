@@ -19,7 +19,7 @@
 
 		<input type="hidden" name="_method" value="<%= method %>" />
 
-		<% if action == :update %>
+		<% if @form.instance.configuration_key %>
 			<fieldset class="configuration_key">
 				<legend><%= t.label.configuration.configuration_key %></legend>
 
@@ -50,7 +50,9 @@
 					</button>
 				</p>
 			</fieldset>
+		<% end %>
 
+		<% if @form.instance.timer_key %>
 			<fieldset>
 				<legend><%= t.label.configuration.timer_link %></legend>
 
