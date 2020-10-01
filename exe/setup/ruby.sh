@@ -25,5 +25,7 @@ then exe gem install bundler --conservative
 fi
 
 if ! bundle check
-then exe bundle install
+then
+	exe bundle install
+	exe rbenv rehash
 fi
