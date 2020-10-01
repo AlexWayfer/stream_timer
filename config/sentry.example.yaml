@@ -1,4 +1,4 @@
-:host: sentry.streamtimer.com
+:host: sentry.streamtimer.app
 back-end:
   :api_key: abcdef
   :project_id: 1
