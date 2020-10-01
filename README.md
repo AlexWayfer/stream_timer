@@ -10,7 +10,7 @@
 
 ## Deployment
 
-1.  Install PostgreSQL version `12`.
+1.  Install [PostgreSQL](https://www.postgresql.org/).
 2.  Database setup
     1.  Create a project user:
         `createuser -U postgres stream_timer`
@@ -27,15 +27,14 @@
 
 ### Production (optional)
 
-*   Tune PostgreSQL (via [pgtune](https://pgtune.leopard.in.ua/), for example)
-*   Set correct timezone
-*   Add UNIX-user for project: `adduser stream_timer`
-*   Make symbolic link of project directory to `/var/www/stream_timer`
-*   Install and configure `nginx` (with symbolic links from `config/nginx`)
-*   Install `letsencrypt` and generate certificates
-    *   Including `openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096`
-*   Install `traceroute` (or `traceroute6`) for debug information
-    in network errors reports
+*   Tune PostgreSQL (via [pgtune](https://pgtune.leopard.in.ua/), for example).
+*   Set correct timezone.
+*   Add UNIX-user for project: `adduser stream_timer`.
+*   Make symbolic link of project directory to `/var/www/stream_timer`.
+*   Install and configure `nginx` (with symbolic links from `config/nginx`).
+*   Install [Certbot](https://certbot.eff.org/) and generate certificates.
+    *   Optional `openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096`.
+*   Install `traceroute` (or `traceroute6`) for debug information in network errors reports.
 
 -----
 
