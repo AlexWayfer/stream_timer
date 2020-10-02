@@ -30,7 +30,10 @@
 *   Tune PostgreSQL (via [pgtune](https://pgtune.leopard.in.ua/), for example).
 *   Set correct timezone.
 *   Add UNIX-user for project: `adduser stream_timer`.
-*   Make symbolic link of project directory to `/var/www/stream_timer`.
+*   Make symbolic link of project directory to `/var/www/stream_timer` (Debian),
+    `/usr/share/nginx/stream_timer` (Fedora) or something  else,
+    and change the root in `nginx` config.
+    to something like `/home/stream_timer/stream_timer`.
 *   Install and configure `nginx` (with symbolic links from `config/nginx`).
 *   Install [Certbot](https://certbot.eff.org/) and generate certificates.
     *   Optional `openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096`.
