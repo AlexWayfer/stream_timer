@@ -17,7 +17,10 @@ then
 	fi
 fi
 
-exe npm install -g pnpm
+if ! nodenv which pnpm
+then
+	exe npm install -g pnpm
+fi
 
 exe nodenv rehash
 
