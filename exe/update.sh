@@ -4,8 +4,10 @@ CURRENT_DIR=`dirname "$0"`
 
 . $CURRENT_DIR/_common.sh
 
-exe toys server stop
+exe systemctl --user stop stream_assistant
 
 exe $CURRENT_DIR/setup.sh "$@"
 
-exe toys server start
+exe toys db migrate
+
+exe systemctl --user start stream_assistant
