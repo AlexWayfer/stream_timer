@@ -1,5 +1,5 @@
 [Unit]
-Description=Puma HTTP Server
+Description=Stream Timer Server
 After=network.target
 
 # Uncomment for socket activation (see below)
