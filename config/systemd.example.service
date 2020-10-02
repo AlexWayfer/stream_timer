@@ -1,0 +1,28 @@
+[Unit]
+Description=Puma HTTP Server
+After=network.target
+
+# Uncomment for socket activation (see below)
+# Requires=puma.socket
+
+[Service]
+# Foreground process (do not use --daemon in ExecStart or config.rb)
+Type=simple
+
+# Preferably configure a non-privileged user
+User=stream_timer
+
+# The path to the your application code root directory.
+# Also replace the "<YOUR_APP_PATH>" place holders below with this path.
+# Example /home/username/myapp
+WorkingDirectory=/home/stream_timer/stream_timer
+
+# Helpful for debugging socket activation, etc.
+# Environment=PUMA_DEBUG=1
+
+ExecStart=/home/stream_timer/stream_timer/exe/systemd.sh
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

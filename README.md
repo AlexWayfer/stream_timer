@@ -29,15 +29,16 @@
 
 *   Tune PostgreSQL (via [pgtune](https://pgtune.leopard.in.ua/), for example).
 *   Set correct timezone.
+*   Install `traceroute` (or `traceroute6`) for debug information in network errors reports.
 *   Add UNIX-user for project: `adduser stream_timer`.
+*   Install and configure `nginx` (with symbolic links from `config/nginx`).
 *   Make symbolic link of project directory to `/var/www/stream_timer` (Debian),
     `/usr/share/nginx/stream_timer` (Fedora) or something  else,
     and change the root in `nginx` config.
     to something like `/home/stream_timer/stream_timer`.
-*   Install and configure `nginx` (with symbolic links from `config/nginx`).
 *   Install [Certbot](https://certbot.eff.org/) and generate certificates.
     *   Optional `openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096`.
-*   Install `traceroute` (or `traceroute6`) for debug information in network errors reports.
+*   Make symbolic link of `config/systemd.service` to `systemd`'s directory and enable it.
 
 -----
 
