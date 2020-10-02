@@ -1,13 +1,3 @@
-import 'core-js/stable/string/includes'
-
-// https://github.com/zloirock/core-js/issues/618#issuecomment-522618151
-// https://github.com/zloirock/core-js/issues/619#issuecomment-522624271
-import 'core-js/stable/symbol/iterator'
-
-import 'core-js/stable/array/from'
-import 'core-js/stable/object/entries'
-import 'core-js/stable/dom-collections/for-each'
-
 import ConfigurationForm from './components/configuration-form'
 import Timer from './components/timer'
 

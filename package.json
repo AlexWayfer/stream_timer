@@ -9,7 +9,6 @@
 		"@rollup/plugin-json": "*",
 		"@rollup/plugin-node-resolve": "*",
 		"autoprefixer": "^9.8.6",
-		"core-js": "*",
 		"postcss-cli": "^7.0.0",
 		"postcss-flexbugs-fixes": "*",
 		"promise-polyfill": "*",
