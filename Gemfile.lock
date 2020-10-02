@@ -117,7 +117,7 @@ GEM
       filewatcher-cli (~> 1.0.0.beta1)
       gorilla_patch (~> 4.0)
       toys-core (~> 0.11.0)
-    formalism (0.3.0)
+    formalism (0.3.1)
       gorilla_patch (~> 4)
       module_methods (~> 0.1.0)
     formalism-model_forms (0.6.2)

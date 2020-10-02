@@ -20,11 +20,11 @@ module StreamTimer
 				field :minutes, Integer, default: 5
 				field :seconds, Integer, default: 0
 
-				field :background_color, String, default: 'white'
-				field :background_opacity, BigDecimal, default: 0
+				field :background_color, String, default: '#000000'
+				field :background_opacity, BigDecimal, default: 0.75
 
 				field :font_size, Integer, default: 160
-				field :font_color, String, default: 'black'
+				field :font_color, String, default: '#ffffff'
 
 				private
 
