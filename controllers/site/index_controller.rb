@@ -4,16 +4,8 @@ module StreamTimer
 	module Site
 		## Index controller for example
 		class IndexController < Site::Controller
-			include ST::ConfigurationHelper
-
 			def index
-				initialize_configuration_find_form_outcome
-
-				halt redirect ConfigurationController, :edit if @find_form_outcome.success?
-
-				initialize_configuration_create_form
-
-				view
+				redirect ConfigurationController
 			end
 		end
 	end

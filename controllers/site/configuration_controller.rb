@@ -6,6 +6,16 @@ module StreamTimer
 		class ConfigurationController < Site::Controller
 			include ST::ConfigurationHelper
 
+			def index
+				initialize_configuration_find_form_outcome
+
+				halt redirect :edit if @find_form_outcome.result
+
+				initialize_configuration_create_form
+
+				view
+			end
+
 			def new
 				initialize_configuration_create_form
 
