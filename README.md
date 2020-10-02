@@ -38,7 +38,8 @@
     to something like `/home/stream_timer/stream_timer`.
 *   Install [Certbot](https://certbot.eff.org/) and generate certificates.
     *   Optional `openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096`.
-*   Make symbolic link of `config/systemd.service` to `systemd`'s directory and enable it.
+*   Make symbolic link of `config/systemd.service` to the `~/.local/share/systemd/user/` directory
+    and enable it.
 
 -----
 
