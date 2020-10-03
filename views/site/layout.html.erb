@@ -91,22 +91,24 @@
 					<h1><%= config[:site][:site_name] %></h1>
 				</a>
 
-				<nav>
-					<%
-						@menu.current.ancestors.reverse.each do |parent|
-							items = parent.available
-							next if items.size < 2
-					%>
-						<% items.each do |item| %>
-							<a
-								href="<%= path_to item.controller %>"
-								class="<%= 'selected' if item.current? %>"
-							><%=
-								t.site.header.nav[parent.key][item.key]
-							%></a>
+				<% if @menu %>
+					<nav>
+						<%
+							@menu.current.ancestors.reverse.each do |parent|
+								items = parent.available
+								next if items.size < 2
+						%>
+							<% items.each do |item| %>
+								<a
+									href="<%= path_to item.controller %>"
+									class="<%= 'selected' if item.current? %>"
+								><%=
+									t.site.header.nav[parent.key][item.key]
+								%></a>
+							<% end %>
 						<% end %>
-					<% end %>
-				</nav>
+					</nav>
+				<% end %>
 			</div>
 		</header>
 
