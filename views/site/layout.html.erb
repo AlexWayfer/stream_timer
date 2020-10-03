@@ -84,9 +84,49 @@
 			<% end %>
 		<% end %>
 	</head>
-	<body>
+	<body class="<% if is_a?(ST::ViewObjects::Timer) %>timer<% end %>">
+		<header>
+			<div class="container">
+				<a href="<%= path_to ST::Site::IndexController %>">
+					<h1><%= config[:site][:site_name] %></h1>
+				</a>
 
-		<%= yield %>
+				<nav>
+					<%
+						@menu.current.ancestors.reverse.each do |parent|
+							items = parent.available
+							next if items.size < 2
+					%>
+						<% items.each do |item| %>
+							<a
+								href="<%= path_to item.controller %>"
+								class="<%= 'selected' if item.current? %>"
+							><%=
+								t.site.header.nav[parent.key][item.key]
+							%></a>
+						<% end %>
+					<% end %>
+				</nav>
+			</div>
+		</header>
 
+		<main>
+			<div class="container">
+				<%
+					%i[error warning notice].each do |type|
+						flash[type].each do |text|
+				%>
+							<div class="flash <%= type %>">
+								<%= text %>
+							</div>
+				<%
+						end
+					end
+				%>
+
+				<%= yield %>
+
+			</div>
+		</main>
 	</body>
 </html>

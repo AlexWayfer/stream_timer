@@ -5,6 +5,16 @@ module StreamTimer
 		## Base controller for site-section
 		class Controller < ST::Controller
 			include Flame::Flash
+			include Flame::Menu
+
+			MENU_ITEMS = %i[
+				configuration
+				about
+			].freeze
+
+			def available?(_controller = self.class)
+				true
+			end
 
 			protected
 

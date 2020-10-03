@@ -2,11 +2,9 @@
 
 module StreamTimer
 	module Site
-		## Index controller for example
+		## Index controller
 		class IndexController < Site::Controller
-			def index
-				redirect ConfigurationController
-			end
+			def index; end
 		end
 	end
 end

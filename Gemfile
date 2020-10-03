@@ -15,6 +15,7 @@ end
 group :server do
 	gem 'flame', github: 'AlexWayfer/flame'
 	gem 'flame-flash', github: 'AlexWayfer/flame-flash'
+	gem 'flame-menu', github: 'AlexWayfer/flame-menu'
 	gem 'puma'
 	gem 'rack-contrib'
 	gem 'rack_csrf', require: 'rack/csrf'
@@ -63,6 +64,7 @@ end
 
 group :mails do
 	gem 'email_address'
+	gem 'kramdown'
 	gem 'mail'
 end
 

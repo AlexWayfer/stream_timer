@@ -10,7 +10,7 @@ $mobile_header_vertical_padding: 7px;
 
 	@include media-from(md) {
 		padding-top: 1em;
-		padding-bottom: 1em;
+		padding-bottom: 1.25em;
 	}
 
 	&,
@@ -18,7 +18,29 @@ $mobile_header_vertical_padding: 7px;
 		color: black;
 	}
 
-	h1 {
-		margin: 0;
+	> .container {
+		display: flex;
+		align-items: center;
+
+		a[href="/"] {
+			margin-right: 1em;
+
+			h1 {
+				margin: 0;
+			}
+		}
+
+		nav {
+			font-size: 1.2em;
+			margin-top: 0.25em;
+
+			> a {
+				padding: 0.8em;
+
+				&.selected {
+					font-weight: bold;
+				}
+			}
+		}
 	}
 }

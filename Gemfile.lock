@@ -14,6 +14,13 @@ GIT
       gorilla_patch (>= 1, < 5)
 
 GIT
+  remote: https://github.com/AlexWayfer/flame-menu.git
+  revision: f3ab36f475f2b902bbad5dd3cf91d29ed3b5186d
+  specs:
+    flame-menu (0.0.0)
+      flame (~> 5.0.0.rc1)
+
+GIT
   remote: https://github.com/AlexWayfer/flame-r18n.git
   revision: 159785e3e598fd7aa3d667550f3394621e511b19
   specs:
@@ -136,6 +143,8 @@ GEM
       sequel (~> 5.0)
     gorilla_patch (4.0.0)
     highline (2.0.3)
+    kramdown (2.3.0)
+      rexml
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.7.0)
@@ -278,6 +287,7 @@ DEPENDENCIES
   erubi
   flame!
   flame-flash!
+  flame-menu!
   flame-r18n!
   flame-raven_context
   flame_deploy_toys
@@ -289,6 +299,7 @@ DEPENDENCIES
   formalism-r18n_errors
   formalism-sequel_transactions
   gorilla_patch
+  kramdown
   letter_opener
   locales_toys
   mail
