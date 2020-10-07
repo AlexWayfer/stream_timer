@@ -252,7 +252,7 @@ GEM
     sequel_secure_password (0.2.15)
       bcrypt (>= 3.1, < 4.0)
       sequel (>= 4.1.0, < 6.0)
-    shrine (3.2.2)
+    shrine (3.3.0)
       content_disposition (~> 1.0)
       down (~> 5.1)
     simpleidn (0.1.1)
