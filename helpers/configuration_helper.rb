@@ -30,5 +30,12 @@ module StreamTimer
 		)
 			@find_form_outcome = Forms::Configuration::Find.new(form_params).run
 		end
+
+		def update_configuration_key_cookie(form_outcome)
+			cookies[:configuration_key] = {
+				value: form_outcome.result.configuration_key,
+				max_age: 365 * 24 * 60 * 60
+			}
+		end
 	end
 end

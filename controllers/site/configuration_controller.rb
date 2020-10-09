@@ -26,7 +26,7 @@ module StreamTimer
 				initialize_configuration_create_form
 
 				if (form_outcome = @form.run).success?
-					cookies[:configuration_key] = form_outcome.result.configuration_key
+					update_configuration_key_cookie form_outcome
 
 					redirect :edit
 				else
@@ -44,6 +44,8 @@ module StreamTimer
 				initialize_configuration_update_form
 
 				if (form_outcome = @form.run).success?
+					update_configuration_key_cookie form_outcome
+
 					redirect :edit
 				else
 					view_validation_errors :edit, form_outcome

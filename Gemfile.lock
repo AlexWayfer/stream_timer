@@ -30,7 +30,7 @@ GIT
 
 GIT
   remote: https://github.com/AlexWayfer/flame.git
-  revision: e0b8b6841084fa690fbdc8d6a04a6c93b38ea8fd
+  revision: 73180c7b7e73951ef47e442e1926757c01713e30
   specs:
     flame (5.0.0.rc5)
       addressable (~> 2.5)
