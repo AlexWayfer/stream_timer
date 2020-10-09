@@ -42,6 +42,26 @@ export default class ConfigurationForm {
 				})
 			})
 		})
+
+		// Toggle only-countup timer
+
+		form.querySelectorAll('.only-countup input[type="checkbox"]').forEach(checkbox => {
+			const
+				form = checkbox.closest('form'),
+				timeline = form.querySelector('.timeline')
+
+			checkbox.addEventListener('change', event => {
+				const isChecked = event.target.checked
+
+				timeline.classList.toggle('only-countup', isChecked)
+
+				timeline.querySelector('fieldset.countdown').disabled = isChecked
+				timeline.querySelector('fieldset.countup .time-inputs').disabled = !isChecked
+			})
+
+			checkbox.dispatchEvent(new Event('change'))
+		})
+
 	}
 
 	_toggleButtonText(button) {

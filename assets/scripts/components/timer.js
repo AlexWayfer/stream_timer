@@ -11,7 +11,8 @@ export default class Timer {
 		this._minutes = parseInt(this.minutesElement.innerText)
 		this._seconds = parseInt(this.secondsElement.innerText)
 
-		this.interval = setInterval(() => this._countDown(), 1000)
+		const functionName = container.dataset.onlyCountup ? '_countUp' : '_countDown'
+		this.interval = setInterval(() => this[functionName](), 1000)
 	}
 
 	get hours() {
@@ -65,10 +66,9 @@ export default class Timer {
 			this.seconds = 59
 		} else {
 			clearInterval(this.interval)
-			this.lateness = true
 			this.seconds++
 			this.interval = setInterval(() => this._countUp(), 1000)
-			this.textBeforeElement.innerText = this.textBeforeElement.dataset.latenessTextBefore
+			this.textBeforeElement.innerText = this.textBeforeElement.dataset.countupTextBefore
 		}
 	}
 

@@ -83,67 +83,74 @@
 			</fieldset>
 		<% end %>
 
-		<fieldset>
-			<legend><%= t.label.configuration.text.common %></legend>
+		<fieldset class="timeline">
+			<legend><%= t.site.configuration.form.timeline %></legend>
 
-			<fieldset>
-				<legend><%= t.label.configuration.text.countdown.common %></legend>
+			<svg class="arrow" xmlns="http://www.w3.org/2000/svg" widht="0" height="0">
+				<defs>
+					<marker
+						id="arrowhead"
+						markerWidth="3.6"
+						markerHeight="4.2"
+						refX="0.1"
+						refY="2.1"
+						orient="auto"
+					>
+						<polygon points="0 0, 3.6 2.1, 0 4.2" />
+					</marker>
+				</defs>
+			</svg>
 
-				<label>
-					<span><%= t.label.configuration.text.countdown.before %>:</span>
-					<span>
-						<input
-							type="text"
-							name="configuration[countdown_text_before]"
-							value="<%= @form.countdown_text_before %>"
-							size="10"
-						/>
-					</span>
-				</label>
+			<label class="only-countup">
+				<input
+					type="checkbox"
+					name="configuration[only_countup]"
+					<% if @form.only_countup %>checked<% end %>
+				/>
+				<%= t.site.configuration.form.only_countup %>
+			</label>
+
+			<fieldset class="countdown" <% if @form.only_countup %>disabled<% end %>>
+				<legend><%= t.label.configuration.text.countdown %></legend>
+
+				<input
+					type="text"
+					name="configuration[countdown_text_before]"
+					value="<%= @form.countdown_text_before %>"
+					size="10"
+				/>
+
+				<%= render '_form/_time_inputs', countup: false %>
 			</fieldset>
 
-			<fieldset>
-				<legend><%= t.label.configuration.text.lateness.common %></legend>
+			<%= render '_form/_arrow' %>
 
-				<label>
-					<span><%= t.label.configuration.text.lateness.before %>:</span>
-					<span>
-						<input
-							type="text"
-							name="configuration[lateness_text_before]"
-							value="<%= @form.lateness_text_before %>"
-							size="10"
-						/>
-					</span>
-				</label>
+			<p class="zero-time">
+				00:00:00
+			</p>
+
+			<%= render '_form/_arrow' %>
+
+			<fieldset class="countup">
+				<legend><%= t.label.configuration.text.countup %></legend>
+
+				<input
+					type="text"
+					name="configuration[countup_text_before]"
+					value="<%= @form.countup_text_before %>"
+					size="10"
+				/>
+
+				<%= render '_form/_time_inputs', countup: true %>
+
+				<span class="endless">∞</span>
 			</fieldset>
-		</fieldset>
 
-		<fieldset class="time">
-			<legend><%= t.label.configuration.time.common %></legend>
+			<%= render '_form/_arrow' %>
 
-			<%
-				%i[hours minutes seconds].each do |time_component|
-					time_limits = @form.class::TIME_LIMITS[time_component]
-			%>
-				<label>
-					<input
-						type="number"
-						name="configuration[<%= time_component %>]"
-						value="<%= @form.public_send(time_component) %>"
-						min="<%= time_limits.begin %>"
-						<% if (max = time_limits.end) %>
-							max="<%= max %>"
-						<% end %>
-						required
-					/>
-					<%= t.site.configuration.form.time[time_component] %><%
-						unless time_component == :seconds
-							%>,<%
-						end
-					%>
-				</label>
-			<% end %>
+			<p class="endless">
+				∞
+			</p>
 		</fieldset>
 
 		<fieldset>
