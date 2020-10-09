@@ -7,30 +7,27 @@ form {
 	fieldset {
 		text-align: initial;
 		margin: 1em 0;
-		padding: 0.4em 1em 0.9em;
+		padding: 0.6em 1em 1.1em;
 		border-radius: $common_border_radius;
 		border-style: solid;
 		border-width: $input_border_width;
 		border-color: $input_border_color;
 
-		> fieldset,
-		> p {
-			$decreased-margin: 0.4em;
-
-			&:first-of-type {
-				margin-top: $decreased-margin;
-			}
-
-			&:last-of-type {
-				margin-bottom: $decreased-margin;
-			}
-		}
+		$decreased-margin: 0.4em;
 
 		> legend {
 			font-weight: bold;
 
+			+ fieldset,
 			+ p {
-				margin-top: 0.5em;
+				margin-top: $decreased-margin;
+			}
+		}
+
+		> fieldset,
+		> p {
+			&:last-child {
+				margin-bottom: $decreased-margin;
 			}
 		}
 	}

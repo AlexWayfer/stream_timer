@@ -13,8 +13,10 @@ module StreamTimer
 					seconds: (0..59).freeze
 				}.freeze
 
+				field :only_countup, :boolean, default: false
+
 				field :countdown_text_before, String, default: 'AFK '
-				field :lateness_text_before, String, default: 'Late for '
+				field :countup_text_before, String, default: 'Late for '
 
 				field :hours, Integer, default: 0
 				field :minutes, Integer, default: 5
@@ -34,7 +36,7 @@ module StreamTimer
 					end
 
 					validate_max_length :countdown_text_before, 200
-					validate_max_length :lateness_text_before, 200
+					validate_max_length :countup_text_before, 200
 
 					validate_entry %i[hours minutes seconds]
 

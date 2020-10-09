@@ -4,7 +4,10 @@ module StreamTimer
 	module ViewObjects
 		## View object for timer page
 		class Timer < Base
-			def_delegators :@configuration, :countdown_text_before, :lateness_text_before, :hours
+			def_delegators(
+				:@configuration,
+				:only_countup, :countdown_text_before, :countup_text_before, :hours
+			)
 
 			def initialize(controller, configuration)
 				super controller

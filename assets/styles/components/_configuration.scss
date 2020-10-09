@@ -7,13 +7,77 @@
 		width: max-content;
 		/* stylelint-enable plugin/no-unsupported-browser-features */
 
-		fieldset {
-			&.time {
+		.timeline {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			&,
+			fieldset {
+				text-align: center;
+			}
+
+			.only-countup {
+				display: block;
+				margin: 0.8em 0 0.6em;
+			}
+
+			.arrow {
+				$color: #c5c5c5;
+
+				fill: $color;
+
+				line {
+					stroke: $color;
+				}
+			}
+
+			> p {
+				color: $disabled_text_color;
+				font-size: 1.4em;
+				margin: 0.8em;
+			}
+
+			.endless {
+				vertical-align: middle;
+				font-size: 3.2em;
+				margin: 0;
+				color: #bbb;
+			}
+
+			> .endless {
+				font-size: 3.6em;
+				line-height: 1.05em;
+			}
+
+			> fieldset {
+				width: 100%;
+
+				input[name*="_text_before"] {
+					margin-right: 0.4em;
+				}
+
+				.endless {
+					line-height: 0;
+				}
+
+				+ .arrow {
+					margin-top: 0.4em;
+				}
+			}
+
+			fieldset.time-inputs {
+				display: inline-block;
+				vertical-align: middle;
+				margin: 0;
+				padding: 0;
+				border: none;
+
 				label {
 					display: inline;
 
 					+ label {
-						margin-left: 0.5em;
+						margin-left: 0.4em;
 					}
 
 					input {
@@ -31,6 +95,40 @@
 				}
 			}
 
+			fieldset:disabled {
+				display: none;
+
+				& + .arrow {
+					display: none;
+				}
+			}
+
+			&.only-countup {
+				.zero-time {
+					&,
+					+ .arrow {
+						display: none;
+					}
+				}
+
+				fieldset.countup .endless {
+					display: none;
+				}
+			}
+
+			&:not(.only-countup) {
+				fieldset.countup {
+					+ .arrow {
+						&,
+						+ .endless {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+
+		fieldset {
 			&.configuration_key {
 				input {
 					width: 100%;

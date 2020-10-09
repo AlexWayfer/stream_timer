@@ -8,12 +8,14 @@ Sequel.migration do
 			column :configuration_key, :uuid, null: false, default: Sequel.function(:gen_random_uuid)
 			column :timer_key, :uuid, null: false, default: Sequel.function(:gen_random_uuid)
 
+			column :only_countup, FalseClass, null: false, default: false
+
 			column :hours, Integer, null: false
 			column :minutes, Integer, null: false
 			column :seconds, Integer, null: false
 
 			column :countdown_text_before, String
-			column :lateness_text_before, String
+			column :countup_text_before, String
 
 			column :background_color, String, null: false
 			column :background_opacity, BigDecimal, size: [3, 2], null: false

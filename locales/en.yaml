@@ -34,6 +34,8 @@ site:
     load:
       header: Load existing configuration
     form:
+      only_countup: Only countup
+      timeline: Timeline
       time:
         hours: hours
         minutes: minutes
@@ -48,12 +50,8 @@ label:
     configuration_key: Configuration key
     text:
       common: Text
-      countdown:
-        common: Countdown
-        before: Before
-      lateness:
-        common: Lateness
-        before: Before
+      countdown: Countdown
+      countup: Countup
     time:
       common: Time
       hours: Hours
