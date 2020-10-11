@@ -4,13 +4,11 @@ module StreamTimer
 	module Site
 		## Controller for timer page
 		class TimerController < Site::Controller
-			include ST::ConfigurationHelper
-
 			def index(key)
-				initialize_configuration_find_form_outcome timer_key: key
+				find_form_outcome = Forms::Configuration::Find.new(timer_key: key).run
 
-				if @find_form_outcome.success?
-					view :index, scope: transform_to_view_object(@find_form_outcome.result)
+				if find_form_outcome.success? && (configuration = find_form_outcome.result)
+					view :index, scope: transform_to_view_object(configuration)
 				else
 					halt 404
 				end

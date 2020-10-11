@@ -1,0 +1,36 @@
+<% if current_user %>
+	<section class="user_key">
+		<h2><%= t.site.configurations.user_key.header %></h2>
+
+		<p>
+			<%= t.site.configurations.user_key.hint %>
+		</p>
+
+		<p>
+			<input
+				type="password"
+				class="monospace"
+				value="<%= current_user.key %>"
+				readonly
+			/>
+		</p>
+
+		<p>
+			<button
+				type="button"
+				class="success copy"
+				data-toggle-text="<%= t.button.copied %>"
+			>
+				<%= t.button.copy %>
+			</button>
+
+			<button type="button" class="show warning" data-toggle-text="<%= t.button.hide %>">
+				<%= t.button.show %>
+			</button>
+		</p>
+	</section>
+
+	<%= render :_list %>
+<% end %>
+
+<%= yield %>

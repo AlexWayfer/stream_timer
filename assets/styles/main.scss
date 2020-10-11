@@ -278,12 +278,9 @@ body {
 	> main {
 		text-align: center;
 
-		> section {
-			margin: 2em 0;
-		}
-
-		.you_have_existing_configuration {
-			color: $warning_text_color;
+		> .container > section {
+			width: max-content;
+			margin: 2em auto 4em;
 		}
 	}
 
@@ -293,7 +290,9 @@ body {
 	@import 'components/forms';
 	@import 'components/page';
 
-	@import 'components/configuration';
+	@import 'components/configurations';
+	@import 'components/configurations/form';
+	@import 'components/configurations/user_key';
 	@import 'components/timer';
 
 	@include sticky_footer;

@@ -1,56 +1,26 @@
 <%
-	method =
+	method, action_args =
 		case action
-		when :create then 'POST'
-		when :update then 'PUT'
-		else raise 'Unsupported action for configuration change form'
+		when :create
+			['POST', []]
+		when :update
+			['PUT', [configuration_key: params[:configuration_key]]]
+		else
+			raise 'Unsupported action for configuration change form'
 		end
 %>
 
 <section class="configuration change">
-	<h2><%= t.site.configuration[action].header %></h2>
+	<h2><%= t.site.configurations[action].header %></h2>
 
 	<form
 		class="inline table"
 		method="POST"
-		action="<%= path_to ST::Site::ConfigurationController, action %>"
+		action="<%= path_to ST::Site::Public::ConfigurationsController, action, *action_args %>"
 	>
 		<%= csrf_tag %>
 
 		<input type="hidden" name="_method" value="<%= method %>" />
-
-		<% if @form.instance.configuration_key %>
-			<fieldset class="configuration_key">
-				<legend><%= t.label.configuration.configuration_key %></legend>
-
-				<p>
-					<%= t.site.configuration.form.edit.configuration_key.hint %>
-				</p>
-
-				<p>
-					<input
-						type="password"
-						class="monospace"
-						value="<%= @form.instance.configuration_key %>"
-						readonly
-					/>
-				</p>
-
-				<p>
-					<button
-						type="button"
-						class="success copy"
-						data-toggle-text="<%= t.site.configuration.form.edit.copied %>"
-					>
-						<%= t.button.copy %>
-					</button>
-
-					<button type="button" class="show warning" data-toggle-text="<%= t.button.hide %>">
-						<%= t.button.show %>
-					</button>
-				</p>
-			</fieldset>
-		<% end %>
 
 		<% if @form.instance.timer_key %>
 			<fieldset>
@@ -75,7 +45,7 @@
 					<button
 						type="button"
 						class="success copy"
-						data-toggle-text="<%= t.site.configuration.form.edit.copied %>"
+						data-toggle-text="<%= t.button.copied %>"
 					>
 						<%= t.button.copy %>
 					</button>
@@ -83,8 +53,14 @@
 			</fieldset>
 		<% end %>
 
+		<fieldset class="name">
+			<legend><%= t.label.configuration.name %></legend>
+
+			<input type="text" name="configuration[name]" value="<%= @form.name %>" required/>
+		</fieldset>
+
 		<fieldset class="timeline">
-			<legend><%= t.site.configuration.form.timeline %></legend>
+			<legend><%= t.site.configurations.form.timeline %></legend>
 
 			<svg class="arrow" xmlns="http://www.w3.org/2000/svg" widht="0" height="0">
 				<defs>
@@ -107,7 +83,7 @@
 					name="configuration[only_countup]"
 					<% if @form.only_countup %>checked<% end %>
 				/>
-				<%= t.site.configuration.form.only_countup %>
+				<%= t.site.configurations.form.only_countup %>
 			</label>
 
 			<fieldset class="countdown" <% if @form.only_countup %>disabled<% end %>>

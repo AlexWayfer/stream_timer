@@ -12,37 +12,6 @@ export default class ConfigurationForm {
 			rangeElement.dispatchEvent(new Event('input'))
 		})
 
-		// Show button scripts
-
-		form.querySelectorAll('button.show').forEach(showButton => {
-			const input = showButton.closest('fieldset').querySelector('input[type="password"]')
-
-			showButton.addEventListener('click', () => {
-				input.type = input.type == 'password' ? 'text' : 'password'
-				this._toggleButtonText(showButton)
-			})
-		})
-
-		// Copy button scripts
-
-		form.querySelectorAll('button.copy').forEach(copyButton => {
-			const input = copyButton.closest('fieldset').querySelector('input')
-
-			copyButton.addEventListener('click', () => {
-				if (copyButton.toggleTimeout) return
-
-				navigator.clipboard.writeText(input.value).then(() => {
-					this._toggleButtonText(copyButton)
-					copyButton.disabled = true
-					copyButton.toggleTimeout = setTimeout(() => {
-						this._toggleButtonText(copyButton)
-						copyButton.toggleTimeout = null
-						copyButton.disabled = false
-					}, 2000)
-				})
-			})
-		})
-
 		// Toggle only-countup timer
 
 		form.querySelectorAll('.only-countup input[type="checkbox"]').forEach(checkbox => {
@@ -62,11 +31,5 @@ export default class ConfigurationForm {
 			checkbox.dispatchEvent(new Event('change'))
 		})
 
-	}
-
-	_toggleButtonText(button) {
-		const oldText = button.innerText
-		button.innerText = button.dataset.toggleText
-		button.dataset.toggleText = oldText
 	}
 }

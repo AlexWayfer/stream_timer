@@ -53,9 +53,9 @@ end
 
 group :forms do
 	gem 'formalism'
-	gem 'formalism-model_forms'
-	gem 'formalism-r18n_errors'
-	gem 'formalism-sequel_transactions'
+	gem 'formalism-model_forms', github: 'AlexWayfer/formalism-model_forms'
+	gem 'formalism-r18n_errors', github: 'AlexWayfer/formalism-r18n_errors'
+	gem 'formalism-sequel_transactions', github: 'AlexWayfer/formalism-sequel_transactions'
 end
 
 group :views do
