@@ -1,0 +1,9 @@
+<% if current_user %>
+	<%= render :_new_link %>
+
+	<%= render :_load %>
+<% else %>
+	<%= render :_load %>
+
+	<%= render :_form, action: :create %>
+<% end %>

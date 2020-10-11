@@ -1,0 +1,19 @@
+<section class="configuration load">
+	<h2><%= t.site.configurations.load.header %></h2>
+
+	<form
+		class="inline"
+		method="POST"
+		action="<%= path_to ST::Site::Public::ConfigurationsController, :load %>"
+	>
+		<%= csrf_tag %>
+
+		<fieldset>
+			<legend><%= t.label.user_key %></legend>
+
+			<input type="password" name="user_key" size="36" required />
+		</fieldset>
+
+		<button type="submit" class="success"><%= t.button.load %></button>
+	</form>
+</section>

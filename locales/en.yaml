@@ -3,7 +3,7 @@ site:
     nav:
       root:
         about: About
-        configuration: Configuration
+        configurations: Configurations
 
   about:
     header: About
@@ -27,14 +27,18 @@ site:
 
       Favicon is from [Icons8](https://icons8.com/icon/1jGDyNJqW01A/display){:target="_blank" rel="noreferrer noopener"}.
 
-  configuration:
+  configurations:
+    user_key:
+      header: User key
+      hint: Save this key privately and use it later for your configuration loading!
+    list:
+      header: List of your configurations
     create:
       header: Create a new configuration
-      you_have_existing_configuration: You have an existing configuration
     update:
       header: Update existing configuration
     load:
-      header: Load existing configuration
+      header: Load existing configurations
     form:
       only_countup: Only countup
       timeline: Timeline
@@ -42,14 +46,11 @@ site:
         hours: hours
         minutes: minutes
         seconds: seconds
-      edit:
-        configuration_key:
-          hint: Save this key privately and use it later for your configuration loading!
-        copied: Copied!
 
 label:
+  user_key: User key
   configuration:
-    configuration_key: Configuration key
+    name: Name
     text:
       common: Text
       countdown: Countdown
@@ -74,6 +75,7 @@ label:
 button:
   back: Back
   home: Home
+  index: Index
   create: Create
   edit: Edit
   update: Update
@@ -81,6 +83,7 @@ button:
   show: Show
   hide: Hide
   copy: Copy
+  copied: Copied!
 
 error:
   unexpected_error:
@@ -92,7 +95,11 @@ error:
     itself:
       not_found: Page not found.
 
-  configuration:
+  user:
     not_found:
       by_given_key: Configuration not found by given key
       by_key_from_cookies: Configuration not found by key from cookies
+
+  configuration:
+    itself:
+      not_found: Configuration not found.

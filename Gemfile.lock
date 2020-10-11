@@ -40,6 +40,35 @@ GIT
       tilt (~> 2.0)
 
 GIT
+  remote: https://github.com/AlexWayfer/formalism-model_forms.git
+  revision: 9b8d7d26c39363dc3a11891a0e244f083c274013
+  specs:
+    formalism-model_forms (0.6.2)
+      alt_memery (~> 2.0)
+      flame-pagination (~> 0.3.0)
+      formalism (~> 0.3.0)
+      gorilla_patch (~> 4.0)
+      module_methods (~> 0.1.0)
+      sequel (~> 5.0)
+
+GIT
+  remote: https://github.com/AlexWayfer/formalism-r18n_errors.git
+  revision: ddecc2fc0fff7ec5450974823ffcd708dc38ff71
+  specs:
+    formalism-r18n_errors (0.3.2)
+      formalism (~> 0.3.0)
+      gorilla_patch (~> 4.0)
+      r18n-core (~> 4.0)
+
+GIT
+  remote: https://github.com/AlexWayfer/formalism-sequel_transactions.git
+  revision: 6505a4f1259944ce583bf03363515eac4046a39b
+  specs:
+    formalism-sequel_transactions (0.2.2)
+      formalism (~> 0.3.0)
+      sequel (~> 5.0)
+
+GIT
   remote: https://github.com/AlexWayfer/rack-protection-maximum_cookie.git
   revision: 8714e64ca1bef37984b7c26245d91f2353da59bb
   branch: update_rack_dependency
@@ -127,20 +156,6 @@ GEM
     formalism (0.3.1)
       gorilla_patch (~> 4)
       module_methods (~> 0.1.0)
-    formalism-model_forms (0.6.2)
-      alt_memery (~> 2.0)
-      flame-pagination (~> 0.3.0)
-      formalism (~> 0.3.0)
-      gorilla_patch (~> 4.0)
-      module_methods (~> 0.1.0)
-      sequel (~> 5.0)
-    formalism-r18n_errors (0.3.2)
-      formalism (~> 0.3.0)
-      gorilla_patch (~> 4.0)
-      r18n-core (~> 4.0)
-    formalism-sequel_transactions (0.2.2)
-      formalism (~> 0.3.0)
-      sequel (~> 5.0)
     gorilla_patch (4.0.0)
     highline (2.0.3)
     kramdown (2.3.0)
@@ -295,9 +310,9 @@ DEPENDENCIES
   flame_routes_toys
   flame_server_toys
   formalism
-  formalism-model_forms
-  formalism-r18n_errors
-  formalism-sequel_transactions
+  formalism-model_forms!
+  formalism-r18n_errors!
+  formalism-sequel_transactions!
   gorilla_patch
   kramdown
   letter_opener

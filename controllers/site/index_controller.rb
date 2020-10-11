@@ -4,7 +4,9 @@ module StreamTimer
 	module Site
 		## Index controller
 		class IndexController < Site::Controller
-			def index; end
+			def index
+				redirect Public::IndexController
+			end
 		end
 	end
 end

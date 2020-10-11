@@ -1,19 +1,8 @@
-@at-root body.timer {
-	> header {
-		display: none;
-	}
-
-	> main > .container {
-		max-width: none;
-		margin: 0;
-		padding: 0;
-
-		.timer {
-			width: 100vw;
-			height: 100vh;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
-	}
+.timer {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

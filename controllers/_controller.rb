@@ -10,6 +10,11 @@ module StreamTimer
 
 		protected
 
+		def execute(action)
+			@action = action
+			super
+		end
+
 		def not_found
 			unless request.bot?
 				request_context = Flame::RavenContext.new(:not_found, controller: self)

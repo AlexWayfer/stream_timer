@@ -72,4 +72,41 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('.configuration form').forEach(form => new ConfigurationForm(form))
 
 	document.querySelectorAll('.timer').forEach(container => new Timer(container))
+
+	// Show button scripts
+
+	document.querySelectorAll('button.show').forEach(showButton => {
+		const input = showButton.closest('fieldset, section').querySelector('input[type="password"]')
+
+		showButton.addEventListener('click', () => {
+			input.type = input.type == 'password' ? 'text' : 'password'
+			_toggleButtonText(showButton)
+		})
+	})
+
+	// Copy button scripts
+
+	document.querySelectorAll('button.copy').forEach(copyButton => {
+		const input = copyButton.closest('fieldset, section').querySelector('input')
+
+		copyButton.addEventListener('click', () => {
+			if (copyButton.toggleTimeout) return
+
+			navigator.clipboard.writeText(input.value).then(() => {
+				_toggleButtonText(copyButton)
+				copyButton.disabled = true
+				copyButton.toggleTimeout = setTimeout(() => {
+					_toggleButtonText(copyButton)
+					copyButton.toggleTimeout = null
+					copyButton.disabled = false
+				}, 2000)
+			})
+		})
+	})
+
+	function _toggleButtonText(button) {
+		const oldText = button.innerText
+		button.innerText = button.dataset.toggleText
+		button.dataset.toggleText = oldText
+	}
 })

@@ -13,6 +13,8 @@ module StreamTimer
 					seconds: (0..59).freeze
 				}.freeze
 
+				field :name, String, default: 'AFK timer'
+
 				field :only_countup, :boolean, default: false
 
 				field :countdown_text_before, String, default: 'AFK '
@@ -31,19 +33,25 @@ module StreamTimer
 				private
 
 				def validate
-					TIME_LIMITS.each do |time_component, limit|
-						validate_range_entry time_component, limit
-					end
+					validate_entry :name
 
 					validate_max_length :countdown_text_before, 200
 					validate_max_length :countup_text_before, 200
 
-					validate_entry %i[hours minutes seconds]
+					validate_time
 
 					validate_choice :background_color
 					validate_range_entry :background_opacity, 0..1
 					validate_entry :font_size
 					validate_choice :font_color
+				end
+
+				def validate_time
+					TIME_LIMITS.each do |time_component, limit|
+						validate_range_entry time_component, limit
+					end
+
+					validate_entry %i[hours minutes seconds]
 				end
 			end
 		end
