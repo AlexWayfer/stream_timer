@@ -10,14 +10,10 @@ module StreamTimer
 				def index
 					initialize_configuration_create_form
 
-					## TODO: Render list of user's timers
-
 					view
 				end
 
 				def new
-					## TODO: Render list of user's timers
-
 					initialize_configuration_create_form
 
 					view
