@@ -25,7 +25,9 @@ module StreamTimer
 					if (form_outcome = @form.run).success?
 						update_user_key_cookie form_outcome
 
-						redirect :edit, configuration_key: form_outcome.result.configuration_key
+						redirect :edit,
+							configuration_key: form_outcome.result.configuration_key,
+							notice: t.notice.configuration.created
 					else
 						view_validation_errors :new, form_outcome
 					end
@@ -49,7 +51,9 @@ module StreamTimer
 					if (form_outcome = @form.run).success?
 						update_user_key_cookie form_outcome
 
-						redirect :edit, configuration_key: configuration_key
+						redirect :edit,
+							configuration_key: configuration_key,
+							notice: t.notice.configuration.updated
 					else
 						view_validation_errors :edit, form_outcome
 					end

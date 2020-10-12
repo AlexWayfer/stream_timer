@@ -85,6 +85,11 @@ button:
   copy: Copy
   copied: Copied!
 
+notice:
+  configuration:
+    created: Configuration has been created!
+    updated: Configuration has been updated!
+
 error:
   unexpected_error:
     title: Unexpected error occurred.
