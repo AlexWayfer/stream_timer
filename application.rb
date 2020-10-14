@@ -67,10 +67,8 @@ module StreamTimer
 				require_dirs APP_DIRS, ignore: [%r{config/puma.rb}, %r{lib/\w+/spec/}]
 
 				class_exec do
-					mount :site, '/' do
-						mount :public, '/'
-						mount :timer, '/timer'
-					end
+					mount Site::Public, '/'
+					mount Site::TimerController, '/timer'
 				end
 			end
 

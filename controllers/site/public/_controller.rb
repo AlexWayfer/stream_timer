@@ -13,6 +13,8 @@ module StreamTimer
 					about
 				].freeze
 
+				protected
+
 				def available?(_controller = self.class)
 					true
 				end
