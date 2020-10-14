@@ -5,9 +5,7 @@ module StreamTimer
 		module User
 			## Form for user finding
 			class Find < Forms::Model::Find
-				remove_field :id
-
-				field :key, String
+				primary_field :key, String, default: nil
 
 				private
 

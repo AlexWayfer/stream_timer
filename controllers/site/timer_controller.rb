@@ -5,7 +5,7 @@ module StreamTimer
 		## Controller for timer page
 		class TimerController < Site::Controller
 			def index(key)
-				find_form_outcome = Forms::Configuration::Find.new(timer_key: key).run
+				find_form_outcome = Forms::Configuration::Find.new(key: key).run
 
 				if find_form_outcome.success? && (configuration = find_form_outcome.result)
 					view :index, scope: transform_to_view_object(configuration)

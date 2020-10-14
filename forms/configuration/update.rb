@@ -3,11 +3,11 @@
 module StreamTimer
 	module Forms
 		module Configuration
-			## Form for configuration update
+			## Form for configuration updating
 			class Update < Forms::Model::Update
-				include Configuration::Base
+				include Configuration::Change
 
-				PRIMARY_KEY = :configuration_key
+				primary_field :key, String, merge: false
 			end
 		end
 	end

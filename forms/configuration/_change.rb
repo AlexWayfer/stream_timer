@@ -4,7 +4,7 @@ module StreamTimer
 	module Forms
 		module Configuration
 			## Common code for `Create` and `Update` forms
-			module Base
+			module Change
 				include Formalism::Form::Fields
 
 				TIME_LIMITS = {

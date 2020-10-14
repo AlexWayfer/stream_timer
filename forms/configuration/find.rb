@@ -5,16 +5,12 @@ module StreamTimer
 		module Configuration
 			## Form for configuration finding
 			class Find < Forms::Model::Find
-				remove_field :id
-
-				field :configuration_key, String
-				field :timer_key, String
+				primary_field :key, String, default: nil
 
 				private
 
 				def validate
-					validate_uuid :configuration_key if configuration_key
-					validate_uuid :timer_key if timer_key
+					validate_uuid :key
 				end
 			end
 		end

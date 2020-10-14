@@ -86,6 +86,8 @@ button:
   copied: Copied!
 
 notice:
+  user:
+    loaded: User configurations have been loaded!
   configuration:
     created: Configuration has been created!
     updated: Configuration has been updated!
@@ -102,9 +104,10 @@ error:
 
   user:
     not_found:
-      by_given_key: Configuration not found by given key
-      by_key_from_cookies: Configuration not found by key from cookies
+      by_given_key: User configurations not found by given key
+      by_key_from_cookies: User configurations not found by key from cookies
 
   configuration:
     itself:
       not_found: Configuration not found.
+      not_available: This configuration belongs to another user.

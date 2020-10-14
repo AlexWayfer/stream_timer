@@ -23,50 +23,58 @@ module StreamTimer
 					initialize_configuration_create_form
 
 					if (form_outcome = @form.run).success?
-						update_user_key_cookie form_outcome
+						update_user_session configuration_form_outcome: form_outcome
 
-						redirect :edit,
-							configuration_key: form_outcome.result.configuration_key,
-							notice: t.notice.configuration.created
+						redirect :edit, key: form_outcome.result.key, notice: t.notice.configuration.created
 					else
 						view_validation_errors :new, form_outcome
 					end
 				end
 
-				def edit(configuration_key)
-					unless current_user
-						halt redirect :index, error: t.error.user.not_found.by_key_from_cookies
-					end
-
-					initialize_configuration_update_form configuration_key
+				def edit(key)
+					initialize_configuration_update_form key
 
 					@subtitle = @form.name
 
 					view
 				end
 
-				def update(configuration_key)
-					initialize_configuration_update_form configuration_key
+				def update(key)
+					initialize_configuration_update_form key
 
 					if (form_outcome = @form.run).success?
-						update_user_key_cookie form_outcome
+						update_user_session configuration_form_outcome: form_outcome
 
-						redirect :edit,
-							configuration_key: configuration_key,
-							notice: t.notice.configuration.updated
+						redirect :edit, key: key, notice: t.notice.configuration.updated
 					else
 						view_validation_errors :edit, form_outcome
 					end
 				end
 
 				post def load
-					found = find_user params[:user_key]
+					halt_unless_user_found_by_given_key
 
-					halt redirect :index, error: t.error.user.not_found.by_given_key unless found
+					update_user_session user: @found
 
-					cookies[:user_key] = found.key
+					redirect :index, notice: t.notice.user.loaded
+				end
 
-					redirect :index
+				protected
+
+				def execute(action)
+					if %i[edit update].include?(action) && !current_user
+						halt redirect :index, error: t.error.user.not_found.by_key_from_cookies
+					end
+
+					super
+				end
+
+				private
+
+				def halt_unless_user_found_by_given_key
+					return if (@found = find_user params[:user_key])
+
+					halt redirect path_to_back, error: t.error.user.not_found.by_given_key
 				end
 			end
 		end

@@ -3,13 +3,13 @@
 
 	<ul>
 		<% current_user.configurations.each do |configuration| %>
-			<% configuration_key = configuration.configuration_key %>
+			<% key = configuration.key %>
 			<li>
 				<h3>
-					<% if @action == :edit && @form.instance.configuration_key == configuration_key %>
+					<% if @action == :edit && params[:key] == key %>
 						<%= configuration.name %>
 					<% else %>
-						<a href="<%= path_to :edit, configuration_key: configuration_key %>">
+						<a href="<%= path_to :edit, key: key %>">
 							<%= configuration.name %>
 						</a>
 					<% end %>

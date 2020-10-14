@@ -4,7 +4,7 @@
 		when :create
 			['POST', []]
 		when :update
-			['PUT', [configuration_key: params[:configuration_key]]]
+			['PUT', [key: params[:key]]]
 		else
 			raise 'Unsupported action for configuration change form'
 		end
@@ -22,11 +22,11 @@
 
 		<input type="hidden" name="_method" value="<%= method %>" />
 
-		<% if @form.instance.timer_key %>
+		<% if (key = @form.instance.key) %>
 			<fieldset>
 				<legend><%= t.label.configuration.timer_link %></legend>
 
-				<% timer_link = url_to ST::Site::TimerController, :index, key: @form.instance.timer_key %>
+				<% timer_link = url_to ST::Site::TimerController, :index, key: key %>
 
 				<!-- For "Copy" button -->
 				<input type="hidden" value="<%= timer_link %>" />

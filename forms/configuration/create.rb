@@ -7,7 +7,7 @@ module StreamTimer
 		module Configuration
 			## Form for configuration creation
 			class Create < Forms::Model::Create
-				include Configuration::Base
+				include Configuration::Change
 
 				nested :user, Forms::User::FindOrCreate
 

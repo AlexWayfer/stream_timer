@@ -17,16 +17,18 @@ module StreamTimer
 			@form = Forms::Configuration::Create.new(configuration_params)
 		end
 
-		def initialize_configuration_update_form(configuration_key)
-			initialize_configuration_find_form_outcome configuration_key
+		def initialize_configuration_update_form(key)
+			found_configuration = find_configuration key
 
-			halt 404, view(:not_found) unless (found = @find_form_outcome.result)
+			halt 404, view(:not_found) unless found_configuration
 
-			@form = Forms::Configuration::Update.new(configuration_params, found)
+			halt 403, view(:forbidden) unless current_user.pk_equal? found_configuration.user
+
+			@form = Forms::Configuration::Update.new(configuration_params, found_configuration)
 		end
 
 		memoize def current_user
-			find_user cookies[:user_key]
+			find_user session[:user_key]
 		end
 
 		def find_user(user_key)
@@ -34,16 +36,15 @@ module StreamTimer
 			form_outcome.result if form_outcome.success?
 		end
 
-		def initialize_configuration_find_form_outcome(configuration_key)
-			@find_form_outcome = Forms::Configuration::Find.new(configuration_key: configuration_key).run
+		def find_configuration(key)
+			form_outcome = Forms::Configuration::Find.new(key: key).run
+			form_outcome.result if form_outcome.success?
 		end
 
-		def update_user_key_cookie(configuration_form_outcome)
-			cookies[:user_key] = {
-				value: configuration_form_outcome.result.user.key,
-				path: '/',
-				max_age: 365 * 24 * 60 * 60
-			}
+		def update_user_session(
+			configuration_form_outcome: nil, user: configuration_form_outcome.result.user
+		)
+			session[:user_key] = user.key
 		end
 	end
 end
