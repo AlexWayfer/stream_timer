@@ -14,6 +14,14 @@
 						</a>
 					<% end %>
 				</h3>
+
+				<p class="dates">
+					<%=
+						t.site.configurations.list.created_at l(configuration.created_at, :human)
+					%><% if configuration.updated_at %>, <%=
+						t.site.configurations.list.updated_at l(configuration.updated_at, :human)
+					%><% end %>
+				</p>
 			</li>
 		<% end %>
 	</ul>

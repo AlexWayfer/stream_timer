@@ -2,6 +2,10 @@
 	<section class="user_key">
 		<h2><%= t.site.configurations.user_key.header %></h2>
 
+		<p class="dates">
+			<%= t.site.configurations.user_key.created_at l current_user.created_at, :human %>
+		</p>
+
 		<p>
 			<%= t.site.configurations.user_key.hint %>
 		</p>

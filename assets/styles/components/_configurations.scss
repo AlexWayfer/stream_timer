@@ -1,4 +1,20 @@
 .configurations > ul {
 	width: max-content;
 	text-align: initial;
+
+	> li {
+		margin: 1.2em 0;
+
+		> h3 {
+			margin: 0;
+		}
+
+		> p {
+			margin: 0.4em 0;
+
+			&.dates {
+				color: $disabled_text_color;
+			}
+		}
+	}
 }

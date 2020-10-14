@@ -1,6 +1,10 @@
 section.user_key {
 	width: max-content;
 
+	.dates {
+		color: $disabled_text_color;
+	}
+
 	input {
 		width: 100%;
 	}
