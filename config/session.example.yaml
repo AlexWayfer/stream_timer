@@ -2,6 +2,6 @@
   :key: 'rack.session'
   # :domain: 'foo.com'
   # :path: '/'
-  :expire_after: 2592000 # 30 days
+  :expire_after: 31536000 ## 1 year
   :secret: 'change_me'
   # :old_secret: 'also_change_me'
