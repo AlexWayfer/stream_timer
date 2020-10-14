@@ -20,15 +20,19 @@
 
 		<input type="hidden" name="_method" value="<%= method %>" />
 
+		<fieldset class="name">
+			<legend><%= t.label.configuration.name %></legend>
+
+			<input type="text" name="configuration[name]" value="<%= @form.name %>" required/>
+		</fieldset>
+
 		<% if (key = @form.instance.key) %>
-			<fieldset>
+			<fieldset class="link">
 				<legend><%= t.label.configuration.timer_link %></legend>
 
 				<% timer_link = url_to ST::Site::TimerController, :index, key: key %>
 
-				<!-- For "Copy" button -->
-				<input type="hidden" value="<%= timer_link %>" />
-
+				<!-- Should be right after `<legend>` for decreased `margin-top` -->
 				<p>
 					<a
 						target="_blank"
@@ -38,6 +42,9 @@
 						timer_link
 					%></a>
 				</p>
+
+				<!-- For "Copy" button -->
+				<input type="hidden" value="<%= timer_link %>" />
 
 				<p>
 					<button
@@ -50,12 +57,6 @@
 				</p>
 			</fieldset>
 		<% end %>
-
-		<fieldset class="name">
-			<legend><%= t.label.configuration.name %></legend>
-
-			<input type="text" name="configuration[name]" value="<%= @form.name %>" required/>
-		</fieldset>
 
 		<fieldset class="timeline">
 			<legend><%= t.site.configurations.form.timeline %></legend>

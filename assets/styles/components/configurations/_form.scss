@@ -127,9 +127,17 @@
 
 	fieldset {
 		&.name {
+			text-align: center;
+
 			input {
 				width: 100%;
+				font-size: 1.2em;
+				text-align: center;
 			}
+		}
+
+		&.link {
+			text-align: center;
 		}
 
 		label {
