@@ -51,6 +51,19 @@ module StreamTimer
 					end
 				end
 
+				def delete(key)
+					## For `view_validation_errors`
+					initialize_configuration_update_form key
+
+					delete_form = Forms::Configuration::Delete.new(@form.instance)
+
+					if (form_outcome = delete_form.run).success?
+						redirect :index, notice: t.notice.configuration.deleted
+					else
+						view_validation_errors :edit, form_outcome
+					end
+				end
+
 				post def load
 					halt_unless_user_found_by_given_key
 
@@ -62,7 +75,7 @@ module StreamTimer
 				protected
 
 				def execute(action)
-					if %i[edit update].include?(action) && !current_user
+					if %i[edit update delete].include?(action) && !current_user
 						halt redirect :index, error: t.error.user.not_found.by_key_from_cookies
 					end
 

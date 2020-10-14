@@ -41,9 +41,9 @@ GIT
 
 GIT
   remote: https://github.com/AlexWayfer/formalism-model_forms.git
-  revision: 6aeefaef05afa0343e3de30ea2e3afc49c182f36
+  revision: 2f6b28cac3103f4fc8d27a29ee56a83e61572409
   specs:
-    formalism-model_forms (0.7.0)
+    formalism-model_forms (0.7.1)
       alt_memery (~> 2.0)
       flame-pagination (~> 0.3.0)
       formalism (~> 0.3.0)

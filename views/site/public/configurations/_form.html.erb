@@ -1,10 +1,12 @@
 <%
+	key = params[:key]
+
 	method, action_args =
 		case action
 		when :create
 			['POST', []]
 		when :update
-			['PUT', [key: params[:key]]]
+			['PUT', [key: key]]
 		else
 			raise 'Unsupported action for configuration change form'
 		end
@@ -13,11 +15,7 @@
 <section class="configuration change">
 	<h2><%= t.site.configurations[action].header %></h2>
 
-	<form
-		class="inline table"
-		method="POST"
-		action="<%= path_to ST::Site::Public::ConfigurationsController, action, *action_args %>"
-	>
+	<form class="table" action="<%= path_to action, *action_args %>" method="POST">
 		<%= csrf_tag %>
 
 		<input type="hidden" name="_method" value="<%= method %>" />
@@ -198,4 +196,22 @@
 
 		<button type="submit" class="success"><%= t.button[action] %></button>
 	</form>
+
+	<%
+		## `action` is local variable, not controller's action
+		if action == :update
+	%>
+		<form
+			class="delete"
+			action="<%= path_to :delete, key: key %>"
+			method="POST"
+			data-confirm="<%== t.confirm.configuration.delete(name: @form.name) %>"
+		>
+			<input type="hidden" name="_method" value="DELETE" />
+
+			<%= csrf_tag %>
+
+			<button type="submit" class="danger"><%= t.button.delete %></button>
+		</form>
+	<% end %>
 </section>

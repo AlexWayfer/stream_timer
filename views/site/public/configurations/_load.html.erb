@@ -1,11 +1,7 @@
 <section class="configuration load">
 	<h2><%= t.site.configurations.load.header %></h2>
 
-	<form
-		class="inline"
-		method="POST"
-		action="<%= path_to ST::Site::Public::ConfigurationsController, :load %>"
-	>
+	<form action="<%= path_to :load %>" method="POST">
 		<%= csrf_tag %>
 
 		<fieldset>

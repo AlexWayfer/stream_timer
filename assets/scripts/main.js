@@ -69,6 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	})
 
+	// Custom confirmations on forms submitting
+	document.querySelectorAll('form[data-confirm]').forEach(form => {
+		form.addEventListener('submit', event => {
+			const result = confirm(form.dataset.confirm)
+			if (!result) {
+				form.submitting = false
+				event.preventDefault()
+			}
+		})
+	})
+
 	// Components
 
 	document.querySelectorAll('button.show').forEach(button => new ShowPasswordButton(button))

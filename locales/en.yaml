@@ -79,11 +79,16 @@ button:
   create: Create
   edit: Edit
   update: Update
+  delete: Delete
   load: Load
   show: Show
   hide: Hide
   copy: Copy
   copied: Copied!
+
+confirm:
+  configuration:
+    delete: Delete configuration "%{name}"?
 
 notice:
   user:
@@ -91,6 +96,7 @@ notice:
   configuration:
     created: Configuration has been created!
     updated: Configuration has been updated!
+    deleted: Configuration has been deleted!
 
 error:
   unexpected_error:
