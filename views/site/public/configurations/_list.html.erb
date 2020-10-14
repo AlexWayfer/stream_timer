@@ -6,7 +6,7 @@
 			<% key = configuration.key %>
 			<li>
 				<h3>
-					<% if @action == :edit && params[:key] == key %>
+					<% if params[:key] == key %>
 						<%= configuration.name %>
 					<% else %>
 						<a href="<%= path_to :edit, key: key %>">
