@@ -23,7 +23,7 @@
 		<fieldset class="name">
 			<legend><%= t.label.configuration.name %></legend>
 
-			<input type="text" name="configuration[name]" value="<%= @form.name %>" required/>
+			<input type="text" name="configuration[name]" value="<%== @form.name %>" required/>
 		</fieldset>
 
 		<% if (key = @form.instance.key) %>
@@ -91,7 +91,7 @@
 				<input
 					type="text"
 					name="configuration[countdown_text_before]"
-					value="<%= @form.countdown_text_before %>"
+					value="<%== @form.countdown_text_before %>"
 					size="10"
 				/>
 
@@ -112,7 +112,7 @@
 				<input
 					type="text"
 					name="configuration[countup_text_before]"
-					value="<%= @form.countup_text_before %>"
+					value="<%== @form.countup_text_before %>"
 					size="10"
 				/>
 
@@ -140,7 +140,7 @@
 						<input
 							type="color"
 							name="configuration[background_color]"
-							value="<%= @form.background_color %>"
+							value="<%== @form.background_color %>"
 							required
 						/>
 					</span>
@@ -187,7 +187,7 @@
 						<input
 							type="color"
 							name="configuration[font_color]"
-							value="<%= @form.font_color %>"
+							value="<%== @form.font_color %>"
 							required
 						/>
 					</span>

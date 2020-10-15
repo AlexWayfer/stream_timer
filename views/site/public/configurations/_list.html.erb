@@ -7,10 +7,10 @@
 			<li>
 				<h3>
 					<% if params[:key] == key %>
-						<%= configuration.name %>
+						<%== configuration.name %>
 					<% else %>
 						<a href="<%= path_to :edit, key: key %>">
-							<%= configuration.name %>
+							<%== configuration.name %>
 						</a>
 					<% end %>
 				</h3>

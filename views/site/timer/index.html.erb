@@ -1,7 +1,7 @@
 <section class="timer" <% if only_countup %>data-only-countup="true"<% end %> style="<%= styles %>">
 	<p>
-		<span class="text-before" data-countup-text-before="<%= countup_text_before %>">
-			<%= only_countup ? countup_text_before : countdown_text_before %>
+		<span class="text-before" data-countup-text-before="<%== countup_text_before %>">
+			<%== only_countup ? countup_text_before : countdown_text_before %>
 		</span>
 
 		<span class="hours-container <% if hours == 0 %>hidden<% end %>"><span class="hours"><%=
