@@ -88,14 +88,20 @@ button:
   hide: Hide
   copy: Copy
   copied: Copied!
+  regenerate: Regenerate
 
 confirm:
+  user:
+    regenerate_key: Regenerate user key?
   configuration:
     delete: Delete configuration "%{name}"?
 
 notice:
   user:
-    loaded: User configurations have been loaded!
+    itself:
+      loaded: User configurations have been loaded!
+    key:
+      regenerated: User key has been regenerated!
   configuration:
     created: Configuration has been created!
     updated: Configuration has been updated!

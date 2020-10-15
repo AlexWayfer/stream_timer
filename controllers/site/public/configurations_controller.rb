@@ -6,6 +6,7 @@ module StreamTimer
 			## Controller for configurations management
 			class ConfigurationsController < Site::Public::Controller
 				include ST::ConfigurationsHelper
+				include ST::UsersHelper
 
 				def index
 					initialize_configuration_create_form
@@ -55,21 +56,13 @@ module StreamTimer
 					## For `view_validation_errors`
 					initialize_configuration_update_form key
 
-					delete_form = Forms::Configuration::Delete.new(@form.instance)
+					form_outcome = Forms::Configuration::Delete.run(@form.instance)
 
-					if (form_outcome = delete_form.run).success?
+					if form_outcome.success?
 						redirect :index, notice: t.notice.configuration.deleted
 					else
 						view_validation_errors :edit, form_outcome
 					end
-				end
-
-				post def load
-					halt_unless_user_found_by_given_key
-
-					update_user_session user: @found
-
-					redirect :index, notice: t.notice.user.loaded
 				end
 
 				protected
@@ -80,14 +73,6 @@ module StreamTimer
 					end
 
 					super
-				end
-
-				private
-
-				def halt_unless_user_found_by_given_key
-					return if (@found = find_user params[:user_key])
-
-					halt redirect path_to_back, error: t.error.user.not_found.by_given_key
 				end
 			end
 		end

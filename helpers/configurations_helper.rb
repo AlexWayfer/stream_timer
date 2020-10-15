@@ -23,15 +23,6 @@ module StreamTimer
 			@form = Forms::Configuration::Update.new(configuration_params, found_configuration)
 		end
 
-		memoize def current_user
-			find_user session[:user_key]
-		end
-
-		def find_user(user_key)
-			form_outcome = Forms::User::Find.new(key: user_key).run
-			form_outcome.result if form_outcome.success?
-		end
-
 		def find_configuration(key)
 			form_outcome = Forms::Configuration::Find.new(key: key).run
 
@@ -42,12 +33,6 @@ module StreamTimer
 			halt 403, view(:forbidden) unless current_user.pk_equal? found.user
 
 			found
-		end
-
-		def update_user_session(
-			configuration_form_outcome: nil, user: configuration_form_outcome.result.user
-		)
-			session[:user_key] = user.key
 		end
 	end
 end

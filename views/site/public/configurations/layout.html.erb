@@ -19,17 +19,26 @@
 			/>
 		</p>
 
+		<form
+			id="regenerate-user-key"
+			action="<%= path_to ST::Site::Public::UsersController, :regenerate_key %>"
+			method="POST"
+			data-confirm="<%= t.confirm.user.regenerate_key %>"
+		>
+			<%= csrf_tag %>
+		</form>
+
 		<p>
-			<button
-				type="button"
-				class="success copy"
-				data-toggle-text="<%= t.button.copied %>"
-			>
+			<button type="button" class="success copy" data-toggle-text="<%= t.button.copied %>">
 				<%= t.button.copy %>
 			</button>
 
 			<button type="button" class="show warning" data-toggle-text="<%= t.button.hide %>">
 				<%= t.button.show %>
+			</button>
+
+			<button type="submit" form="regenerate-user-key" class="danger">
+				<%= t.button.regenerate %>
 			</button>
 		</p>
 	</section>
