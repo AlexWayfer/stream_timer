@@ -50,6 +50,19 @@
 		> fieldset {
 			width: 100%;
 
+			&.countup {
+				&:not(.display-time) {
+					.endless {
+						display: none;
+					}
+				}
+
+				.display-countup-time {
+					display: block;
+					margin: 0.2em 0 1em;
+				}
+			}
+
 			input[name*="_text_before"] {
 				margin-right: 0.4em;
 			}

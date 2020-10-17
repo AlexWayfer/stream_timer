@@ -16,8 +16,8 @@ export default class ConfigurationForm {
 
 		form.querySelectorAll('.only-countup input[type="checkbox"]').forEach(checkbox => {
 			const
-				form = checkbox.closest('form'),
-				timeline = form.querySelector('.timeline')
+				timeline = checkbox.closest('.timeline'),
+				displayCountupTime = timeline.querySelector('.display-countup-time')
 
 			checkbox.addEventListener('change', event => {
 				const isChecked = event.target.checked
@@ -26,10 +26,26 @@ export default class ConfigurationForm {
 
 				timeline.querySelector('fieldset.countdown').disabled = isChecked
 				timeline.querySelector('fieldset.countup .time-inputs').disabled = !isChecked
+
+				displayCountupTime.querySelector('input[type="checkbox"]').disabled = isChecked
+				displayCountupTime.classList.toggle('hidden', isChecked)
 			})
 
 			checkbox.dispatchEvent(new Event('change'))
 		})
 
+		// Toggle display countup time
+
+		form.querySelectorAll('.display-countup-time input[type="checkbox"]').forEach(checkbox => {
+			const countupFieldset = checkbox.closest('fieldset.countup')
+
+			checkbox.addEventListener('change', event => {
+				const isChecked = event.target.checked
+
+				countupFieldset.classList.toggle('display-time', isChecked)
+			})
+
+			checkbox.dispatchEvent(new Event('change'))
+		})
 	}
 }

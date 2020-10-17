@@ -2,14 +2,18 @@ export default class Timer {
 	constructor(container) {
 		this.textBeforeElement = container.querySelector('.text-before')
 
-		this.hoursContainerElement = container.querySelector('.hours-container')
+		this.timeElement = container.querySelector('.time')
+
+		this.hoursContainerElement = this.timeElement.querySelector('.hours-container')
 		this.hoursElement = this.hoursContainerElement.querySelector('.hours')
-		this.minutesElement = container.querySelector('.minutes')
-		this.secondsElement = container.querySelector('.seconds')
+		this.minutesElement = this.timeElement.querySelector('.minutes')
+		this.secondsElement = this.timeElement.querySelector('.seconds')
 
 		this._hours = parseInt(this.hoursElement.innerText)
 		this._minutes = parseInt(this.minutesElement.innerText)
 		this._seconds = parseInt(this.secondsElement.innerText)
+
+		this.displayCountupTime = container.dataset.displayCountupTime
 
 		const functionName = container.dataset.onlyCountup ? '_countUp' : '_countDown'
 		this.interval = setInterval(() => this[functionName](), 1000)
@@ -66,9 +70,16 @@ export default class Timer {
 			this.seconds = 59
 		} else {
 			clearInterval(this.interval)
+
+			this.textBeforeElement.innerText = this.textBeforeElement.dataset.countupTextBefore
+
+			if (!this.displayCountupTime) {
+				this.timeElement.classList.add('hidden')
+				return
+			}
+
 			this.seconds++
 			this.interval = setInterval(() => this._countUp(), 1000)
-			this.textBeforeElement.innerText = this.textBeforeElement.dataset.countupTextBefore
 		}
 	}
 

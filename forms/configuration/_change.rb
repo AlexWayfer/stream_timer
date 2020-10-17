@@ -16,6 +16,7 @@ module StreamTimer
 				field :name, String, default: 'AFK timer'
 
 				field :only_countup, :boolean, default: false
+				field :display_countup_time, :boolean, default: true
 
 				field :countdown_text_before, String, default: 'AFK '
 				field :countup_text_before, String, default: 'Late for '

@@ -77,6 +77,8 @@
 			</svg>
 
 			<label class="only-countup">
+				<input type="hidden" name="configuration[only_countup]" value="false" />
+
 				<input
 					type="checkbox"
 					name="configuration[only_countup]"
@@ -108,6 +110,16 @@
 
 			<fieldset class="countup">
 				<legend><%= t.label.configuration.text.countup %></legend>
+
+				<label class="display-countup-time">
+					<input type="hidden" name="configuration[display_countup_time]" value="false" />
+					<input
+						type="checkbox"
+						name="configuration[display_countup_time]"
+						<% if @form.display_countup_time %>checked<% end %>
+					/>
+					<%= t.site.configurations.form.display_countup_time %>
+				</label>
 
 				<input
 					type="text"
