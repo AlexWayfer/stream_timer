@@ -4,7 +4,7 @@ $mobile_header_logo_height: 42px;
 $mobile_header_vertical_padding: 7px;
 
 > header {
-	background: $accent_background_color;
+	background-color: $accent_background_color;
 	padding: $mobile_header_vertical_padding 0;
 	z-index: 7;
 
@@ -41,6 +41,15 @@ $mobile_header_vertical_padding: 7px;
 					font-weight: bold;
 				}
 			}
+		}
+
+		button.theme-toggle {
+			margin-left: auto;
+			margin-right: 0;
+			font-size: 1.6em;
+			padding: 0 0.2em;
+			background: transparent;
+			border: none;
 		}
 	}
 }

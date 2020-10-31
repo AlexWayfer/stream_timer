@@ -5,295 +5,306 @@
 @import 'lib/disable_password_autocomplete';
 @import 'lib/sticky_footer';
 
-* {
-	position: relative;
-	// outline: none;
-
-	&:not(svg) {
-		box-sizing: border-box;
-	}
-}
-
-body {
+html {
 	@import 'colors';
-	@import 'sizes';
-	@import 'fonts';
 
-	margin: 0;
-	font-family: $main_font_family;
+	* {
+		position: relative;
+		// outline: none;
 
-	.hidden {
-		display: none !important;
-	}
-
-	:disabled {
-		cursor: not-allowed;
-	}
-
-	.container {
-		max-width: $container_max_width;
-		padding: 0 15px;
-		margin: 0 auto;
-	}
-
-	a {
-		text-decoration: none;
-		color: $link_text_color;
-
-		&:hover {
-			text-decoration: underline;
-		}
-
-		&[href^="mailto:"] {
-			white-space: nowrap;
+		&:not(svg) {
+			box-sizing: border-box;
 		}
 	}
 
-	label,
-	a {
-		&.button {
-			@extend button;
+	body {
+		@import 'sizes';
+		@import 'fonts';
 
-			display: inline-block;
-		}
-	}
-
-	// .icon {
-	// 	&.baseline {
-	// 		// https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4#6e0c
-	// 		bottom: -0.125em;
-	// 	}
-	// }
-
-	@mixin custom-background-color($background-color) {
-		background: $background-color;
-		border-color: darken($background-color, 6%);
-
-		&:focus {
-			$focus_color: darken($background-color, 10%);
-
-			background: $focus_color;
-			border-color: $focus_color;
-		}
-
-		&:disabled {
-			$disabled_color: mix($background-color, #ddd);
-
-			background: $disabled_color;
-			border-color: $disabled_color;
-		}
-	}
-
-	@import 'lib/small_and_large_elements';
-	@import 'lib/input_with_clear_button';
-
-	// https://stackoverflow.com/a/23211766/2630849
-	#{inputs_with_types('text', 'email', 'password', 'number', 'url', 'search')},
-	textarea {
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
-	}
-
-	#{all_horizontal_inputs()},
-	textarea,
-	select,
-	.cccombo > button {
-		&:disabled {
-			color: #333;
-			background: #f5f5f5;
-		}
-	}
-
-	#{all_horizontal_inputs()},
-	textarea,
-	select,
-	button {
-		// Fix for Safari :see_no_evil:
 		margin: 0;
-		padding: $input_padding;
+		font-family: $main_font_family;
 
-		font: {
-			size: inherit;
-			family: inherit;
+		.hidden {
+			display: none !important;
 		}
 
-		line-height: $input_line_height;
-		color: black;
-		background: white;
-		border: $input_border_width solid $input_border_color;
-		border-radius: $input_border_radius;
-	}
-
-	textarea {
-		border-radius: $common_border_radius;
-	}
-
-	select {
-		$svg_size: 24;
-
-		appearance: none;
-
-		background: {
-			image: url(
-				"data:image/svg+xml;utf8,<svg fill='black' height='#{$svg_size}' viewBox='0 0 #{$svg_size} #{$svg_size}' width='#{$svg_size}' xmlns='http://www.w3.org/2000/svg'><path d='M7 9l5 5 5-5z'/></svg>"
-			);
-			repeat: no-repeat;
-			position-x: 100%;
-			position-y: center;
+		:disabled {
+			cursor: not-allowed;
 		}
 
-		padding-right: #{$svg_size}px;
-
-		white-space: normal;
-	}
-
-	input {
-		&.monospace {
-			font-family: monospace;
-			font-size: 1.2em;
-			padding-top: 0.28em;
+		.container {
+			max-width: $container_max_width;
+			padding: 0 15px;
+			margin: 0 auto;
 		}
 
-		&[type="range"] {
-			padding-left: 0;
-			padding-right: 0;
-			border: none;
-		}
+		a {
+			text-decoration: none;
+			color: $link_text_color;
 
-		&[type="color"] {
-			box-sizing: content-box;
-			padding: 0 0.2em;
-			height: $input_line_height + $input_vertical_padding * 2;
-		}
-	}
-
-	@mixin primary {
-		@include custom-background-color($accent_background_color);
-
-		color: white;
-	}
-
-	@mixin warning {
-		@include custom-background-color($warning_background_color);
-
-		color: white;
-	}
-
-	@mixin danger {
-		@include custom-background-color($danger_background_color);
-
-		color: white;
-	}
-
-	@mixin success {
-		@include custom-background-color($success_background_color);
-
-		color: white;
-	}
-
-	@mixin secondary {
-		@include custom-background-color($footer_background_color);
-
-		color: white;
-	}
-
-	// @mixin tertiary {
-	// 	@include custom-background-color($tertiary_background_color);
-	// }
-
-	@mixin light {
-		@include custom-background-color(white);
-
-		color: $accent_text_color;
-		border-color: $accent_background_color;
-
-		&:focus {
-			border-color: $accent_background_color;
-		}
-	}
-
-	button {
-		@include custom-background-color(white);
-
-		border-color: $input_border_color;
-		border-radius: $button_border_radius;
-
-		&.small {
-			font-size: 0.875em;
-			padding: 0.2em 0.7em;
-		}
-
-		&.large {
-			font: {
-				size: 115%;
-				weight: bold;
+			&:hover {
+				text-decoration: underline;
 			}
 
-			text-transform: uppercase;
-			padding: 0.5em 0.8em;
+			&[href^="mailto:"] {
+				white-space: nowrap;
+			}
 		}
 
-		&.primary {
-			@include primary;
+		label,
+		a {
+			&.button {
+				@extend button;
+
+				display: inline-block;
+			}
 		}
 
-		&.warning {
-			@include warning;
+		.icon {
+			&.baseline {
+				// https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4#6e0c
+				bottom: -0.125em;
+			}
 		}
 
-		&.danger {
-			@include danger;
+		@mixin custom-background-color($background-color) {
+			background: $background-color;
+			border-color: darken($background-color, 6%);
+
+			&:focus {
+				$focus_color: darken($background-color, 10%);
+
+				background: $focus_color;
+				border-color: $focus_color;
+			}
+
+			&:disabled {
+				$disabled_color: mix($background-color, #ddd);
+
+				background: $disabled_color;
+				border-color: $disabled_color;
+			}
 		}
 
-		&.success {
-			@include success;
+		@import 'lib/small_and_large_elements';
+		@import 'lib/input_with_clear_button';
+
+		// https://stackoverflow.com/a/23211766/2630849
+		#{inputs_with_types('text', 'email', 'password', 'number', 'url', 'search')},
+		textarea {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
 		}
 
-		&.secondary {
-			@include secondary;
+		#{all_horizontal_inputs()},
+		textarea,
+		select,
+		.cccombo > button {
+			&:disabled {
+				color: #333;
+				background: #f5f5f5;
+			}
 		}
 
-		// &.tertiary {
-		// 	@include tertiary;
+		#{all_horizontal_inputs()},
+		textarea,
+		select,
+		button {
+			// Fix for Safari :see_no_evil:
+			margin: 0;
+			padding: $input_padding;
+
+			font: {
+				size: inherit;
+				family: inherit;
+			}
+
+			line-height: $input_line_height;
+			color: var(--input-text-color);
+			background: var(--input-background-color);
+			border: $input_border_width solid var(--input-border-color);
+			border-radius: $input_border_radius;
+		}
+
+		textarea {
+			border-radius: $common_border_radius;
+		}
+
+		select {
+			$svg_size: 24;
+
+			appearance: none;
+
+			background: {
+				image: url(
+					"data:image/svg+xml;utf8,<svg fill='black' height='#{$svg_size}' viewBox='0 0 #{$svg_size} #{$svg_size}' width='#{$svg_size}' xmlns='http://www.w3.org/2000/svg'><path d='M7 9l5 5 5-5z'/></svg>"
+				);
+				repeat: no-repeat;
+				position-x: 100%;
+				position-y: center;
+			}
+
+			padding-right: #{$svg_size}px;
+
+			white-space: normal;
+		}
+
+		input {
+			&.monospace {
+				font-family: monospace;
+				font-size: 1.2em;
+				padding-top: 0.28em;
+			}
+
+			&[type="range"] {
+				padding-left: 0;
+				padding-right: 0;
+				border: none;
+			}
+
+			&[type="color"] {
+				box-sizing: content-box;
+				padding: 0 0.2em;
+				height: $input_line_height + $input_vertical_padding * 2;
+			}
+		}
+
+		@mixin primary {
+			@include custom-background-color($accent_background_color);
+
+			color: white;
+		}
+
+		@mixin warning {
+			@include custom-background-color($warning_background_color);
+
+			color: white;
+		}
+
+		@mixin danger {
+			@include custom-background-color($danger_background_color);
+
+			color: white;
+		}
+
+		@mixin success {
+			@include custom-background-color($success_background_color);
+
+			color: white;
+		}
+
+		@mixin secondary {
+			@include custom-background-color($footer_background_color);
+
+			color: white;
+		}
+
+		// @mixin tertiary {
+		// 	@include custom-background-color($tertiary_background_color);
 		// }
 
-		&.light {
-			@include light;
-		}
-	}
+		@mixin light {
+			@include custom-background-color(white);
 
-	.cccombo > button {
-		border-radius: $input_border_radius;
-	}
+			color: $accent_text_color;
+			border-color: $accent_background_color;
 
-	#{all_horizontal_inputs()} {
-		@include padding_for_inputs_with_clear_button {
-			+ button:focus {
-				outline-color: darken($highlight_background_color, 15%);
+			&:focus {
+				border-color: $accent_background_color;
 			}
 		}
-	}
 
-	> main {
-		text-align: center;
+		button {
+			@include custom-background-color(white);
 
-		> .container > section {
-			width: max-content;
-			margin: 2em auto 4em;
+			border-color: var(--input-border-color);
+			border-radius: $button_border_radius;
+
+			&.small {
+				font-size: 0.875em;
+				padding: 0.2em 0.7em;
+			}
+
+			&.large {
+				font: {
+					size: 115%;
+					weight: bold;
+				}
+
+				text-transform: uppercase;
+				padding: 0.5em 0.8em;
+			}
+
+			&.primary {
+				@include primary;
+			}
+
+			&.warning {
+				@include warning;
+			}
+
+			&.danger {
+				@include danger;
+			}
+
+			&.success {
+				@include success;
+			}
+
+			&.secondary {
+				@include secondary;
+			}
+
+			// &.tertiary {
+			// 	@include tertiary;
+			// }
+
+			&.light {
+				@include light;
+			}
 		}
+
+		.cccombo > button {
+			border-radius: $input_border_radius;
+		}
+
+		#{all_horizontal_inputs()} {
+			@include padding_for_inputs_with_clear_button {
+				+ button:focus {
+					outline-color: darken($highlight_background_color, 15%);
+				}
+			}
+		}
+
+		> header,
+		> main {
+			color: var(--color);
+			background-color: var(--background-color);
+		}
+
+		> main {
+			text-align: center;
+
+			> .container > section {
+				width: max-content;
+				margin: 2em auto 4em;
+			}
+		}
+
+		@import 'components/header';
+		@import 'components/footer';
+		@import 'components/flash';
+		@import 'components/forms';
+		@import 'components/page';
+
+		@import 'components/configurations';
+		@import 'components/configurations/form';
+		@import 'components/configurations/user_key';
+		@import 'components/timer';
+
+		@include sticky_footer;
 	}
 
-	@import 'components/header';
-	@import 'components/footer';
-	@import 'components/flash';
-	@import 'components/forms';
-	@import 'components/page';
-
-	@import 'components/configurations';
-	@import 'components/configurations/form';
-	@import 'components/configurations/user_key';
-	@import 'components/timer';
-
-	@include sticky_footer;
+	@import 'components/dark-theme';
 }

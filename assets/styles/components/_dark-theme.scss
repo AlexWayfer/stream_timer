@@ -1,0 +1,21 @@
+&.dark-theme {
+	body {
+		--color: white;
+		--background-color: #151515;
+		--input-background-color: #444;
+		--input-border-color: #555;
+
+		> header {
+			background-color: #333;
+
+			&,
+			a {
+				color: $accent_text_color;
+			}
+		}
+
+		a {
+			color: $accent_text_color;
+		}
+	}
+}

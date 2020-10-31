@@ -24,6 +24,10 @@ module StreamTimer
 
 			private
 
+			def url_with_mtime(path)
+				"#{path}?v=#{File.mtime("#{config[:public_dir]}/#{path}").to_i}"
+			end
+
 			def highlighted_backtrace_for(exception)
 				root_dir = config[:root_dir]
 				lines = exception.backtrace.map do |line|

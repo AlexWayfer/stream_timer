@@ -106,6 +106,7 @@ group :toys do
 	gem 'flame_generate_toys'
 	gem 'flame_routes_toys'
 	gem 'flame_server_toys'
+	gem 'icomoon_toys'
 	gem 'locales_toys'
 	gem 'psql_toys'
 	gem 'rack_console_toys'

@@ -80,6 +80,16 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	})
 
+
+	// Dark theme toggle
+	document.querySelectorAll('button.theme-toggle').forEach(button => {
+		button.addEventListener('click', () => {
+			document.documentElement.classList.toggle('dark-theme')
+
+			localStorage.setItem('dark-theme', document.documentElement.classList.contains('dark-theme'))
+		})
+	})
+
 	// Components
 
 	document.querySelectorAll('button.show').forEach(button => new ShowPasswordButton(button))

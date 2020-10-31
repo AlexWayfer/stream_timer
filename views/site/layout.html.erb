@@ -16,8 +16,9 @@
 		<meta name="theme-color" content="#ffffff">
 
 		<%
-			%i[
+			%w[
 				main
+				lib/icomoon
 			].each do |name|
 		%>
 			<link rel="stylesheet" href="<%= url_to "styles/#{name}.css", version: true %>" />
@@ -67,12 +68,12 @@
 
 		<%
 			{
-				libs: %w[],
-				# 	dom4.max
-				# 	modernizr-custom
-				# 	svgxuse.min
-				# 	cccombo
-				# ],
+				lib: %w[
+					svgxuse.min
+				],
+				# dom4.max
+				# modernizr-custom
+				# cccombo
 				'compiled': %w[main]
 			}
 				.each do |dir, file_names|
@@ -83,6 +84,15 @@
 				></script>
 			<% end %>
 		<% end %>
+
+		<script type="text/javascript">
+			const osDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+
+			const savedDarkMode = localStorage.getItem('dark-theme')
+			if (savedDarkMode == 'true' || (savedDarkMode == null && osDarkMode)) {
+				document.documentElement.classList.add('dark-theme')
+			}
+		</script>
 	</head>
 	<body>
 

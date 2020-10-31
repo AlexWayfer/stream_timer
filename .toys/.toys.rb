@@ -63,3 +63,11 @@ expand RackConsoleToys::Template
 
 require 'static_files_toys'
 expand StaticFilesToys::Template
+
+require 'icomoon_toys'
+expand IcoMoonToys::Template,
+	extract_map: {
+		'selection.json' => 'assets/icomoon/selection.json',
+		'style.css' => 'public/styles/lib/icomoon.css',
+		'symbol-defs.svg' => 'public/images/icons/symbol-defs.svg'
+	}

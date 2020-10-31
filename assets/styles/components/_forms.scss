@@ -11,7 +11,7 @@ form {
 		border-radius: $common_border_radius;
 		border-style: solid;
 		border-width: $input_border_width;
-		border-color: $input_border_color;
+		border-color: var(--input-border-color);
 
 		$decreased-margin: 0.4em;
 

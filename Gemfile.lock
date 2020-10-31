@@ -158,6 +158,10 @@ GEM
       module_methods (~> 0.1.0)
     gorilla_patch (4.0.0)
     highline (2.0.3)
+    icomoon_toys (0.2.0)
+      alt_memery (~> 2.0)
+      rubyzip (~> 2.0)
+      toys-core (~> 0.11.0)
     kramdown (2.3.0)
       rexml
     launchy (2.5.0)
@@ -252,6 +256,7 @@ GEM
       ast
     ruby-progressbar (1.10.1)
     ruby2_keywords (0.0.2)
+    rubyzip (2.3.0)
     sentry-raven (3.1.1)
       faraday (>= 1.0)
     sequel (5.37.0)
@@ -314,6 +319,7 @@ DEPENDENCIES
   formalism-r18n_errors!
   formalism-sequel_transactions!
   gorilla_patch
+  icomoon_toys
   kramdown
   letter_opener
   locales_toys

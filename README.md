@@ -128,3 +128,28 @@ toys deploy
 
 It will run [`exe/update.sh` command](#locally) remotely
 through `ssh` connection from `deploy.yaml` configuration file.
+
+-----
+
+## Update external resources
+
+### [IcoMoon](https://icomoon.io/)
+
+1.  Go to [IcoMoon App](https://icomoon.io/app/)
+2.  Upload project
+    1.  Click `Manage Projects` button
+    2.  Click `Import Project` button
+    3.  Upload `assets/icomoon/selection.json` file
+    4.  Click `Load` button
+3.  Modify the set of icons
+    1.  Enter keyword (like `car` or `man`) into search field
+    2.  Select desired icons
+4.  Update icons
+    1.  Click `Generate SVG & More` button
+    2.  Check names and other settings
+    3.  Click `Download` button
+    4.  Run `toys icomoon extract %path_to_downloaded_archive%`
+5.  Repeat these steps with the final `assets/icomoon/selection.json` file,
+    because of there is a difference (in `setIdx` and `iconIdx` fields) between
+    original `selection.json` file with freshly added icons and
+    generated `selection.json` file with the same icons.
