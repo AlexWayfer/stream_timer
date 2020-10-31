@@ -5,4 +5,16 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
+
+	p {
+		margin: 0;
+
+		&.countdown-information {
+			position: absolute;
+			width: 100%;
+			bottom: 100%;
+			font-size: 0.4em;
+		}
+	}
 }

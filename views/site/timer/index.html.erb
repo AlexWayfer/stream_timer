@@ -4,19 +4,10 @@
 	<% if display_countup_time %>data-display-countup-time="true"<% end %>
 	style="<%= styles %>"
 >
-	<p>
-		<span
-			class="text-before" data-countup-text-before="<%== countup_text_before %>"
-		><%== only_countup ? countup_text_before : countdown_text_before %></span
-		><span
-			class="time"
-		><span class="hours-container <% if hours == 0 %>hidden<% end %>"><span class="hours"><%=
-				padded_hours
-			%></span>:</span><span class="minutes"><%=
-				padded_minutes
-			%></span>:<span class="seconds"><%=
-				padded_seconds
-			%></span>
-		</span>
-	</p>
+	<div>
+		<% if display_countdown_information %>
+			<%= render :_time_with_text, countdown_information: true %>
+		<% end %>
+		<%= render :_time_with_text %>
+	</div>
 </section>

@@ -111,6 +111,16 @@
 			<fieldset class="countup">
 				<legend><%= t.label.configuration.text.countup %></legend>
 
+				<label class="display-countdown-information">
+					<input type="hidden" name="configuration[display_countdown_information]" value="false" />
+					<input
+						type="checkbox"
+						name="configuration[display_countdown_information]"
+						<% if @form.display_countdown_information %>checked<% end %>
+					/>
+					<%= t.site.configurations.form.display_countdown_information %>
+				</label>
+
 				<label class="display-countup-time">
 					<input type="hidden" name="configuration[display_countup_time]" value="false" />
 					<input

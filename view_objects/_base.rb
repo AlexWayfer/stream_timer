@@ -11,6 +11,12 @@ module StreamTimer
 			def initialize(controller)
 				@controller = controller
 			end
+
+			private
+
+			def render(*args, **kwargs)
+				@controller.send(__method__, *args, **kwargs, scope: self)
+			end
 		end
 	end
 end

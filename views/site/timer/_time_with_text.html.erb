@@ -1,0 +1,24 @@
+<%
+	countdown_information = false if countdown_information.nil?
+
+	text_before =
+		if countdown_information
+		then countdown_text_before
+		else only_countup ? countup_text_before : countdown_text_before
+		end
+%>
+<p class="<% if countdown_information %>countdown-information hidden<% end %>">
+	<span
+		class="text-before" data-countup-text-before="<%== countup_text_before %>"
+	><%== text_before %></span
+	><span
+		class="time"
+	><span class="hours-container <% if hours == 0 %>hidden<% end %>"><span class="hours"><%=
+			padded_hours
+		%></span>:</span><span class="minutes"><%=
+			padded_minutes
+		%></span>:<span class="seconds"><%=
+			padded_seconds
+		%></span>
+	</span>
+</p>

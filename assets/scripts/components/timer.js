@@ -1,8 +1,12 @@
 export default class Timer {
 	constructor(container) {
-		this.textBeforeElement = container.querySelector('.text-before')
+		const actualTimer = container.querySelector('p:not(.countdown-information)')
 
-		this.timeElement = container.querySelector('.time')
+		this.countdownInformationElement = container.querySelector('p.countdown-information')
+
+		this.textBeforeElement = actualTimer.querySelector('.text-before')
+
+		this.timeElement = actualTimer.querySelector('.time')
 
 		this.hoursContainerElement = this.timeElement.querySelector('.hours-container')
 		this.hoursElement = this.hoursContainerElement.querySelector('.hours')
@@ -72,6 +76,10 @@ export default class Timer {
 			clearInterval(this.interval)
 
 			this.textBeforeElement.innerText = this.textBeforeElement.dataset.countupTextBefore
+
+			if (this.countdownInformationElement) {
+				this.countdownInformationElement.classList.remove('hidden')
+			}
 
 			if (!this.displayCountupTime) {
 				this.timeElement.classList.add('hidden')
