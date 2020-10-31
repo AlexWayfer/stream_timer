@@ -8,8 +8,8 @@
 		"@rollup/plugin-commonjs": "*",
 		"@rollup/plugin-json": "*",
 		"@rollup/plugin-node-resolve": "*",
-		"autoprefixer": "^9.8.6",
-		"postcss-cli": "^7.0.0",
+		"autoprefixer": "*",
+		"postcss-cli": "*",
 		"postcss-flexbugs-fixes": "*",
 		"promise-polyfill": "*",
 		"rollup": "*",
@@ -19,11 +19,15 @@
 	},
 	"devDependencies": {
 		"eslint": "*",
+		"postcss": "^8.1.4",
 		"remark-cli": "*",
 		"remark-preset-lint-recommended": "*",
 		"stylelint": "*",
 		"stylelint-config-standard": "*",
 		"stylelint-no-unsupported-browser-features": "*"
+	},
+	"peerDependencies": {
+		"postcss": "*"
 	},
 	"scripts": {
 		"build:styles": "sass assets/styles/main.scss public/styles/main.css -s compressed && postcss public/styles/main.css -o public/styles/main.css",
