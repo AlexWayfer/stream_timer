@@ -23,9 +23,16 @@ $mobile_header_vertical_padding: 7px;
 		align-items: center;
 
 		a[href="/"] {
+			display: flex;
+			align-items: center;
 			margin-right: 1em;
 
-			h1 {
+			> img {
+				height: 36px;
+				margin-right: 0.5em;
+			}
+
+			> h1 {
 				margin: 0;
 			}
 		}
