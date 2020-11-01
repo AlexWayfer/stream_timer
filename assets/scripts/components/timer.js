@@ -13,14 +13,35 @@ export default class Timer {
 		this.minutesElement = this.timeElement.querySelector('.minutes')
 		this.secondsElement = this.timeElement.querySelector('.seconds')
 
-		this._hours = parseInt(this.hoursElement.innerText)
-		this._minutes = parseInt(this.minutesElement.innerText)
-		this._seconds = parseInt(this.secondsElement.innerText)
+		const specificTimeDifference = new Date() - Date.parse(container.dataset.specificTime)
+
+		if (specificTimeDifference) {
+			const
+				differenceInSeconds = Math.floor(Math.abs(specificTimeDifference) / 1000),
+				differenceInMinutes = Math.floor(differenceInSeconds / 60),
+				differenceInHours = Math.floor(differenceInMinutes / 60)
+
+			this.hours = differenceInHours
+			this.minutes = differenceInMinutes % 60
+			this.seconds = differenceInSeconds % 60
+		} else {
+			this.hours = parseInt(this.hoursElement.innerText)
+			this.minutes = parseInt(this.minutesElement.innerText)
+			this.seconds = parseInt(this.secondsElement.innerText)
+		}
 
 		this.displayCountupTime = container.dataset.displayCountupTime
 
-		const functionName = container.dataset.onlyCountup ? '_countUp' : '_countDown'
+		const functionName =
+			(specificTimeDifference && specificTimeDifference > 0) || container.dataset.onlyCountup ?
+				'_countUp' :
+				'_countDown'
+
+		if (functionName == '_countUp') this._changeTextToCountup()
+
 		this.interval = setInterval(() => this[functionName](), 1000)
+
+		container.querySelector(':scope > div').classList.remove('transparent')
 	}
 
 	get hours() {
@@ -75,16 +96,9 @@ export default class Timer {
 		} else {
 			clearInterval(this.interval)
 
-			this.textBeforeElement.innerText = this.textBeforeElement.dataset.countupTextBefore
+			this._changeTextToCountup()
 
-			if (this.countdownInformationElement) {
-				this.countdownInformationElement.classList.remove('hidden')
-			}
-
-			if (!this.displayCountupTime) {
-				this.timeElement.classList.add('hidden')
-				return
-			}
+			if (!this.displayCountupTime) return
 
 			this.seconds++
 			this.interval = setInterval(() => this._countUp(), 1000)
@@ -101,6 +115,18 @@ export default class Timer {
 			}
 		} else {
 			this.seconds++
+		}
+	}
+
+	_changeTextToCountup() {
+		this.textBeforeElement.innerText = this.textBeforeElement.dataset.countupTextBefore
+
+		if (this.countdownInformationElement) {
+			this.countdownInformationElement.classList.remove('hidden')
+		}
+
+		if (!this.displayCountupTime) {
+			this.timeElement.classList.add('hidden')
 		}
 	}
 }

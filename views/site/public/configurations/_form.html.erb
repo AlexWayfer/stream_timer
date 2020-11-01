@@ -87,8 +87,19 @@
 				<%= t.site.configurations.form.only_countup %>
 			</label>
 
+			<!-- It's here for situations when `fieldset.countdown` is disabled (when `only_countup`) -->
+			<input type="hidden" name="configuration[specific_time]" value="" />
+
 			<fieldset class="countdown" <% if @form.only_countup %>disabled<% end %>>
 				<legend><%= t.label.configuration.text.countdown %></legend>
+
+				<label class="specific-time">
+					<input
+						type="checkbox"
+						<% if @form.specific_time %>checked<% end %>
+					/>
+					<%= t.site.configurations.form.specific_time %>
+				</label>
 
 				<input
 					type="text"
@@ -98,6 +109,16 @@
 				/>
 
 				<%= render '_form/_time_inputs', countup: false %>
+
+				<input
+					type="datetime-local"
+					class="<% unless @form.specific_time %>hidden<% end %>"
+					name="configuration[specific_time]"
+					value="<%= @form.specific_time&.strftime('%FT%T') %>"
+					<% if @form.specific_time %>
+						required
+					<% end %>
+				/>
 			</fieldset>
 
 			<%= render '_form/_arrow' %>

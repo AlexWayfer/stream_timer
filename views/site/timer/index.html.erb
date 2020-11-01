@@ -1,11 +1,12 @@
 <section
 	class="timer"
-	<% if only_countup %>data-only-countup="true"<% end %>
-	<% if display_countup_time %>data-display-countup-time="true"<% end %>
 	style="<%= styles %>"
+	<% if specific_time %>data-specific-time="<%= specific_time %>"<% end %>
+	<% if only_countup %>data-only-countup="true"<% end %>
+	<% if display_countup_time || only_countup %>data-display-countup-time="true"<% end %>
 >
-	<div>
-		<% if display_countdown_information %>
+	<div class="transparent">
+		<% if !only_countup && !specific_time && display_countdown_information %>
 			<%= render :_time_with_text, countdown_information: true %>
 		<% end %>
 		<%= render :_time_with_text %>

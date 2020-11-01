@@ -1,5 +1,17 @@
 export default class ConfigurationForm {
 	constructor(form) {
+		const
+			timeline = form.querySelector('fieldset.timeline'),
+			countdownFieldset = timeline.querySelector('fieldset.countdown'),
+			countupFieldset = timeline.querySelector('fieldset.countup'),
+			onlyCountupCheckbox = timeline.querySelector('.only-countup input[type="checkbox"]'),
+			specificTimeCheckbox = timeline.querySelector('label.specific-time input[type="checkbox"]'),
+			specificTimeInput =
+				countdownFieldset.querySelector('input[name*="[specific_time]"]:not([type="hidden"])'),
+			displayCountdownInformation = countupFieldset.querySelector('.display-countdown-information'),
+			displayCountupTime = countupFieldset.querySelector('.display-countup-time'),
+			displayCountupTimeCheckbox = displayCountupTime.querySelector('input[type="checkbox"]')
+
 		// Bind range input and span with its value
 
 		form.querySelectorAll('input[type="range"]').forEach(rangeElement => {
@@ -14,44 +26,57 @@ export default class ConfigurationForm {
 
 		// Toggle only-countup timer
 
-		form.querySelectorAll('.only-countup input[type="checkbox"]').forEach(checkbox => {
-			const
-				timeline = checkbox.closest('.timeline'),
-				displayCountdownInformation = timeline.querySelector('.display-countdown-information'),
-				displayCountupTime = timeline.querySelector('.display-countup-time')
+		onlyCountupCheckbox.addEventListener('change', event => {
+			const isChecked = event.target.checked
 
-			checkbox.addEventListener('change', event => {
-				const isChecked = event.target.checked
+			timeline.classList.toggle('only-countup', isChecked)
 
-				timeline.classList.toggle('only-countup', isChecked)
+			countdownFieldset.disabled = isChecked
+			countupFieldset.querySelector('.time-inputs').disabled = !isChecked
 
-				timeline.querySelector('fieldset.countdown').disabled = isChecked
-				timeline.querySelector('fieldset.countup .time-inputs').disabled = !isChecked
+			displayCountdownInformation.querySelectorAll('input')
+				.forEach(input => input.disabled = isChecked)
+			displayCountdownInformation.classList.toggle('hidden', isChecked)
 
-				displayCountdownInformation.querySelectorAll('input')
-					.forEach(input => input.disabled = isChecked)
-				displayCountdownInformation.classList.toggle('hidden', isChecked)
+			displayCountupTime.querySelectorAll('input')
+				.forEach(input => input.disabled = isChecked)
+			displayCountupTime.classList.toggle('hidden', isChecked)
 
-				displayCountupTime.querySelectorAll('input')
-					.forEach(input => input.disabled = isChecked)
-				displayCountupTime.classList.toggle('hidden', isChecked)
-			})
-
-			checkbox.dispatchEvent(new Event('change'))
+			if (isChecked) {
+				specificTimeCheckbox.checked = false
+				specificTimeCheckbox.dispatchEvent(new Event('change'))
+			}
 		})
+
+		onlyCountupCheckbox.dispatchEvent(new Event('change'))
+
+		// Toggle specific time
+
+		specificTimeCheckbox.addEventListener('change', event => {
+			const
+				isChecked = event.target.checked,
+				displayCountdownInformationCheckbox =
+					displayCountdownInformation.querySelector('input[type="checkbox"]')
+
+			countdownFieldset.querySelector('.time-inputs').disabled = isChecked
+			specificTimeInput.classList.toggle('hidden', !isChecked)
+			specificTimeInput.disabled = !isChecked
+			specificTimeInput.required = isChecked
+
+			displayCountdownInformationCheckbox.checked = !isChecked
+			displayCountdownInformationCheckbox.disabled = isChecked
+		})
+
+		specificTimeCheckbox.dispatchEvent(new Event('change'))
 
 		// Toggle display countup time
 
-		form.querySelectorAll('.display-countup-time input[type="checkbox"]').forEach(checkbox => {
-			const countupFieldset = checkbox.closest('fieldset.countup')
+		displayCountupTimeCheckbox.addEventListener('change', event => {
+			const isChecked = event.target.checked
 
-			checkbox.addEventListener('change', event => {
-				const isChecked = event.target.checked
-
-				countupFieldset.classList.toggle('display-time', isChecked)
-			})
-
-			checkbox.dispatchEvent(new Event('change'))
+			countupFieldset.classList.toggle('display-time', isChecked)
 		})
+
+		displayCountupTimeCheckbox.dispatchEvent(new Event('change'))
 	}
 }

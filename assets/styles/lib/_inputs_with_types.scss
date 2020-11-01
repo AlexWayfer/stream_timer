@@ -10,7 +10,7 @@
 
 @function all_horizontal_inputs() {
 	@return inputs_with_types(
-		'text', 'email', 'password', 'number', 'url', 'search', 'date', 'time',
+		'text', 'email', 'password', 'number', 'url', 'search', 'date', 'time', 'datetime-local',
 		'file', 'color', 'range'
 	);
 }

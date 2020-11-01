@@ -7,7 +7,7 @@ module StreamTimer
 			def_delegators(
 				:@configuration,
 				:only_countup, :display_countdown_information, :display_countup_time,
-				:countdown_text_before, :countup_text_before, :hours
+				:specific_time, :countdown_text_before, :countup_text_before, :hours
 			)
 
 			def initialize(controller, configuration)

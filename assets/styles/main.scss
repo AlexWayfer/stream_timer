@@ -28,6 +28,10 @@ html {
 			display: none !important;
 		}
 
+		.transparent {
+			opacity: 0;
+		}
+
 		:disabled {
 			cursor: not-allowed;
 		}

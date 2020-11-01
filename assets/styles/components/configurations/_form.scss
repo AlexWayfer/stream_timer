@@ -50,17 +50,16 @@
 		> fieldset {
 			width: 100%;
 
+			> label {
+				display: block;
+				margin: 0.2em 0 1em;
+			}
+
 			&.countup {
 				&:not(.display-time) {
 					.endless {
 						display: none;
 					}
-				}
-
-				.display-countdown-information,
-				.display-countup-time {
-					display: block;
-					margin: 0.2em 0 1em;
 				}
 			}
 

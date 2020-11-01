@@ -44,6 +44,7 @@ site:
       header: Load existing configurations
     form:
       only_countup: Only countup
+      specific_time: Specific time
       display_countdown_information: Display countdown information
       display_countup_time: Display countup time
       timeline: Timeline

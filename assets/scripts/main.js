@@ -95,7 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('button.show').forEach(button => new ShowPasswordButton(button))
 	document.querySelectorAll('button.copy').forEach(button => new CopyButton(button))
 
-	document.querySelectorAll('.configuration form').forEach(form => new ConfigurationForm(form))
+	document.querySelectorAll('.configuration.change form:not(.delete)')
+		.forEach(form => new ConfigurationForm(form))
 
 	document.querySelectorAll('.timer').forEach(container => new Timer(container))
 })

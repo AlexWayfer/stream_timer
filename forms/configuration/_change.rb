@@ -22,6 +22,8 @@ module StreamTimer
 				field :countdown_text_before, String, default: 'AFK '
 				field :countup_text_before, String, default: 'Late for '
 
+				field :specific_time, default: nil
+
 				field :hours, Integer, default: 0
 				field :minutes, Integer, default: 5
 				field :seconds, Integer, default: 0
@@ -31,6 +33,11 @@ module StreamTimer
 
 				field :font_size, Integer, default: 160
 				field :font_color, String, default: '#ffffff'
+
+				def specific_time=(value)
+					value = nil if value&.empty?
+					super value
+				end
 
 				private
 
