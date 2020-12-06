@@ -36,6 +36,7 @@ group :linter do
 	gem 'rubocop'
 	gem 'rubocop-performance'
 	gem 'rubocop-rspec'
+	gem 'rubocop-sequel'
 end
 
 group :database do

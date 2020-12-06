@@ -251,6 +251,8 @@ GEM
     rubocop-rspec (2.0.1)
       rubocop (~> 1.0)
       rubocop-ast (>= 1.1.0)
+    rubocop-sequel (0.1.0)
+      rubocop (~> 1.0)
     ruby-ll (2.1.2)
       ansi
       ast
@@ -341,6 +343,7 @@ DEPENDENCIES
   rubocop
   rubocop-performance
   rubocop-rspec
+  rubocop-sequel
   sequel
   sequel-enum_values
   sequel_migrations_toys

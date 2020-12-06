@@ -1,6 +1,7 @@
 require:
   - rubocop-performance
   - rubocop-rspec
+  - rubocop-sequel
 
 Layout/IndentationStyle:
   EnforcedStyle: tabs
