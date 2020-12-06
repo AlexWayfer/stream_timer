@@ -1,4 +1,5 @@
-$container_max_width: 1200px;
+$page_max_width: 800px;
+$container_max_width: $page_max_width; // 1200px;
 
 // $icon_size: 1em;
 
