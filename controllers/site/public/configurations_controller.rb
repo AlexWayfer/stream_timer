@@ -6,7 +6,6 @@ module StreamTimer
 			## Controller for configurations management
 			class ConfigurationsController < Site::Public::Controller
 				include ST::ConfigurationsHelper
-				include ST::UsersHelper
 
 				def index
 					initialize_configuration_create_form

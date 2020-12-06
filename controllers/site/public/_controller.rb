@@ -8,9 +8,11 @@ module StreamTimer
 				include Flame::Flash
 				include Flame::Menu
 
+				include ST::UsersHelper
+
 				MENU_ITEMS = %i[
-					configurations
 					about
+					configurations
 				].freeze
 
 				protected

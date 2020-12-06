@@ -5,8 +5,6 @@ module StreamTimer
 		module Public
 			## Controller for users management
 			class UsersController < Site::Public::Controller
-				include ST::UsersHelper
-
 				post def load
 					halt_unless_user_found_by_given_key
 
