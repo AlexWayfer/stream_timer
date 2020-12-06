@@ -9,18 +9,25 @@ site:
     header: About
     text: !!markdown |
       This application was designed for countdowns to something or timer for something
-      in a streaming application like OBS.
+      in a streaming application like [OBS](https://obsproject.com/){:target="_blank" rel="noreferrer noopener"}.
 
-      I personally often use it for AFK timers, but you're free to use it as you want to.
+      I personally mostly use it for AFK timers, but you're free to use it as you want to. Examples:
 
-      You can choose timer duration, texts (before and after zero) and styles.
+      *   how long stream is up;
+      *   how much time is left before rocket launch;
+      *   etc.
+
+      You can choose timer duration (or event time), texts (before and after zero)
+      and styles (background, fonts).
 
       Then just add timer URL to OBS (or something else) browser source.
+      Don't worry: a key in a timer URL doesn't give the management access,
+      it's read-only and can be public.
 
-      You can store a configuration key privately somewhere to reuse your configuration
-      without somebody's else intervention.
+      But there is a private user key with management access.
+      You can store it somewhere privately for later loading or re-using on other devices.
 
-      It's free and open-source.
+      This project is free and open-source.
 
       * [GitHub repository](https://github.com/AlexWayfer/stream_timer){:target="_blank" rel="noreferrer noopener"}
       * [Developer's website](https://alexwayfer.name){:target="_blank" rel="noreferrer noopener"}
