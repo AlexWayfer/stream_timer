@@ -1,7 +1,7 @@
 <header>
 	<div class="container">
 		<a href="<%= path_to ST::Site::Public::IndexController %>">
-			<img src="<%= url_with_mtime '/images/logo.png' %>" />
+			<img src="<%= url_to '/images/logo.png', version: true %>" />
 			<h1><%= config[:site][:site_name] %></h1>
 		</a>
 
@@ -27,7 +27,7 @@
 		<button type="button" class="theme-toggle">
 			<svg class="icon icon-brightness baseline">
 				<use
-					xlink:href="<%= url_with_mtime '/images/icons/symbol-defs.svg' %>#icon-brightness"
+					xlink:href="<%= url_to '/images/icons/symbol-defs.svg', version: true %>#icon-brightness"
 				></use>
 			</svg>
 		</button>
