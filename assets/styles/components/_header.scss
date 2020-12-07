@@ -1,17 +1,13 @@
 $header_logo_height: 66px;
 $header_vertical_padding: 15px;
 $mobile_header_logo_height: 42px;
-$mobile_header_vertical_padding: 7px;
 
 > header {
-	background-color: $accent_background_color;
-	padding: $mobile_header_vertical_padding 0;
-	z-index: 7;
+	--header-top-padding: 0.4em;
 
-	@include media-from(md) {
-		padding-top: 1em;
-		padding-bottom: 1.25em;
-	}
+	background-color: $accent_background_color;
+	padding: var(--header-top-padding) 0 calc(var(--header-top-padding) + 0.2em);
+	z-index: 7;
 
 	&,
 	a {
@@ -34,6 +30,10 @@ $mobile_header_vertical_padding: 7px;
 
 			> h1 {
 				margin: 0;
+
+				@include media-to(md) {
+					display: none;
+				}
 			}
 		}
 
@@ -42,10 +42,15 @@ $mobile_header_vertical_padding: 7px;
 			margin-top: 0.25em;
 
 			> a {
+				display: inline-block;
 				padding: 0.8em;
 
 				&.selected {
 					font-weight: bold;
+				}
+
+				@include media-to(sm) {
+					padding: 0.4em;
 				}
 			}
 		}

@@ -5,21 +5,24 @@
 	%>
 		<label>
 			<% value = @form.public_send(time_component) %>
-			<input
-				type="number"
-				name="configuration[<%= time_component %>]"
-				value="<%= !@form.only_countup && countup ? 0 : value %>"
-				min="<%= time_limits.begin %>"
-				<% if (max = time_limits.end) %>
-					max="<%= max %>"
-				<% end %>
-				required
-			/>
-			<%= t.site.configurations.form.time[time_component] %><%
-				unless time_component == :seconds
-					%>,<%
-				end
-			%>
+			<span
+				><input
+					type="number"
+					name="configuration[<%= time_component %>]"
+					value="<%= !@form.only_countup && countup ? 0 : value %>"
+					min="<%= time_limits.begin %>"
+					<% if (max = time_limits.end) %>
+						max="<%= max %>"
+					<% end %>
+					required
+				/></span
+			><span
+				><%= t.site.configurations.form.time[time_component] %><%
+					unless time_component == :seconds
+						%>,<%
+					end
+				%>
+			</span>
 		</label>
 	<% end %>
 </fieldset>

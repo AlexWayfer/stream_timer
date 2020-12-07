@@ -1,4 +1,4 @@
-<section class="configuration load">
+<section class="load">
 	<h2><%= t.site.configurations.load.header %></h2>
 
 	<form action="<%= path_to ST::Site::Public::UsersController, :load %>" method="POST">
@@ -7,7 +7,7 @@
 		<fieldset>
 			<legend><%= t.label.user_key %></legend>
 
-			<input type="password" name="user_key" size="36" required />
+			<input type="password" class="monospace" name="user_key" required />
 		</fieldset>
 
 		<button type="submit" class="success"><%= t.button.load %></button>

@@ -15,7 +15,7 @@
 <section class="configuration change">
 	<h2><%= t.site.configurations[action].header %></h2>
 
-	<form class="table" action="<%= path_to action, *action_args %>" method="POST">
+	<form action="<%= path_to action, *action_args %>" method="POST">
 		<%= csrf_tag %>
 
 		<input type="hidden" name="_method" value="<%= method %>" />
@@ -105,7 +105,7 @@
 					type="text"
 					name="configuration[countdown_text_before]"
 					value="<%== @form.countdown_text_before %>"
-					size="10"
+					size="12"
 				/>
 
 				<%= render '_form/_time_inputs', countup: false %>
@@ -156,7 +156,7 @@
 					type="text"
 					name="configuration[countup_text_before]"
 					value="<%== @form.countup_text_before %>"
-					size="10"
+					size="12"
 				/>
 
 				<%= render '_form/_time_inputs', countup: true %>
@@ -171,7 +171,7 @@
 			</p>
 		</fieldset>
 
-		<fieldset>
+		<fieldset class="table">
 			<legend><%= t.label.configuration.style.common %></legend>
 
 			<fieldset>

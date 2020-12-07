@@ -3,6 +3,7 @@
 	/* stylelint-disable plugin/no-unsupported-browser-features */
 	width: max-content;
 	/* stylelint-enable plugin/no-unsupported-browser-features */
+	max-width: 100%;
 
 	.timeline {
 		display: flex;
@@ -83,8 +84,9 @@
 			padding: 0;
 			border: none;
 
-			label {
-				display: inline;
+			> label {
+				display: inline-block;
+				white-space: nowrap;
 
 				+ label {
 					margin-left: 0.4em;
@@ -92,7 +94,7 @@
 
 				input {
 					margin-left: 0;
-					margin-right: 0.1em;
+					margin-right: 0.2em;
 
 					&[max="59"] {
 						width: 4em;
@@ -100,6 +102,28 @@
 
 					&:not([max]) {
 						width: 6em;
+					}
+				}
+			}
+
+			@include media-to(sm) {
+				display: inline-table;
+
+				> label {
+					display: table-row;
+
+					> * {
+						display: table-cell;
+						padding-top: calc(var(--fieldset-inner-margin) / 2);
+						padding-bottom: calc(var(--fieldset-inner-margin) / 2);
+
+						&:first-of-type {
+							text-align: right;
+						}
+
+						&:last-of-type {
+							text-align: left;
+						}
 					}
 				}
 			}
@@ -160,7 +184,8 @@
 				}
 
 				input {
-					width: 15em;
+					width: 100%;
+					max-width: 15em;
 				}
 			}
 		}
@@ -173,7 +198,6 @@
 
 	input[type="number"] {
 		text-align: right;
-		padding-right: 0;
 	}
 
 	&.delete {

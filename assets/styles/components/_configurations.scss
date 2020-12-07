@@ -1,5 +1,10 @@
+@import 'configurations/form';
+@import 'configurations/load';
+@import 'configurations/user_key';
+
 .configurations > ul {
 	width: max-content;
+	max-width: 100%;
 	text-align: initial;
 
 	> li {
