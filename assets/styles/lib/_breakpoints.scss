@@ -8,7 +8,9 @@ $breakpoints: (
 	// Large devices (desktops, 992px and up)
 	lg: 992px,
 	// Extra large devices (large desktops, 1200px and up)
-	xl: 1200px
+	xl: 1200px,
+	// Extra extra large devices
+	xxl: 1400px
 );
 
 @mixin media-to($breakpoint) {

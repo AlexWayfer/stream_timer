@@ -61,6 +61,7 @@ site:
         hours: hours
         minutes: minutes
         seconds: seconds
+      preview: Preview
 
 label:
   user_key: User key

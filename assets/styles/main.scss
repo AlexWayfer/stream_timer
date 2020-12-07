@@ -36,9 +36,11 @@ html {
 			cursor: not-allowed;
 		}
 
+		$container_horizontal_padding: 15px;
+
 		.container {
 			max-width: $container_max_width;
-			padding: 0 15px;
+			padding: 0 $container_horizontal_padding;
 			margin: 0 auto;
 		}
 
@@ -290,10 +292,18 @@ html {
 		> main {
 			text-align: center;
 
-			> .container > section {
-				width: max-content;
-				max-width: 100%;
-				margin: 2em auto 4em;
+			&,
+			> .container {
+				> section {
+					width: max-content;
+					max-width: 100%;
+					margin: 2em auto 4em;
+				}
+			}
+
+			> section {
+				padding-left: $container_horizontal_padding;
+				padding-right: $container_horizontal_padding;
 			}
 		}
 

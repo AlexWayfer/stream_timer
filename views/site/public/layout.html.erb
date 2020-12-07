@@ -35,20 +35,17 @@
 </header>
 
 <main>
-	<div class="container">
-		<%
-			%i[error warning notice].each do |type|
-				flash[type].each do |text|
-		%>
-					<div class="flash <%= type %>">
-						<%= text %>
-					</div>
-		<%
-				end
+	<%
+		%i[error warning notice].each do |type|
+			flash[type].each do |text|
+	%>
+				<div class="flash <%= type %>">
+					<%= text %>
+				</div>
+	<%
 			end
-		%>
+		end
+	%>
 
-		<%= yield %>
-
-	</div>
+	<%= yield %>
 </main>
