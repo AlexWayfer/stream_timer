@@ -34,6 +34,8 @@ site:
 
       Logotype is from [Icons8](https://icons8.com/icon/1jGDyNJqW01A/display){:target="_blank" rel="noreferrer noopener"}.
 
+    go_to_configurations: Go to configurations
+
   configurations:
     user_key:
       header: User key

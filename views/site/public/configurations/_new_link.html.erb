@@ -1,3 +1,5 @@
 <section class="configuration">
-	<a href="<%= path_to :new %>"><h2><%= t.site.configurations.create.header %></h2></a>
+	<a href="<%= path_to ST::Site::Public::ConfigurationsController, :new %>"><h2><%=
+		t.site.configurations.create.header
+	%></h2></a>
 </section>

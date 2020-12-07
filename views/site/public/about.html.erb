@@ -3,3 +3,19 @@
 
 	<%= t.site.about.text %>
 </div>
+
+<% if current_user %>
+
+	<section class="configuration">
+		<a href="<%= path_to ST::Site::Public::ConfigurationsController %>"><h2><%=
+			t.site.about.go_to_configurations
+		%></h2></a>
+	</section>
+
+<% else %>
+
+	<%= render 'configurations/_new_link' %>
+
+	<%= render 'configurations/_load' %>
+
+<% end %>
