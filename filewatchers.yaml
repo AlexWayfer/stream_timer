@@ -1,17 +1,31 @@
-- :pattern: 'Gemfile{,.lock}'
+- :pattern:
+    - .ruby-version
+    - Gemfile{,.lock}
   :command: bundle install && pumactl restart
 
-- :pattern: '**/{*.{rb,ru,y{a,}ml}}'
+- :pattern:
+    - .ruby-version
+    - **/*.rb
+    - **/*.ru
+    - **/*.y{a,}ml
   :exclude: '**/{spec/**/*,config/**/*.example*}'
   ## Don't use `bundle exec`, it's already required by `toys`
   ## https://github.com/dazuma/toys/issues/65
   :command: pumactl restart
 
-- :pattern: '{assets/styles/**/*,postcss.config.js}'
+- :pattern:
+    - .node-version
+    - assets/styles/**/*
+    - postcss.config.js
   :command: pnpm run build:styles
 
-- :pattern: '{assets/scripts/**/*,rollup.config.js}'
+- :pattern:
+    - .node-version
+    - assets/scripts/**/*
+    - rollup.config.js
   :command: pnpm run build:scripts
 
-- :pattern: 'package.json'
+- :pattern:
+    - .node-version
+    - package.json
   :command: pnpm install && pnpm run build
