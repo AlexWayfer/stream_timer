@@ -94,6 +94,21 @@
 					flex-basis: 100%;
 					height: 50vh;
 					margin: 0 auto 1em;
+
+					$chess-color: #999;
+					$chess-size: 28;
+
+					background-image:
+						linear-gradient(45deg, #{$chess-color} 25%, transparent 25%),
+						linear-gradient(-45deg, #{$chess-color} 25%, transparent 25%),
+						linear-gradient(45deg, transparent 75%, #{$chess-color} 75%),
+						linear-gradient(-45deg, transparent 75%, #{$chess-color} 75%);
+					background-size: #{$chess-size}px #{$chess-size}px;
+					background-position:
+						0 0,
+						0 #{$chess-size / 2}px,
+						#{$chess-size / 2}px -#{$chess-size / 2}px,
+						-#{$chess-size / 2}px 0;
 				}
 			}
 		}
