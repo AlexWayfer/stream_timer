@@ -1,77 +1,148 @@
+os_setup: &os_setup
+  container:
+    image: archlinux
+  os_setup_script:
+    - pacman -Sy
+    - pacman -S --noconfirm git gcc make postgresql-libs
+
+    - echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+    - echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+
+    - echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc
+    - echo 'eval "$(nodenv init -)"' >> ~/.bashrc
+
+rbenv_cache: &rbenv_cache
+  rbenv_cache:
+    folder: $HOME/.rbenv
+    fingerprint_script:
+      - echo $CIRRUS_OS
+      - cat .ruby-version
+    populate_script:
+      - git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+
+      - source ~/.bashrc
+
+      ## https://github.com/rbenv/ruby-build#installation
+      - mkdir -p "$(rbenv root)"/plugins
+      - git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+
+      - exe/setup/ruby.sh
+
+nodenv_cache: &nodenv_cache
+  nodenv_cache:
+    folder: $HOME/.nodenv
+    fingerprint_script:
+      - echo $CIRRUS_OS
+      - cat .node-version
+    populate_script:
+      - git clone https://github.com/nodenv/nodenv.git ~/.nodenv
+
+      - source ~/.bashrc
+
+      ## https://github.com/nodenv/node-build#installation
+      - mkdir -p "$(nodenv root)"/plugins
+      - git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
+
+      - exe/setup/node.sh
+
 bundle_cache: &bundle_cache
   bundle_cache:
     folder: /usr/local/bundle
     fingerprint_script:
       - echo $CIRRUS_OS
-      - ruby -v
-      - cat Gemfile
+      - cat .ruby-version
       - cat Gemfile.lock
   install_script:
+    - source ~/.bashrc
     - gem install bundler
-    - bundle update
+    - bundle install
 
 node_modules_cache: &node_modules_cache
   node_modules_cache:
     folder: node_modules
     fingerprint_script:
       - echo $CIRRUS_OS
-      - node -v
-      - cat package.json
+      - cat .node-version
       - cat pnpm-lock.yaml
   install_script:
-    - npm install -g pnpm
+    - source ~/.bashrc
+    - npm i -g pnpm
     - pnpm install
 
-lint_docs_task:
-  container:
-    image: node
+
+remark_task:
+  <<: *os_setup
+
+  always:
+    <<: *nodenv_cache
+
   <<: *node_modules_cache
 
-  lint_script: pnpm run lint:docs
+  lint_script:
+    - source ~/.bashrc
+    - pnpm run lint:docs
 
   only_if: ($CIRRUS_BRANCH == 'master') ||
     changesInclude(
-      '.cirrus.yaml', '.gitignore', 'package.json', '.remarkrc.yaml', '**.md'
+      '.cirrus.yaml', '.gitignore', '.node-version', 'package.json', 'package-lock.json',
+      '.remarkrc.yaml', '**.md'
     )
 
-lint_styles_task:
-  container:
-    image: node
+stylelint_task:
+  <<: *os_setup
+
+  always:
+    <<: *nodenv_cache
+
   <<: *node_modules_cache
 
-  lint_script: pnpm run lint:styles
+  lint_script:
+    - source ~/.bashrc
+    - pnpm run lint:styles
 
   only_if: ($CIRRUS_BRANCH == 'master') ||
     changesInclude(
-      '.cirrus.yaml', '.gitignore', 'package.json', '.remarkrc.yaml', 'assets/styles/**'
+      '.cirrus.yaml', '.gitignore', '.node-version', 'package.json', 'package-lock.json',
+      'browserslist', '.stylelintrc.yaml', 'assets/styles/**'
     )
 
-lint_scripts_task:
-  container:
-    image: node
+eslint_task:
+  <<: *os_setup
+
+  always:
+    <<: *nodenv_cache
+
   <<: *node_modules_cache
 
-  lint_script: pnpm run lint:scripts
+  lint_script:
+    - source ~/.bashrc
+    - pnpm run lint:scripts
 
   only_if: ($CIRRUS_BRANCH == 'master') ||
     changesInclude(
-      '.cirrus.yaml', '.gitignore', 'package.json', '.remarkrc.yaml', 'assets/scripts/**', '*.js'
+      '.cirrus.yaml', '.gitignore', '.node-version', 'package.json', 'package-lock.json',
+      'browserslist', '.eslint*', 'assets/scripts/**', '*.js'
     )
 
 rubocop_task:
-  container:
-    image: ruby:latest
-  <<: *bundle_cache
-
-  lint_script: bundle exec rubocop --format=json --out=rubocop.json
+  <<: *os_setup
 
   always:
+    <<: *rbenv_cache
+
     rubocop_artifacts:
       path: rubocop.json
       type: text/json
       format: rubocop
 
+  <<: *bundle_cache
+
+  lint_script:
+    - source ~/.bashrc
+    - bundle exec rubocop --format=json --out=rubocop.json
+
   only_if: ($CIRRUS_BRANCH == 'master') ||
     changesInclude(
-      '.cirrus.yaml', '.gitignore', 'Gemfile', '.rubocop.yml', '*.gemspec', '**.rb', '**.ru'
+      '.cirrus.yaml', '.gitignore', '.ruby-version', 'Gemfile', 'Gemfile.lock',
+      '.rubocop.yml', '**.rb', '**.ru'
     )
