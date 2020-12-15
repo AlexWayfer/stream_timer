@@ -31,7 +31,7 @@ $mobile_header_logo_height: 42px;
 			> h1 {
 				margin: 0;
 
-				@include media-to(md) {
+				@media screen and (max-width: 800px) {
 					display: none;
 				}
 			}
@@ -49,7 +49,7 @@ $mobile_header_logo_height: 42px;
 					font-weight: bold;
 				}
 
-				@include media-to(sm) {
+				@media screen and (max-width: 600px) {
 					padding: 0.4em;
 				}
 			}

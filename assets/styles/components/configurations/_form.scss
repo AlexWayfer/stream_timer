@@ -57,7 +57,7 @@
 		.fieldsets-with-preview {
 			display: flex;
 
-			@include media-to(lg) {
+			@media screen and (max-width: 1400px) {
 				flex-direction: column;
 				align-items: center;
 
@@ -66,7 +66,7 @@
 				}
 			}
 
-			@include media-from(lg) {
+			@media screen and (min-width: 1000px) {
 				> * {
 					margin: 0 0.5em;
 
@@ -199,25 +199,24 @@
 					}
 				}
 
-				@include media-to(xxl) {
-					@include media-from(lg) {
-						display: inline-table;
+				@media screen and (max-width: 800px),
+					screen and (min-width: 1400px) and (max-width: 1600px) {
+					display: inline-table;
 
-						> label {
-							display: table-row;
+					> label {
+						display: table-row;
 
-							> * {
-								display: table-cell;
-								padding-top: calc(var(--fieldset-inner-margin) / 2);
-								padding-bottom: calc(var(--fieldset-inner-margin) / 2);
+						> * {
+							display: table-cell;
+							padding-top: calc(var(--fieldset-inner-margin) / 2);
+							padding-bottom: calc(var(--fieldset-inner-margin) / 2);
 
-								&:first-of-type {
-									text-align: right;
-								}
+							&:first-of-type {
+								text-align: right;
+							}
 
-								&:last-of-type {
-									text-align: left;
-								}
+							&:last-of-type {
+								text-align: left;
 							}
 						}
 					}
