@@ -54,8 +54,7 @@ bundle_cache: &bundle_cache
       - cat Gemfile.lock
   install_script:
     - source ~/.bashrc
-    - gem install bundler
-    - bundle install
+    - exe/setup/ruby.sh
 
 node_modules_cache: &node_modules_cache
   node_modules_cache:
@@ -66,8 +65,7 @@ node_modules_cache: &node_modules_cache
       - cat pnpm-lock.yaml
   install_script:
     - source ~/.bashrc
-    - npm i -g pnpm
-    - pnpm install
+    - exe/setup/node.sh
 
 
 remark_task:
