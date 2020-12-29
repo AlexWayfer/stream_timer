@@ -1,18 +1,12 @@
-FROM debian:latest
+FROM archlinux
 
 MAINTAINER Alexander Popov <alex.wayfer@gmail.com>
 
 ARG port
 
-RUN apt-get update -qq && apt-get install -y \
-	## For `rbenv` and `nodenv`
-	curl git gcc make \
-	## For Ruby
-	autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev \
-	## For Ruby gems
-	libpq-dev
+RUN pacman -Sy && pacman -S --noconfirm which git gcc make postgresql-libs
 
-RUN adduser --gecos '' --disabled-password stream_timer
+RUN useradd -m stream_timer
 USER stream_timer
 ENV HOME /home/stream_timer
 
