@@ -1,9 +1,8 @@
 os_setup: &os_setup
   container:
-    image: archlinux
+    image: alpine:3
   os_setup_script:
-    - pacman -Sy
-    - pacman -S --noconfirm git gcc make postgresql-libs
+    # - apk add --no-cache git gcc make postgresql-libs
 
     - echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
     - echo 'eval "$(rbenv init -)"' >> ~/.bashrc
