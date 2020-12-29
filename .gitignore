@@ -31,7 +31,13 @@
 # node modules
 /node_modules/
 
+# bundle
+/vendor/ruby/
+
 # compiled assets
 /public/styles/main.css
 /public/styles/main.css.map
 /public/scripts/compiled/
+
+# docker
+/db/docker/

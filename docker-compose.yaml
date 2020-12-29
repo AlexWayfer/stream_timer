@@ -1,0 +1,22 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./db/docker:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: 'stream_timer'
+      POSTGRES_USER: 'stream_timer'
+      POSTGRES_PASSWORD: 'K1MWcvPouuaaDlssN1vk'
+  web:
+    image: stream_timer
+    build:
+      context: .
+      args:
+        port: 3000
+    volumes:
+      - .:/home/stream_timer/stream_timer
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
