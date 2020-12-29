@@ -4,13 +4,14 @@ os_setup: &os_setup
   container:
     image: $CI_IMAGE
   os_setup_script:
-    # - apk add --no-cache git gcc make postgresql-libs
+    ## `bash` is required by `nodenv`, as I see
+    - apk add --no-cache bash git # gcc make postgresql-libs
 
-    - echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-    - echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+    - echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.rbenv_init
+    - echo 'eval "$(rbenv init -)"' >> ~/.rbenv_init
 
-    - echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc
-    - echo 'eval "$(nodenv init -)"' >> ~/.bashrc
+    - echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.nodenv_init
+    - echo 'eval "$(nodenv init -)"' >> ~/.nodenv_init
 
 rbenv_cache: &rbenv_cache
   rbenv_cache:
@@ -22,7 +23,7 @@ rbenv_cache: &rbenv_cache
     populate_script:
       - git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 
-      - source ~/.bashrc
+      - . ~/.rbenv_init
 
       ## https://github.com/rbenv/ruby-build#installation
       - mkdir -p "$(rbenv root)"/plugins
@@ -40,7 +41,7 @@ nodenv_cache: &nodenv_cache
     populate_script:
       - git clone https://github.com/nodenv/nodenv.git ~/.nodenv
 
-      - source ~/.bashrc
+      - . ~/.nodenv_init
 
       ## https://github.com/nodenv/node-build#installation
       - mkdir -p "$(nodenv root)"/plugins
@@ -57,7 +58,7 @@ bundle_cache: &bundle_cache
       - cat .ruby-version
       - cat Gemfile.lock
   install_script:
-    - source ~/.bashrc
+    - . ~/.rbenv_init
     - exe/setup/ruby.sh
 
 node_modules_cache: &node_modules_cache
@@ -69,7 +70,7 @@ node_modules_cache: &node_modules_cache
       - cat .node-version
       - cat pnpm-lock.yaml
   install_script:
-    - source ~/.bashrc
+    - . ~/.nodenv_init
     - exe/setup/node.sh
 
 
@@ -82,7 +83,7 @@ remark_task:
   <<: *node_modules_cache
 
   lint_script:
-    - source ~/.bashrc
+    - . ~/.nodenv_init
     - pnpm run lint:docs
 
   only_if: ($CIRRUS_BRANCH == 'master') ||
@@ -100,7 +101,7 @@ stylelint_task:
   <<: *node_modules_cache
 
   lint_script:
-    - source ~/.bashrc
+    - . ~/.nodenv_init
     - pnpm run lint:styles
 
   only_if: ($CIRRUS_BRANCH == 'master') ||
@@ -118,7 +119,7 @@ eslint_task:
   <<: *node_modules_cache
 
   lint_script:
-    - source ~/.bashrc
+    - . ~/.nodenv_init
     - pnpm run lint:scripts
 
   only_if: ($CIRRUS_BRANCH == 'master') ||
@@ -141,7 +142,7 @@ rubocop_task:
   <<: *bundle_cache
 
   lint_script:
-    - source ~/.bashrc
+    - . ~/.rbenv_init
     - bundle exec rubocop --format=json --out=rubocop.json
 
   only_if: ($CIRRUS_BRANCH == 'master') ||
