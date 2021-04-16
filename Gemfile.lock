@@ -161,7 +161,7 @@ GEM
       alt_memery (~> 2.0)
       rubyzip (~> 2.0)
       toys-core (~> 0.11.0)
-    kramdown (2.3.0)
+    kramdown (2.3.1)
       rexml
     launchy (2.5.0)
       addressable (~> 2.7)
@@ -220,7 +220,7 @@ GEM
       rack (>= 1.1.0)
     rainbow (3.0.0)
     regexp_parser (2.0.0)
-    rexml (3.2.4)
+    rexml (3.2.5)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
