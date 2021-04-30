@@ -13,8 +13,8 @@ group :system do
 end
 
 group :server do
-	gem 'flame', github: 'AlexWayfer/flame'
-	gem 'flame-flash', github: 'AlexWayfer/flame-flash'
+	gem 'flame', '~> 5.0.0.rc6'
+	gem 'flame-flash', '~> 3.0.1.rc1'
 	gem 'flame-menu', github: 'AlexWayfer/flame-menu'
 	gem 'puma'
 	gem 'rack-contrib'
@@ -48,15 +48,14 @@ group :database do
 end
 
 group :translations do
-	gem 'flame-r18n', github: 'AlexWayfer/flame-r18n'
-	gem 'r18n-core', github: 'r18n/r18n'
+	gem 'flame-r18n', '~> 3.0.0.rc1'
 end
 
 group :forms do
 	gem 'formalism'
-	gem 'formalism-model_forms', github: 'AlexWayfer/formalism-model_forms'
-	gem 'formalism-r18n_errors', github: 'AlexWayfer/formalism-r18n_errors'
-	gem 'formalism-sequel_transactions', github: 'AlexWayfer/formalism-sequel_transactions'
+	gem 'formalism-model_forms'
+	gem 'formalism-r18n_errors'
+	gem 'formalism-sequel_transactions'
 end
 
 group :views do
