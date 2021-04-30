@@ -7,10 +7,10 @@ GIT
 
 GIT
   remote: https://github.com/AlexWayfer/flame-menu.git
-  revision: dc60195bab445bbbfba5a8740bd6caa87016caf5
+  revision: 5b65e822491255ef0ffb89bbc598b99af142d73e
   specs:
     flame-menu (0.0.0)
-      flame (~> 5.0.0.rc1)
+      flame (~> 5.0.0.rc6)
 
 GIT
   remote: https://github.com/AlexWayfer/rack-protection-maximum_cookie.git
@@ -65,9 +65,9 @@ GEM
     faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
-    filewatcher (2.0.0.beta2)
-    filewatcher-matrix (0.1.1)
-      filewatcher (~> 2.0.0.beta1)
+    filewatcher (2.0.0.beta5)
+    filewatcher-matrix (0.2.0)
+      filewatcher (>= 2.0.0.beta3, < 3)
     flame (5.0.0.rc6)
       addressable (~> 2.5)
       alt_memery (~> 2.0)
@@ -97,9 +97,9 @@ GEM
     flame_routes_toys (0.3.0)
       alt_memery (~> 2.0)
       toys-core (~> 0.11.0)
-    flame_server_toys (0.3.0)
+    flame_server_toys (0.4.0)
       alt_memery (~> 2.0)
-      filewatcher-matrix (~> 0.1.0)
+      filewatcher-matrix (~> 0.2.0)
       gorilla_patch (~> 4.0)
       toys-core (~> 0.11.0)
     formalism (0.4.0)
@@ -216,7 +216,7 @@ GEM
     rubocop-rspec (2.0.1)
       rubocop (~> 1.0)
       rubocop-ast (>= 1.1.0)
-    rubocop-sequel (0.1.0)
+    rubocop-sequel (0.2.0)
       rubocop (~> 1.0)
     ruby-ll (2.1.2)
       ansi
