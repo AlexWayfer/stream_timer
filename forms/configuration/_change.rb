@@ -8,9 +8,9 @@ module StreamTimer
 				include Formalism::Form::Fields
 
 				TIME_LIMITS = {
-					hours: (0..).freeze,
-					minutes: (0..59).freeze,
-					seconds: (0..59).freeze
+					hours: (0..),
+					minutes: (0..59),
+					seconds: (0..59)
 				}.freeze
 
 				field :name, String, default: 'AFK timer'
