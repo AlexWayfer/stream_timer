@@ -128,16 +128,11 @@ rubocop_task:
   always:
     <<: *rbenv_cache
 
-    rubocop_artifacts:
-      path: rubocop.json
-      type: text/json
-      format: rubocop
-
   <<: *bundle_cache
 
   lint_script:
     - source ~/.bashrc
-    - bundle exec rubocop --format=json --out=rubocop.json
+    - bundle exec rubocop
 
   only_if: ($CIRRUS_BRANCH == 'master') ||
     changesInclude(
