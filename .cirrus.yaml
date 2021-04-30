@@ -5,13 +5,10 @@ os_setup: &os_setup
     - pacman -Sy
     - pacman -S --noconfirm git gcc make postgresql-libs
 
+rbenv_cache: &rbenv_cache
+  rbenv_setup_script:
     - echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
     - echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-
-    - echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc
-    - echo 'eval "$(nodenv init -)"' >> ~/.bashrc
-
-rbenv_cache: &rbenv_cache
   rbenv_cache:
     folder: $HOME/.rbenv
     fingerprint_script:
@@ -29,6 +26,9 @@ rbenv_cache: &rbenv_cache
       - exe/setup/ruby.sh
 
 nodenv_cache: &nodenv_cache
+  nodenv_setup_script:
+    - echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc
+    - echo 'eval "$(nodenv init -)"' >> ~/.bashrc
   nodenv_cache:
     folder: $HOME/.nodenv
     fingerprint_script:
