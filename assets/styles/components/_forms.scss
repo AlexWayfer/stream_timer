@@ -4,15 +4,10 @@ $form_vertical_input_margin: 0.4em;
 form {
 	text-align: center;
 
-	--fieldset-inner-margin: 0.4em;
-
 	fieldset {
 		text-align: initial;
 		margin: 1em 0;
-		padding:
-			calc(0.6em - var(--fieldset-inner-margin))
-			1em
-			calc(1em - var(--fieldset-inner-margin));
+		padding: 0.6em 1em 1em;
 		border-radius: $common_border_radius;
 		border-style: solid;
 		border-width: $input_border_width;
@@ -27,11 +22,6 @@ form {
 			+ p {
 				margin-top: $decreased-margin;
 			}
-		}
-
-		> *:not(legend):not(fieldset) {
-			margin-top: var(--fieldset-inner-margin);
-			margin-bottom: var(--fieldset-inner-margin);
 		}
 
 		> fieldset,
@@ -127,8 +117,6 @@ form {
 	&,
 	fieldset {
 		&.table {
-			--fieldset-inner-margin: 0;
-
 			label {
 				display: table-row;
 
@@ -140,6 +128,10 @@ form {
 					&:first-of-type {
 						text-align: right;
 						padding-right: 0.4em;
+					}
+
+					&:last-of-type {
+						width: 100%;
 					}
 				}
 
