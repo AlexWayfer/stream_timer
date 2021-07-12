@@ -54,9 +54,6 @@ GEM
     down (5.2.1)
       addressable (~> 2.5)
     dry-inflector (0.2.0)
-    email_address (0.1.20)
-      netaddr (>= 2.0.4, < 3)
-      simpleidn
     erubi (1.10.0)
     example_file (0.2.0)
       diffy (~> 3.0)
@@ -148,7 +145,6 @@ GEM
     mini_mime (1.1.0)
     module_methods (0.1.0)
     multipart-post (2.1.1)
-    netaddr (2.0.4)
     nio4r (2.5.7)
     oga (3.3)
       ast
@@ -248,8 +244,6 @@ GEM
     shrine (3.3.0)
       content_disposition (~> 1.0)
       down (~> 5.1)
-    simpleidn (0.2.1)
-      unf (~> 0.1.4)
     static_files_toys (0.2.0)
       highline (~> 2.0)
       toys-core (~> 0.11.0)
@@ -259,9 +253,6 @@ GEM
     toys (0.11.5)
       toys-core (= 0.11.5)
     toys-core (0.11.5)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.7.7)
     unicode-display_width (2.0.0)
     uuid (2.3.9)
       macaddr (~> 1.0)
@@ -276,7 +267,6 @@ DEPENDENCIES
   bundler
   bundler-audit
   config_toys
-  email_address
   erubi
   flame (~> 5.0.0.rc6)
   flame-flash (~> 3.0.1.rc1)

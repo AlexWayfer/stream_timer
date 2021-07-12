@@ -63,7 +63,7 @@ group :views do
 end
 
 group :mails do
-	gem 'email_address'
+	# gem 'email_address'
 	gem 'kramdown'
 	gem 'mail'
 end
