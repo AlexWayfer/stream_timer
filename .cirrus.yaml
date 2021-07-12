@@ -5,6 +5,15 @@ os_setup: &os_setup
     - pacman -Sy
     - pacman -S --noconfirm git gcc make postgresql-libs
 
+env:
+  ## To suppress flood of warnings:
+  ## https://github.com/cirruslabs/cirrus-ci-docs/issues/814
+  ## https://github.com/rubygems/rubygems/issues/4466#issuecomment-818688569
+  ## Global for:
+  ## 1. different tasks (rubocop, test, etc.);
+  ## 2. avoiding overriding `env` in specific cases like macOS.
+  TMPDIR: $CIRRUS_WORKING_DIR
+
 rbenv_cache: &rbenv_cache
   rbenv_setup_script:
     - echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
