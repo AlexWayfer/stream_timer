@@ -54,6 +54,8 @@ site:
     form:
       only_countup: Only countup
       specific_time: Specific time
+      hint_about_space_in_text: >
+        Hint: to allow timers without space (like "T-01:23"), spaces are important, including one at the end of text.
       display_countdown_information: Display countdown information
       display_countup_time: Display countup time
       timeline: Timeline

@@ -211,4 +211,9 @@
 	&.delete {
 		margin: 0.5em auto;
 	}
+
+	p.hint {
+		color: $disabled_text_color;
+		font-size: 0.9em;
+	}
 }
