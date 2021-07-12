@@ -8,7 +8,6 @@
 		"promise-polyfill": "*",
 		"rollup": "*",
 		"sass": "*",
-		"simplify-js": "*",
 		"whatwg-fetch": "*"
 	},
 	"devDependencies": {

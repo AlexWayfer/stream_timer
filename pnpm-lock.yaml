@@ -12,7 +12,6 @@ specifiers:
   remark-preset-lint-recommended: '*'
   rollup: '*'
   sass: '*'
-  simplify-js: '*'
   stylelint: '*'
   stylelint-config-standard: '*'
   stylelint-no-unsupported-browser-features: '*'
@@ -26,7 +25,6 @@ dependencies:
   promise-polyfill: 8.2.0
   rollup: 2.32.1
   sass: 1.28.0
-  simplify-js: 1.2.4
   whatwg-fetch: 3.4.1
 
 devDependencies:
@@ -2395,10 +2393,6 @@ packages:
   /signal-exit/3.0.3:
     resolution: {integrity: sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==}
     dev: true
-
-  /simplify-js/1.2.4:
-    resolution: {integrity: sha512-vITfSlwt7h/oyrU42R83mtzFpwYk3+mkH9bOHqq/Qw6n8rtR7aE3NZQ5fbcyCUVVmuMJR6ynsAhOfK2qoah8Jg==}
-    dev: false
 
   /slash/3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
