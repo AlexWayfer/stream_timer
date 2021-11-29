@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/AlexWayfer/flame-menu.git
-  revision: 4a23c7b8ce02c53e365303b6425e4e1c7477445a
+  revision: 7d8ab71f3f6a79d01051983b86a5480de774af1b
   specs:
     flame-menu (0.0.0)
       flame (~> 5.0.0.rc6)
@@ -161,7 +161,7 @@ GEM
       ruby-ll (~> 2.1)
     paint (2.2.1)
     parallel (1.21.0)
-    parser (3.0.2.0)
+    parser (3.0.3.0)
       ast (~> 2.4.1)
     pg (1.2.3)
     pry (0.13.1)
