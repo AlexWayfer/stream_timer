@@ -1,16 +1,18 @@
-$page_max_width: 800px;
-$container_max_width: $page_max_width; // 1200px;
+$page-max-width: 800px;
+$container-max-width: $page-max-width; // 1200px;
 
-// $icon_size: 1em;
+// $icon-size: 1em;
 
-$common_border_width: 1px;
+// Common borders
+$common-border-width: 1px;
+$common-border-radius: 0.45em;
 
-$common_border_radius: 0.45em;
+// Inputs
+$input-border-radius: $common-border-radius;
+$input-border-width: $common-border-width;
+$input-vertical-padding: 0.2em;
+$input-padding: $input-vertical-padding 0.55em;
+$input-line-height: 1.4em;
 
-$input_border_radius: $common_border_radius;
-$input_border_width: $common_border_width;
-$input_vertical_padding: 0.2em;
-$input_padding: $input_vertical_padding 0.55em;
-$input_line_height: 1.4em;
-
-$button_border_radius: $input_border_radius;
+// Buttons
+$button-border-radius: $input-border-radius;

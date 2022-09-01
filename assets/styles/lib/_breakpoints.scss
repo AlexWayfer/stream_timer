@@ -23,6 +23,8 @@ $breakpoints: (
 	}
 }
 
+// https://github.com/stylelint-scss/stylelint-scss/pull/607
+// stylelint-disable scss/comment-no-empty
 // @each $breakpoint, $size in $breakpoints {
 // 	.show-to-#{$breakpoint} {
 // 		@include media-from($breakpoint) {
@@ -36,3 +38,4 @@ $breakpoints: (
 // 		};
 // 	}
 // }
+// stylelint-enable scss/comment-no-empty

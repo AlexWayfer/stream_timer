@@ -1,0 +1,52 @@
+@mixin small-and-large-elements(
+	$small-element: "> button", $large-element: "> input",
+	$small-element-on-right: false, $inline: false
+) {
+	display: if($inline, inline-flex, flex);
+	align-items: stretch;
+
+	#{$large-element},
+	#{$small-element} {
+		border-radius: $input-border-radius;
+
+		// Fix for Safari
+		margin: {
+			top: 0;
+			bottom: 0;
+		}
+
+		&:focus {
+			z-index: 2;
+		}
+	}
+
+	#{$large-element} {
+		flex-grow: 2;
+
+		&,
+		> * {
+			width: 100%;
+		}
+	}
+
+	#{$small-element} {
+		flex-grow: 0;
+	}
+
+	// Left element
+	#{if($small-element-on-right, $large-element, $small-element)} {
+		margin-right: -$common-border-width;
+
+		border: {
+			top-right-radius: 0;
+			bottom-right-radius: 0;
+		}
+	}
+
+	#{if($small-element-on-right, $small-element, $large-element)} {
+		border: {
+			top-left-radius: 0;
+			bottom-left-radius: 0;
+		}
+	}
+}

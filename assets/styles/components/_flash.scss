@@ -8,14 +8,14 @@
 	}
 
 	&.notice {
-		color: $success_text_color;
+		color: $success-text-color;
 	}
 
 	&.warning {
-		color: $warning_text_color;
+		color: $warning-text-color;
 	}
 
 	&.error {
-		color: $error_color;
+		color: $error-color;
 	}
 }

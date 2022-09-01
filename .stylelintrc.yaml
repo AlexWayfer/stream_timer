@@ -15,19 +15,8 @@ rules:
     - 100
     - ignorePattern: /// https?:///
 
-  at-rule-no-unknown:
-    - true
-    - ignoreAtRules:
-        - at-root
-        - mixin
-        - include
-        - extend
-        - function
-        - return
-        - each
-        - if
-        - else
-        - content
+  ## https://github.com/stylelint-scss/stylelint-scss/issues/538#issuecomment-1234825692
+  no-invalid-position-at-import-rule: null
 
   at-rule-empty-line-before:
     - always
@@ -91,3 +80,8 @@ rules:
         - outline
         ## Let's reconcile with IE 11
         - css-appearance
+
+  scss/dollar-variable-empty-line-before:
+    - never
+    - ignore:
+      - after-comment

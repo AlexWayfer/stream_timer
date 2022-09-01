@@ -1,0 +1,16 @@
+@function inputs-with-types($types...) {
+	$result: ();
+
+	@each $type in $types {
+		$result: list.append($result, 'input[type="' + $type + '"]', comma);
+	}
+
+	@return $result;
+}
+
+@function all-horizontal-inputs() {
+	@return inputs-with-types(
+		"text", "email", "password", "number", "url", "search", "date", "time", "datetime-local",
+		"file", "color", "range"
+	);
+}

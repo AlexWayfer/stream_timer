@@ -31,7 +31,7 @@
 		}
 
 		> p {
-			color: $disabled_text_color;
+			color: $disabled-text-color;
 			font-size: 1.4em;
 			margin: 0.8em;
 		}
@@ -213,7 +213,7 @@
 	}
 
 	p.hint {
-		color: $disabled_text_color;
+		color: $disabled-text-color;
 		font-size: 0.9em;
 	}
 }

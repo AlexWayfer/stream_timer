@@ -1,15 +1,19 @@
-@import 'lib/breakpoints';
-@import 'lib/headings';
-@import 'lib/clear_fix';
-@import 'lib/inputs_with_types';
-@import 'lib/disable_password_autocomplete';
-@import 'lib/sticky_footer';
+@use "sass:color";
+@use "sass:list";
+
+@import "lib/breakpoints";
+@import "lib/headings";
+@import "lib/clear-fix";
+@import "lib/inputs-with-types";
+@import "lib/disable-password-autocomplete";
+@import "lib/sticky-footer";
 
 html {
-	@import 'colors';
+	@import "colors";
 
 	* {
 		position: relative;
+
 		// outline: none;
 
 		&:not(svg) {
@@ -18,11 +22,11 @@ html {
 	}
 
 	body {
-		@import 'sizes';
-		@import 'fonts';
+		@import "sizes";
+		@import "fonts";
 
 		margin: 0;
-		font-family: $main_font_family;
+		font-family: $main-font-family;
 
 		.hidden {
 			display: none !important;
@@ -37,14 +41,14 @@ html {
 		}
 
 		.container {
-			max-width: $container_max_width;
+			max-width: $container-max-width;
 			padding: 0 15px;
 			margin: 0 auto;
 		}
 
 		a {
 			text-decoration: none;
-			color: $link_text_color;
+			color: $link-text-color;
 
 			&:hover {
 				text-decoration: underline;
@@ -58,7 +62,7 @@ html {
 		label,
 		a {
 			&.button {
-				@extend button;
+				@extend %button;
 
 				display: inline-block;
 			}
@@ -73,35 +77,33 @@ html {
 
 		@mixin custom-background-color($background-color) {
 			background: $background-color;
-			border-color: darken($background-color, 6%);
+			border-color: color.adjust($background-color, $lightness: -6%);
 
 			&:focus {
-				$focus_color: darken($background-color, 10%);
+				$focus-color: color.adjust($background-color, $lightness: -10%);
 
-				background: $focus_color;
-				border-color: $focus_color;
+				background: $focus-color;
+				border-color: $focus-color;
 			}
 
 			&:disabled {
-				$disabled_color: mix($background-color, #ddd);
+				$disabled-color: color.mix($background-color, #ddd);
 
-				background: $disabled_color;
-				border-color: $disabled_color;
+				background: $disabled-color;
+				border-color: $disabled-color;
 			}
 		}
 
-		@import 'lib/small_and_large_elements';
-		@import 'lib/input_with_clear_button';
+		@import "lib/small-and-large-elements";
+		@import "lib/input-with-clear-button";
 
 		// https://stackoverflow.com/a/23211766/2630849
-		#{inputs_with_types('text', 'email', 'password', 'number', 'url', 'search')},
+		#{inputs-with-types('text', 'email', 'password', 'number', 'url', 'search')},
 		textarea {
-			-webkit-appearance: none;
-			-moz-appearance: none;
 			appearance: none;
 		}
 
-		#{all_horizontal_inputs()},
+		#{all-horizontal-inputs()},
 		textarea,
 		select,
 		.cccombo > button {
@@ -114,42 +116,43 @@ html {
 		input,
 		textarea,
 		select,
-		button {
+		button,
+		%button {
 			// Fix for Safari :see_no_evil:
 			margin: 0;
-			padding: $input_padding;
+			padding: $input-padding;
 
 			font: {
 				size: inherit;
 				family: inherit;
 			}
 
-			line-height: $input_line_height;
+			line-height: $input-line-height;
 			color: var(--input-text-color);
 			background: var(--input-background-color);
-			border: $input_border_width solid var(--input-border-color);
-			border-radius: $input_border_radius;
+			border: $input-border-width solid var(--input-border-color);
+			border-radius: $input-border-radius;
 		}
 
 		textarea {
-			border-radius: $common_border_radius;
+			border-radius: $common-border-radius;
 		}
 
 		select {
-			$svg_size: 24;
+			$svg-size: 24;
 
 			appearance: none;
 
 			background: {
 				image: url(
-					"data:image/svg+xml;utf8,<svg fill='black' height='#{$svg_size}' viewBox='0 0 #{$svg_size} #{$svg_size}' width='#{$svg_size}' xmlns='http://www.w3.org/2000/svg'><path d='M7 9l5 5 5-5z'/></svg>"
+					"data:image/svg+xml;utf8,<svg fill='black' height='#{$svg-size}' viewBox='0 0 #{$svg-size} #{$svg-size}' width='#{$svg-size}' xmlns='http://www.w3.org/2000/svg'><path d='M7 9l5 5 5-5z'/></svg>"
 				);
 				repeat: no-repeat;
 				position-x: 100%;
 				position-y: center;
 			}
 
-			padding-right: #{$svg_size}px;
+			padding-right: #{$svg-size}px;
 
 			white-space: normal;
 		}
@@ -170,52 +173,52 @@ html {
 			&[type="color"] {
 				box-sizing: content-box;
 				padding: 0 0.2em;
-				height: $input_line_height + $input_vertical_padding * 2;
+				height: $input-line-height + $input-vertical-padding * 2;
 			}
 		}
 
 		@mixin primary {
-			@include custom-background-color($accent_background_color);
+			@include custom-background-color($accent-background-color);
 
 			color: white;
 		}
 
 		@mixin warning {
-			@include custom-background-color($warning_background_color);
+			@include custom-background-color($warning-background-color);
 
 			color: white;
 		}
 
 		@mixin danger {
-			@include custom-background-color($danger_background_color);
+			@include custom-background-color($danger-background-color);
 
 			color: white;
 		}
 
 		@mixin success {
-			@include custom-background-color($success_background_color);
+			@include custom-background-color($success-background-color);
 
 			color: white;
 		}
 
 		@mixin secondary {
-			@include custom-background-color($footer_background_color);
+			@include custom-background-color($footer-background-color);
 
 			color: white;
 		}
 
 		// @mixin tertiary {
-		// 	@include custom-background-color($tertiary_background_color);
+		// 	@include custom-background-color($tertiary-background-color);
 		// }
 
 		@mixin light {
 			@include custom-background-color(white);
 
-			color: $accent_text_color;
-			border-color: $accent_background_color;
+			color: $accent-text-color;
+			border-color: $accent-background-color;
 
 			&:focus {
-				border-color: $accent_background_color;
+				border-color: $accent-background-color;
 			}
 		}
 
@@ -223,7 +226,7 @@ html {
 			@include custom-background-color(white);
 
 			border-color: var(--input-border-color);
-			border-radius: $button_border_radius;
+			border-radius: $button-border-radius;
 
 			&.small {
 				font-size: 0.875em;
@@ -270,13 +273,13 @@ html {
 		}
 
 		.cccombo > button {
-			border-radius: $input_border_radius;
+			border-radius: $input-border-radius;
 		}
 
-		#{all_horizontal_inputs()} {
-			@include padding_for_inputs_with_clear_button {
+		#{all-horizontal-inputs()} {
+			@include padding-for-inputs-with-clear-button {
 				+ button:focus {
-					outline-color: darken($highlight_background_color, 15%);
+					outline-color: color.adjust($highlight-background-color, $lightness: -15%);
 				}
 			}
 		}
@@ -297,17 +300,17 @@ html {
 			}
 		}
 
-		@import 'components/header';
-		@import 'components/footer';
-		@import 'components/flash';
-		@import 'components/forms';
-		@import 'components/page';
+		@import "components/header";
+		@import "components/footer";
+		@import "components/flash";
+		@import "components/forms";
+		@import "components/page";
 
-		@import 'components/configurations';
-		@import 'components/timer';
+		@import "components/configurations";
+		@import "components/timer";
 
-		@include sticky_footer;
+		@include sticky-footer;
 	}
 
-	@import 'components/dark-theme';
+	@import "components/dark-theme";
 }

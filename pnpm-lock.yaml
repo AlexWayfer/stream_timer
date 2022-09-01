@@ -14,7 +14,7 @@ specifiers:
   sass: '*'
   stylelint: '*'
   stylelint-config-standard: '*'
-  stylelint-config-standard-scss: ^5.0.0
+  stylelint-config-standard-scss: '*'
   stylelint-no-unsupported-browser-features: '*'
   whatwg-fetch: '*'
 
