@@ -17,6 +17,7 @@
 		"remark-preset-lint-recommended": "*",
 		"stylelint": "*",
 		"stylelint-config-standard": "*",
+		"stylelint-config-standard-scss": "*",
 		"stylelint-no-unsupported-browser-features": "*"
 	},
 	"peerDependencies": {

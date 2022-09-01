@@ -1,4 +1,7 @@
-extends: stylelint-config-standard
+extends:
+  - stylelint-config-standard
+  - stylelint-config-standard-scss
+
 ignorePath: .gitignore
 
 plugins:
