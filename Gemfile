@@ -66,6 +66,7 @@ group :mails do
 	# gem 'email_address'
 	gem 'kramdown'
 	gem 'mail'
+	gem 'net-smtp'
 end
 
 group :test do
