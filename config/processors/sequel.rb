@@ -27,7 +27,7 @@ module StreamTimer
 					return unless config.load_yaml :database
 
 					config[:database] = config[:database][config[:environment]]
-					env_db_name = ENV['DB_NAME']
+					env_db_name = ENV.fetch('DB_NAME', nil)
 					config[:database][:database] = env_db_name if env_db_name
 
 					::Sequel::Model.raise_on_save_failure = false

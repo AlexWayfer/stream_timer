@@ -16,7 +16,7 @@ module StreamTimer
 						ST::APP_DIRS
 							.map { |app_dir| Regexp.escape(app_dir) }
 							.join('|')
-							.yield_self { |regexp_template| /(#{regexp_template})/ }
+							.then { |regexp_template| /(#{regexp_template})/ }
 							.freeze
 				}.freeze
 

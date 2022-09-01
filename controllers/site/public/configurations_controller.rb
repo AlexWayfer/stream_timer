@@ -45,7 +45,7 @@ module StreamTimer
 					if (form_outcome = @form.run).success?
 						update_user_session configuration_form_outcome: form_outcome
 
-						redirect :edit, key: key, notice: t.notice.configuration.updated
+						redirect :edit, key:, notice: t.notice.configuration.updated
 					else
 						view_validation_errors :edit, form_outcome
 					end

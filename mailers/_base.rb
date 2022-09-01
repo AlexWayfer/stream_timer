@@ -57,7 +57,7 @@ module StreamTimer
 					from: @from,
 					to: account.email,
 					subject: @controller.mail_subject,
-					body: body
+					body:
 				)
 			end
 

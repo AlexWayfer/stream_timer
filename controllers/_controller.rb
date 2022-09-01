@@ -29,7 +29,7 @@ module StreamTimer
 			# 	Mailers::Error::Internal.new(exception, request, params, affected_account).send!
 			# end
 
-			request_context = Flame::RavenContext.new(:server, controller: self, exception: exception)
+			request_context = Flame::RavenContext.new(:server, controller: self, exception:)
 			Raven.capture_exception(*request_context.exception_with_context)
 
 			super
