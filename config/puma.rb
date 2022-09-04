@@ -48,8 +48,8 @@ worker_timeout config[:environment] == 'development' ? 1_000_000 : 15
 threads 0, server_config[:threads_count] || 4
 
 lowlevel_error_handler do |exception, env|
-	request_context = Flame::RavenContext.new(:puma, env:, exception:)
-	Raven.capture_exception(*request_context.exception_with_context)
+	Flame::SentryContext.new(:puma, env:).capture_exception(exception)
+
 	## Rack response
 	[
 		500,

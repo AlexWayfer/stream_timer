@@ -1,6 +1,7 @@
 {
 	"private": true,
 	"dependencies": {
+		"@sentry/browser": "*",
 		"autoprefixer": "*",
 		"esbuild": "*",
 		"postcss-cli": "*",
@@ -25,7 +26,7 @@
 	},
 	"scripts": {
 		"build:styles": "sass assets/styles/main.scss public/styles/main.css -s compressed && postcss public/styles/main.css -o public/styles/main.css",
-		"build:scripts": "esbuild assets/scripts/main.js --outfile=public/scripts/compiled/main.js --bundle --sourcemap",
+		"build:scripts": "esbuild assets/scripts/main.js assets/scripts/sentry.js --outdir=public/scripts/compiled/ --bundle --sourcemap",
 		"build": "pnpm run build:styles && pnpm run build:scripts",
 		"clean:styles": "rm -f public/styles/main.css public/styles/main.css.map",
 		"clean:scripts": "rm -rvf public/scripts/compiled",

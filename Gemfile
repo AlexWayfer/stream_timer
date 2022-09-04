@@ -83,7 +83,7 @@ end
 
 group :others do
 	# gem 'faker'
-	gem 'flame-raven_context'
+	gem 'flame-sentry_context'
 	# gem 'kramdown'
 	# gem 'retries',
 	# gem 'money-oxr',

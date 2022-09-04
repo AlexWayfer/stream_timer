@@ -45,6 +45,7 @@ GEM
       thor (~> 1.0)
     byebug (11.1.3)
     coderay (1.1.3)
+    concurrent-ruby (1.1.10)
     config_toys (0.5.0)
       example_file (~> 0.3.0)
       toys-core (~> 0.13.0)
@@ -60,10 +61,6 @@ GEM
       diffy (~> 3.0)
       highline (~> 2.0)
       paint (~> 2.0)
-    faraday (2.5.2)
-      faraday-net_http (>= 2.0, < 3.1)
-      ruby2_keywords (>= 0.0.4)
-    faraday-net_http (3.0.0)
     filewatcher (2.0.0.beta6)
     filewatcher-matrix (0.2.0)
       filewatcher (>= 2.0.0.beta3, < 3)
@@ -84,10 +81,10 @@ GEM
     flame-r18n (3.0.0.rc1)
       flame (>= 5.0.0.rc3, < 6)
       r18n-core (~> 5.0)
-    flame-raven_context (0.1.2)
+    flame-sentry_context (0.2.0)
       alt_memery (~> 2.0)
       gorilla_patch (~> 4.0)
-      sentry-raven (~> 3.0)
+      sentry-ruby (~> 5.4)
     flame_deploy_toys (0.5.0)
       toys-core (~> 0.13.0)
     flame_generate_toys (0.9.0)
@@ -231,8 +228,8 @@ GEM
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
-    sentry-raven (3.1.2)
-      faraday (>= 1.0)
+    sentry-ruby (5.4.2)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     sequel (5.60.0)
     sequel-enum_values (1.2.1)
       sequel (>= 4.1.0, <= 6)
@@ -279,7 +276,7 @@ DEPENDENCIES
   flame-flash (~> 3.0.1.rc1)
   flame-menu!
   flame-r18n (~> 3.0.0.rc1)
-  flame-raven_context
+  flame-sentry_context
   flame_deploy_toys
   flame_generate_toys
   flame_routes_toys

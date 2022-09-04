@@ -20,9 +20,8 @@ module StreamTimer
 					end
 				rescue StandardError => e
 					ST::Application.logger.error e
-					Raven.capture_exception(
-						e, logger: :email, extra: { failed_recipient: to }
-					)
+
+					Sentry.capture_exception e, logger: :email, extra: { failed_recipient: to }
 				end
 
 				def log_message

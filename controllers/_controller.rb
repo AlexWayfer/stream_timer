@@ -16,10 +16,8 @@ module StreamTimer
 		end
 
 		def not_found
-			unless request.bot?
-				request_context = Flame::RavenContext.new(:not_found, controller: self)
-				Raven.capture_message(*request_context.exception_with_context)
-			end
+			Flame::SentryContext.new(:not_found, controller: self).capture_message unless request.bot?
+
 			super
 		end
 
@@ -29,8 +27,7 @@ module StreamTimer
 			# 	Mailers::Error::Internal.new(exception, request, params, affected_account).send!
 			# end
 
-			request_context = Flame::RavenContext.new(:server, controller: self, exception:)
-			Raven.capture_exception(*request_context.exception_with_context)
+			Flame::SentryContext.new(:server, controller: self).capture_exception(exception)
 
 			super
 		end

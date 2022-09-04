@@ -14,12 +14,6 @@ Warning.ignore(:missing_ivar, Gem.loaded_specs['sequel'].full_gem_path)
 	)
 end
 
-## https://github.com/getsentry/sentry-ruby/issues/1036
-Warning.ignore(
-	/loading in progress, circular require considered harmful/,
-	Gem.loaded_specs['sentry-raven'].full_gem_path
-)
-
 shared_context 'with Rack Test' do
 	include Rack::Test::Methods
 

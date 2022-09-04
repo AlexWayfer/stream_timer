@@ -1,25 +1,10 @@
 # frozen_string_literal: true
 
-require_relative '../../lib/flame/raven_context_patch'
-
 module StreamTimer
 	module Config
 		module Processors
 			## Configuration for Sentry
 			class Sentry
-				STATIC_CONFIG = {
-					environments: %w[production demo].freeze,
-					## The default timeouts are too short on slow networks.
-					timeout: 10,
-					open_timeout: 10,
-					app_dirs_pattern:
-						ST::APP_DIRS
-							.map { |app_dir| Regexp.escape(app_dir) }
-							.join('|')
-							.then { |regexp_template| /(#{regexp_template})/ }
-							.freeze
-				}.freeze
-
 				def initialize(config)
 					@config = config
 
@@ -28,7 +13,9 @@ module StreamTimer
 
 					@sentry_config['front-end'][:url] = sentry_url project: 'front-end'
 
-					configure_raven
+					configure_sentry
+
+					Flame::SentryContext.user_block = -> { @controller&.current_user&.to_hash }
 				end
 
 				private
@@ -41,18 +28,31 @@ module StreamTimer
 					uri.to_s
 				end
 
-				def configure_raven
-					Raven.configure do |raven_config|
-						STATIC_CONFIG.each { |field, value| raven_config.public_send("#{field}=", value) }
+				APP_DIRS_PATTERN =
+					ST::APP_DIRS
+						.map { |app_dir| Regexp.escape(app_dir) }
+						.join('|')
+						.then { |regexp_template| /(#{regexp_template})/ }
+						.freeze
 
-						raven_config.current_environment = @config[:environment]
-						raven_config.dsn = sentry_url project: 'back-end'
-						raven_config.processors -= [
-							Raven::Processor::Cookies,
-							Raven::Processor::PostData
-						]
+				# rubocop:disable Metrics/AbcSize
+				def configure_sentry
+					::Sentry.init do |sentry_config|
+						sentry_config.enabled_environments = %w[production demo development].freeze
+						sentry_config.environment = @config[:environment]
+
+						sentry_config.app_dirs_pattern = APP_DIRS_PATTERN
+
+						sentry_config.dsn = sentry_url project: 'back-end'
+
+						sentry_config.send_default_pii = true
+
+						## The default timeouts are too short on slow networks.
+						sentry_config.transport.timeout = 10
+						sentry_config.transport.open_timeout = 10
 					end
 				end
+				# rubocop:enable Metrics/AbcSize
 			end
 		end
 	end

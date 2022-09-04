@@ -5,11 +5,12 @@ module StreamTimer
 	module UsersHelper
 		include Memery
 
-		private
-
+		## TODO: Think about `Authenticated`
 		memoize def current_user
 			find_user session[:user_key]
 		end
+
+		private
 
 		def find_user(user_key)
 			form_outcome = Forms::User::Find.new(key: user_key).run
