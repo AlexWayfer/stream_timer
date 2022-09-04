@@ -23,14 +23,14 @@ module StreamTimer
 			@form = Forms::Configuration::Update.new(configuration_params, found_configuration)
 		end
 
-		def find_configuration(key)
+		def find_configuration(key, check_user: true)
 			form_outcome = Forms::Configuration::Find.new(key:).run
 
 			found = form_outcome.result if form_outcome.success?
 
-			halt 404, view(:not_found) unless found
+			halt 404 unless found
 
-			halt 403, view(:forbidden) unless current_user.pk_equal? found.user
+			halt 403 if check_user && !current_user.pk_equal?(found.user)
 
 			found
 		end

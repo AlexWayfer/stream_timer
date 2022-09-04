@@ -1,7 +1,6 @@
 @use "sass:color";
 @use "sass:list";
 
-@import "lib/breakpoints";
 @import "lib/headings";
 @import "lib/clear-fix";
 @import "lib/inputs-with-types";
@@ -40,9 +39,12 @@ html {
 			cursor: not-allowed;
 		}
 
+		// Base horizontal padding for containers
+		$container-horizontal-padding: 15px;
+
 		.container {
 			max-width: $container-max-width;
-			padding: 0 15px;
+			padding: 0 $container-horizontal-padding;
 			margin: 0 auto;
 		}
 
@@ -293,10 +295,18 @@ html {
 		> main {
 			text-align: center;
 
-			> .container > section {
-				width: max-content;
-				max-width: 100%;
-				margin: 2em auto 4em;
+			&,
+			> .container {
+				> section {
+					width: max-content;
+					max-width: 100%;
+					margin: 2em auto 4em;
+				}
+			}
+
+			> section {
+				padding-left: $container-horizontal-padding;
+				padding-right: $container-horizontal-padding;
 			}
 		}
 

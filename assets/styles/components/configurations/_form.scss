@@ -1,215 +1,290 @@
-.configuration form {
-	// `max-content` is supported by Firefox
-	/* stylelint-disable plugin/no-unsupported-browser-features */
-	width: max-content;
-	/* stylelint-enable plugin/no-unsupported-browser-features */
-	max-width: 100%;
+.configuration.change {
+	width: 100%;
 
-	.timeline {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
-		&,
+	form {
 		fieldset {
-			text-align: center;
-		}
+			&.name {
+				text-align: center;
 
-		.only-countup {
-			display: block;
-			margin: 0.8em 0 0.6em;
-		}
+				input {
+					width: 100%;
+					font-size: 1.2em;
+					text-align: center;
+				}
+			}
 
-		.arrow {
-			$color: #c5c5c5;
+			&.link {
+				text-align: center;
+			}
 
-			fill: $color;
+			label {
+				&.opacity {
+					> span > * {
+						vertical-align: middle;
+					}
 
-			line {
-				stroke: $color;
+					input {
+						width: 100%;
+						max-width: 15em;
+					}
+				}
 			}
 		}
 
-		> p {
-			color: $disabled-text-color;
-			font-size: 1.4em;
-			margin: 0.8em;
+		fieldset ~ button {
+			padding: 0.3em 0.8em;
+			font-size: 1.1em;
 		}
 
-		.endless {
-			vertical-align: middle;
-			font-size: 3.2em;
-			margin: 0;
-			color: #bbb;
+		input[type="number"] {
+			text-align: right;
 		}
 
-		> .endless {
-			font-size: 3.6em;
-			line-height: 1.05em;
+		.fieldsets-without-preview,
+		.fieldsets-beside-preview {
+			// `max-content` is supported by Firefox
+			/* stylelint-disable plugin/no-unsupported-browser-features */
+			width: max-content;
+			/* stylelint-enable plugin/no-unsupported-browser-features */
+			max-width: 100%;
 		}
 
-		> fieldset {
-			width: 100%;
+		.fieldsets-without-preview {
+			margin-left: auto;
+			margin-right: auto;
+		}
 
-			> label {
-				display: block;
-				margin: 0.2em 0 1em;
+		.fieldsets-with-preview {
+			display: flex;
+
+			@media screen and (max-width: 1400px) {
+				flex-direction: column;
+				align-items: center;
+
+				.preview {
+					align-self: stretch;
+				}
 			}
 
-			&.countup {
-				&:not(.display-time) {
-					.endless {
-						display: none;
+			@media screen and (min-width: 1000px) {
+				> * {
+					margin: 0 0.5em;
+
+					&:first-child {
+						margin-left: 0;
+					}
+
+					&:last-child {
+						margin-right: 0;
 					}
 				}
 			}
 
-			input[name*="_text_before"] {
-				vertical-align: middle;
-				margin-right: 0.4em;
+			.preview {
+				flex-grow: 1;
+
+				//// For correct 100% height of `iframe`
+				display: flex;
+				flex-direction: column;
+
+				iframe {
+					display: block;
+					width: 100%;
+
+					//// It's like `height: 100%` for row flexbox
+					flex-basis: 100%;
+
+					height: 50vh;
+					margin: 0 auto 1em;
+
+					//// Chess background sizes
+					$chess-color: #999;
+					$chess-size: 28px;
+
+					background-image:
+						linear-gradient(45deg, #{$chess-color} 25%, transparent 25%),
+						linear-gradient(-45deg, #{$chess-color} 25%, transparent 25%),
+						linear-gradient(45deg, transparent 75%, #{$chess-color} 75%),
+						linear-gradient(-45deg, transparent 75%, #{$chess-color} 75%);
+					background-size: #{$chess-size} #{$chess-size};
+					background-position:
+						0 0,
+						0 calc($chess-size / 2),
+						calc($chess-size / 2) calc($chess-size / 2 * -1),
+						calc($chess-size / 2 * -1) 0;
+				}
+			}
+		}
+
+		.timeline {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			&,
+			fieldset {
+				text-align: center;
+			}
+
+			.only-countup {
+				display: block;
+				margin: 0.8em 0 0.6em;
+			}
+
+			.arrow {
+				$color: #c5c5c5;
+
+				fill: $color;
+
+				line {
+					stroke: $color;
+				}
+			}
+
+			> p {
+				color: $disabled-text-color;
+				font-size: 1.4em;
+				margin: 0.8em;
 			}
 
 			input[name*="countdown_text_before"] {
-				@include media-to(md) {
+				@media screen and (max-width: 800px) {
 					margin-top: 0.4em;
 					margin-bottom: 0.4em;
 				}
 			}
 
 			.endless {
-				line-height: 0;
+				vertical-align: middle;
+				font-size: 3.2em;
+				margin: 0;
+				color: #bbb;
 			}
 
-			+ .arrow {
-				margin-top: 0.4em;
-			}
-		}
-
-		fieldset.time-inputs {
-			display: inline-block;
-			vertical-align: middle;
-			margin: 0;
-			padding: 0;
-			border: none;
-
-			> label {
-				display: inline-block;
-				white-space: nowrap;
-
-				+ label {
-					margin-left: 0.4em;
-				}
-
-				input {
-					margin-left: 0;
-					margin-right: 0.2em;
-
-					&[max="59"] {
-						width: 4em;
-					}
-
-					&:not([max]) {
-						width: 6em;
-					}
-				}
+			> .endless {
+				font-size: 3.6em;
+				line-height: 1.05em;
 			}
 
-			@include media-to(md) {
-				display: inline-table;
+			> fieldset {
+				width: 100%;
 
 				> label {
-					display: table-row;
+					display: block;
+					margin: 0.2em 0 1em;
+				}
 
-					> * {
-						display: table-cell;
-						padding-top: 0.2em;
-						padding-bottom: 0.2em;
+				&.countup {
+					&:not(.display-time) {
+						.endless {
+							display: none;
+						}
+					}
+				}
 
-						&:first-of-type {
-							text-align: right;
+				input[name*="_text_before"] {
+					vertical-align: middle;
+					margin-right: 0.4em;
+				}
+
+				.endless {
+					line-height: 0;
+				}
+
+				+ .arrow {
+					margin-top: 0.4em;
+				}
+			}
+
+			fieldset.time-inputs {
+				display: inline-block;
+				vertical-align: middle;
+				margin: 0;
+				padding: 0;
+				border: none;
+
+				> label {
+					display: inline-block;
+					white-space: nowrap;
+
+					+ label {
+						margin-left: 0.4em;
+					}
+
+					input {
+						margin-left: 0;
+						margin-right: 0.2em;
+
+						&[max="59"] {
+							width: 4em;
 						}
 
-						&:last-of-type {
-							text-align: left;
+						&:not([max]) {
+							width: 6em;
+						}
+					}
+				}
+
+				@media screen and (max-width: 800px),
+					screen and (min-width: 1400px) and (max-width: 1600px) {
+					display: inline-table;
+
+					> label {
+						display: table-row;
+
+						> * {
+							display: table-cell;
+							padding-top: 0.2em;
+							padding-bottom: 0.2em;
+
+							&:first-of-type {
+								text-align: right;
+							}
+
+							&:last-of-type {
+								text-align: left;
+							}
 						}
 					}
 				}
 			}
-		}
 
-		fieldset:disabled {
-			display: none;
-
-			& + .arrow {
+			fieldset:disabled {
 				display: none;
-			}
-		}
 
-		&.only-countup {
-			.zero-time {
-				&,
-				+ .arrow {
+				& + .arrow {
 					display: none;
 				}
 			}
 
-			fieldset.countup .endless {
-				display: none;
-			}
-		}
-
-		&:not(.only-countup) {
-			fieldset.countup {
-				+ .arrow {
+			&.only-countup {
+				.zero-time {
 					&,
-					+ .endless {
+					+ .arrow {
 						display: none;
+					}
+				}
+
+				fieldset.countup .endless {
+					display: none;
+				}
+			}
+
+			&:not(.only-countup) {
+				fieldset.countup {
+					+ .arrow {
+						&,
+						+ .endless {
+							display: none;
+						}
 					}
 				}
 			}
 		}
-	}
 
-	fieldset {
-		&.name {
-			text-align: center;
-
-			input {
-				width: 100%;
-				font-size: 1.2em;
-				text-align: center;
-			}
+		&.delete {
+			margin: 0.5em auto;
 		}
-
-		&.link {
-			text-align: center;
-		}
-
-		label {
-			&.opacity {
-				> span > * {
-					vertical-align: middle;
-				}
-
-				input {
-					width: 100%;
-					max-width: 15em;
-				}
-			}
-		}
-	}
-
-	fieldset ~ button {
-		padding: 0.3em 0.8em;
-		font-size: 1.1em;
-	}
-
-	input[type="number"] {
-		text-align: right;
-	}
-
-	&.delete {
-		margin: 0.5em auto;
 	}
 
 	p.hint {
