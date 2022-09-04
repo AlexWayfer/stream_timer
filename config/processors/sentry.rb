@@ -35,7 +35,6 @@ module StreamTimer
 						.then { |regexp_template| /(#{regexp_template})/ }
 						.freeze
 
-				# rubocop:disable Metrics/AbcSize
 				def configure_sentry
 					::Sentry.init do |sentry_config|
 						sentry_config.enabled_environments = %w[production demo development].freeze
@@ -52,7 +51,6 @@ module StreamTimer
 						sentry_config.transport.open_timeout = 10
 					end
 				end
-				# rubocop:enable Metrics/AbcSize
 			end
 		end
 	end
