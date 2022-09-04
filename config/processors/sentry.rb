@@ -37,7 +37,7 @@ module StreamTimer
 
 				def configure_sentry
 					::Sentry.init do |sentry_config|
-						sentry_config.enabled_environments = %w[production demo development].freeze
+						sentry_config.enabled_environments = %w[production demo].freeze
 						sentry_config.environment = @config[:environment]
 
 						sentry_config.app_dirs_pattern = APP_DIRS_PATTERN
