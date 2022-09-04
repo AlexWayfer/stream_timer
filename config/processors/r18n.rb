@@ -17,8 +17,7 @@ module StreamTimer
 					::R18n::Filters.on(:named_variables)
 
 					::R18n::Filters.add(::R18n::Untranslated, :raise_untranslated) do |content|
-						request_context = Flame::RavenContext.new(:translations, key: content)
-						Raven.capture_message(*request_context.exception_with_context)
+						Flame::SentryContext.new(:translations, key: content).capture_message
 						content
 					end
 				end

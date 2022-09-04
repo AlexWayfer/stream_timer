@@ -139,9 +139,16 @@
 			}
 
 			> p {
-				color: $disabled_text_color;
+				color: $disabled-text-color;
 				font-size: 1.4em;
 				margin: 0.8em;
+			}
+
+			input[name*="countdown_text_before"] {
+				@media screen and (max-width: 800px) {
+					margin-top: 0.4em;
+					margin-bottom: 0.4em;
+				}
 			}
 
 			.endless {
@@ -173,6 +180,7 @@
 				}
 
 				input[name*="_text_before"] {
+					vertical-align: middle;
 					margin-right: 0.4em;
 				}
 
@@ -223,8 +231,8 @@
 
 						> * {
 							display: table-cell;
-							padding-top: calc(var(--fieldset-inner-margin) / 2);
-							padding-bottom: calc(var(--fieldset-inner-margin) / 2);
+							padding-top: 0.2em;
+							padding-bottom: 0.2em;
 
 							&:first-of-type {
 								text-align: right;
@@ -274,5 +282,10 @@
 		&.delete {
 			margin: 0.5em auto;
 		}
+	}
+
+	p.hint {
+		color: $disabled-text-color;
+		font-size: 0.9em;
 	}
 }

@@ -1,22 +1,26 @@
-$accent_background_color: #b8c8dd;
-$accent_text_color: darken($accent_background_color, 15%);
+// Accent
+$accent-background-color: #b8c8dd;
+$accent-text-color: color.adjust($accent-background-color, $lightness: -15%);
 
-$footer_background_color: #2a2a2a;
-$footer_text_color: white;
+// Footer
+$footer-background-color: #2a2a2a;
+$footer-text-color: white;
 
-// $tertiary_background_color: #ffffff;
+// $tertiary-background-color: #ffffff;
 
-$danger_background_color: lighten(red, 15%);
-$danger_text_color: red;
-$error_color: $danger_text_color;
-$warning_background_color: orange;
-$warning_text_color: #e67e00; // darken(darkorange, 5%);
-$success_background_color: #2db92d; // darken(limegreen, 5%);
-$success_text_color: green;
-$highlight_background_color: #eee;
-$disabled_text_color: gray;
+// Text
+$danger-background-color: color.adjust(red, $lightness: 15%);
+$danger-text-color: red;
+$error-color: $danger-text-color;
+$warning-background-color: orange;
+$warning-text-color: #e67e00; // darken(darkorange, 5%);
+$success-background-color: #2db92d; // darken(limegreen, 5%);
+$success-text-color: green;
+$highlight-background-color: #eee;
+$disabled-text-color: gray;
 
-$link_text_color: darken($accent_text_color, 10%);
+// Links
+$link-text-color: color.adjust($accent-text-color, $lightness: -10%);
 
 body {
 	// Common

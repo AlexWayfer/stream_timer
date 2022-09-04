@@ -1,29 +1,24 @@
 {
 	"private": true,
 	"dependencies": {
-		"@babel/core": "*",
-		"@babel/plugin-transform-object-assign": "*",
-		"@babel/preset-env": "*",
-		"@rollup/plugin-babel": "*",
-		"@rollup/plugin-commonjs": "*",
-		"@rollup/plugin-json": "*",
-		"@rollup/plugin-node-resolve": "*",
+		"@sentry/browser": "*",
 		"autoprefixer": "*",
+		"esbuild": "*",
 		"postcss-cli": "*",
 		"postcss-flexbugs-fixes": "*",
 		"promise-polyfill": "*",
 		"rollup": "*",
 		"sass": "*",
-		"simplify-js": "*",
 		"whatwg-fetch": "*"
 	},
 	"devDependencies": {
 		"eslint": "*",
-		"postcss": "^8.1.4",
+		"postcss": "^8.4.16",
 		"remark-cli": "*",
 		"remark-preset-lint-recommended": "*",
 		"stylelint": "*",
 		"stylelint-config-standard": "*",
+		"stylelint-config-standard-scss": "*",
 		"stylelint-no-unsupported-browser-features": "*"
 	},
 	"peerDependencies": {
@@ -31,7 +26,7 @@
 	},
 	"scripts": {
 		"build:styles": "sass assets/styles/main.scss public/styles/main.css -s compressed && postcss public/styles/main.css -o public/styles/main.css",
-		"build:scripts": "rollup assets/scripts/main.js -o public/scripts/compiled/main.js -c",
+		"build:scripts": "esbuild assets/scripts/main.js assets/scripts/sentry.js --outdir=public/scripts/compiled/ --bundle --sourcemap",
 		"build": "pnpm run build:styles && pnpm run build:scripts",
 		"clean:styles": "rm -f public/styles/main.css public/styles/main.css.map",
 		"clean:scripts": "rm -rvf public/scripts/compiled",

@@ -123,6 +123,10 @@
 								required
 							<% end %>
 						/>
+
+						<p class="hint">
+							<%= t.site.configurations.form.hint_about_space_in_text %>
+						</p>
 					</fieldset>
 
 					<%= render '_form/_arrow' %>
@@ -166,6 +170,10 @@
 						<%= render '_form/_time_inputs', countup: true %>
 
 						<span class="endless">∞</span>
+
+						<p class="hint">
+							<%= t.site.configurations.form.hint_about_space_in_text %>
+						</p>
 					</fieldset>
 
 					<%= render '_form/_arrow' %>
@@ -175,10 +183,10 @@
 					</p>
 				</fieldset>
 
-				<fieldset class="table">
+				<fieldset>
 					<legend><%= t.label.configuration.style.common %></legend>
 
-					<fieldset>
+					<fieldset class="table">
 						<legend><%= t.label.configuration.style.background.common %></legend>
 
 						<label>
@@ -210,7 +218,7 @@
 						</label>
 					</fieldset>
 
-					<fieldset>
+					<fieldset class="table">
 						<legend><%= t.label.configuration.style.font.common %></legend>
 
 						<label>

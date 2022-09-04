@@ -1,6 +1,6 @@
-@import 'configurations/form';
-@import 'configurations/load';
-@import 'configurations/user_key';
+@import "configurations/form";
+@import "configurations/load";
+@import "configurations/user-key";
 
 .configurations > ul {
 	width: max-content;
@@ -18,7 +18,7 @@
 			margin: 0.4em 0;
 
 			&.dates {
-				color: $disabled_text_color;
+				color: $disabled-text-color;
 			}
 		}
 	}

@@ -24,7 +24,7 @@ module StreamTimer
 		end
 
 		def find_configuration(key, check_user: true)
-			form_outcome = Forms::Configuration::Find.new(key: key).run
+			form_outcome = Forms::Configuration::Find.new(key:).run
 
 			found = form_outcome.result if form_outcome.success?
 

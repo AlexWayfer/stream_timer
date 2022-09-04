@@ -1,4 +1,4 @@
-@mixin sticky_footer($main_height: auto) {
+@mixin sticky-footer($main-height: auto) {
 	@at-root html {
 		height: 100%;
 	}
@@ -8,7 +8,7 @@
 	flex-direction: column;
 
 	> main {
-		min-height: $main_height;
+		min-height: $main-height;
 
 		flex: {
 			grow: 1;

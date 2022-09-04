@@ -24,45 +24,29 @@
 			<link rel="stylesheet" href="<%= url_to "styles/#{name}.css", version: true %>" />
 		<% end %>
 
-		<% if Raven.configuration.environments.include?(config[:environment]) && !request.bot? %>
-			<script src="https://cdn.ravenjs.com/3.27.0/raven.min.js" crossorigin="anonymous"></script>
+		<%
+			if Sentry.configuration.enabled_environments.include?(config[:environment]) && !request.bot?
+		%>
+			<script
+				type="text/javascript" src="<%= url_to "/scripts/compiled/sentry.js", version: true %>"
+			></script>
 
 			<script type="text/javascript">
-				var
-					frames_exceptions = new RegExp([
-						'jivo',
-						'kaspersky',
-						'simple-finder\.com',
-						'com\.lge\.browser',
-						'countmake\.cool',
-						'alfawebing\.info',
-						'local\.adguard\.{com,org}',
-						'moz-extension:\/\/',
-						'file:\/\/'
-					].join('|'), 'i'),
+				Sentry.init({
+					dsn: '<%= config[:sentry]['front-end'][:url] %>',
 
-					value_exceptions = new RegExp([
-						'jivo',
-						'tropif\.ru',
-						'lapuso.ru',
-						'gCrWeb'
-					].join('|'), 'i');
-
-				Raven.config('<%= config[:sentry]['front-end'][:url] %>', {
 					environment: '<%= config[:environment] %>',
-					release: '<%= Raven.configuration.release %>',
-					shouldSendCallback: function (data) {
-						return !data.exception || data.exception.values.some(
-							function (exception) {
-								if (exception.value.match(value_exceptions)) return false;
+					release: '<%= Sentry.configuration.release %>',
 
-								return !exception.stacktrace.frames.some(function (frame) {
-									return frame.filename.match(frames_exceptions);
-								});
-							}
-						);
-					}
-				}).install();
+					// integrations: [new BrowserTracing()],
+
+					// Set tracesSampleRate to 1.0 to capture 100%
+					// of transactions for performance monitoring.
+					// We recommend adjusting this value in production
+					// tracesSampleRate: 1.0,
+				})
+
+				Sentry.setUser(<%= current_user&.to_json %>)
 			</script>
 		<% end %>
 

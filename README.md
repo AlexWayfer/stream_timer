@@ -19,7 +19,7 @@
 4.  Install [`nodenv`](https://github.com/nodenv/nodenv).
 5.  Set the [`EDITOR` environment variable][1] (`nano`, `vim`, `mcedit`, etc.).
 6.  Clone this repository and checkout to directory.
-7.  Run `exe/setup.sh` to install Ruby (with gems) and fill configs.
+7.  Run `exe/setup.sh` to install Ruby (with gems), Node.js (with modules) and fill configs.
 8.  Run `toys db create` to create database.
 9.  Run `toys db migrate` to run database migrations.
 
@@ -38,8 +38,7 @@
     to something like `/home/stream_timer/stream_timer`.
 *   Install [Certbot](https://certbot.eff.org/) and generate certificates.
     *   Optional `openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096`.
-*   Make symbolic link of `config/systemd.service` to the `~/.local/share/systemd/user/` directory
-    and enable it.
+*   Copy `config/systemd.service` to the `~/.config/systemd/user/` directory and enable it.
 
 -----
 
@@ -117,8 +116,8 @@ toys db migrations rollback N
 exe/update.sh
 ```
 
-It will update `master` branch, update bundle, stop server, run migrations
-and start server.
+It will update default (or specified as first argument) branch,
+update bundle, stop server, run migrations and start server.
 
 ### Remotely
 

@@ -1,24 +1,19 @@
-$form_vertical_label_margin: 0.8em;
-$form_vertical_input_margin: 0.4em;
+$form-vertical-label-margin: 0.8em;
+$form-vertical-input-margin: 0.4em;
 
 form {
 	text-align: center;
 
-	--fieldset-inner-margin: 0.4em;
-
 	fieldset {
+		$decreased-margin: 0.4em;
+
 		text-align: initial;
 		margin: 1em 0;
-		padding:
-			calc(0.6em - var(--fieldset-inner-margin))
-			1em
-			calc(1em - var(--fieldset-inner-margin));
-		border-radius: $common_border_radius;
+		padding: 0.6em 1em 1em;
+		border-radius: $common-border-radius;
 		border-style: solid;
-		border-width: $input_border_width;
+		border-width: $input-border-width;
 		border-color: var(--input-border-color);
-
-		$decreased-margin: 0.4em;
 
 		> legend {
 			font-weight: bold;
@@ -27,11 +22,6 @@ form {
 			+ p {
 				margin-top: $decreased-margin;
 			}
-		}
-
-		> *:not(legend):not(fieldset) {
-			margin-top: var(--fieldset-inner-margin);
-			margin-bottom: var(--fieldset-inner-margin);
 		}
 
 		> fieldset,
@@ -52,7 +42,7 @@ form {
 		}
 	}
 
-	input.with_clear_button + button {
+	input.with-clear-button + button {
 		margin-bottom: 0;
 	}
 
@@ -61,13 +51,13 @@ form {
 		overflow: hidden;
 		margin: 0;
 		padding-left: 0.4em;
-		color: lighten($error_color, 15%);
+		color: color.adjust($error-color, $lightness: 15%);
 	}
 
 	.invalid {
 		input {
-			border: $input_border_width solid lighten($error_color, 15%);
-			box-shadow: 0 0 3px lighten($error_color, 15%);
+			border: $input-border-width solid color.adjust($error-color, $lightness: 15%);
+			box-shadow: 0 0 3px color.adjust($error-color, $lightness: 15%);
 		}
 
 		& ~ .error {
@@ -97,28 +87,29 @@ form {
 
 		label,
 		table {
-			margin-bottom: $form_vertical_label_margin;
+			margin-bottom: $form-vertical-label-margin;
 		}
 
 		label {
 			display: block;
+
 			// Because of inputs outline
 			// padding: 5px;
 
-			#{all_horizontal_inputs()},
+			#{all-horizontal-inputs()},
 			textarea,
 			select,
 			.cccombo {
 				display: block;
 				width: 100%;
-				margin-top: $form_vertical_input_margin;
+				margin-top: $form-vertical-input-margin;
 			}
 
 			> label {
-				margin-bottom: $form_vertical_input_margin;
+				margin-bottom: $form-vertical-input-margin;
 
 				&:first-of-type {
-					margin-top: $form_vertical_input_margin;
+					margin-top: $form-vertical-input-margin;
 				}
 			}
 		}
@@ -127,8 +118,6 @@ form {
 	&,
 	fieldset {
 		&.table {
-			--fieldset-inner-margin: 0em;
-
 			label {
 				display: table-row;
 
@@ -140,6 +129,10 @@ form {
 					&:first-of-type {
 						text-align: right;
 						padding-right: 0.4em;
+					}
+
+					&:last-of-type {
+						width: 100%;
 					}
 				}
 
