@@ -20,6 +20,12 @@ module StreamTimer
 				def available?(_controller = self.class)
 					true
 				end
+
+				private
+
+				def render_external_link(text, href)
+					render(:_external_link, text:, href:).chomp
+				end
 			end
 		end
 	end

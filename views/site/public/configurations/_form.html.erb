@@ -34,13 +34,7 @@
 
 				<!-- Should be right after `<legend>` for decreased `margin-top` -->
 				<p>
-					<a
-						target="_blank"
-						rel="noreferrer noopener"
-						href="<%= timer_link %>"
-					><%=
-						timer_link
-					%></a>
+					<%= render :_external_link, text: timer_link, href: timer_link %>
 				</p>
 
 				<!-- For "Copy" button -->

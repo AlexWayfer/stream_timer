@@ -25,11 +25,7 @@
 		<% end %>
 
 		<button type="button" class="theme-toggle">
-			<svg class="icon icon-brightness baseline">
-				<use
-					xlink:href="<%= url_to '/images/icons/symbol-defs.svg', version: true %>#icon-brightness"
-				></use>
-			</svg>
+			<%= render :_svg_icon, name: :brightness, baseline: true %>
 		</button>
 	</div>
 </header>

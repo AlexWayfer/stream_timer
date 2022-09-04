@@ -1,7 +1,22 @@
 <div class="page">
 	<h2><%= t.site.about.header %></h2>
 
-	<%= t.site.about.text %>
+	<%=
+		t.site.about.text(
+			obs_link: render_external_link(
+				t.site.about.links.obs, 'https://obsproject.com'
+			),
+			github_link: render_external_link(
+				t.site.about.links.github, 'https://github.com/AlexWayfer/stream_timer'
+			),
+			developer_link: render_external_link(
+				t.site.about.links.developer, 'https://alexwayfer.name'
+			),
+			icons8_link: render_external_link(
+				t.site.about.links.icons8, 'https://icons8.com/icon/1jGDyNJqW01A/display'
+			)
+		)
+	%>
 </div>
 
 <% if current_user %>

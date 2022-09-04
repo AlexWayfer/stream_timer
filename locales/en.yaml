@@ -9,7 +9,7 @@ site:
     header: About
     text: !!markdown |
       This application was designed for countdowns to something or timer for something
-      in a streaming application like [OBS](https://obsproject.com/){:target="_blank" rel="noreferrer noopener"}.
+      in a streaming application like %{obs_link}.
 
       I personally mostly use it for AFK timers, but you're free to use it as you want to. Examples:
 
@@ -29,10 +29,16 @@ site:
 
       This project is free and open-source.
 
-      * [GitHub repository](https://github.com/AlexWayfer/stream_timer){:target="_blank" rel="noreferrer noopener"}
-      * [Developer's website](https://alexwayfer.name){:target="_blank" rel="noreferrer noopener"}
+      * %{github_link}
+      * %{developer_link}
 
-      Logotype is from [Icons8](https://icons8.com/icon/1jGDyNJqW01A/display){:target="_blank" rel="noreferrer noopener"}.
+      Logotype is from %{icons8_link}.
+
+    links:
+      obs: OBS
+      github: GitHub repository
+      developer: Developer's website
+      icons8: Icons8
 
     go_to_configurations: Go to configurations
 

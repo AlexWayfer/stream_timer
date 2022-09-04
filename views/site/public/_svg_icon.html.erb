@@ -1,0 +1,5 @@
+<%
+	baseline = false if baseline.nil?
+%><svg class="icon icon-<%= name %> <% if baseline %> baseline <% end %>"><use
+	href="<%= url_to '/images/icons/symbol-defs.svg', version: true %>#icon-<%= name %>"
+></use></svg>
