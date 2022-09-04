@@ -116,8 +116,8 @@ toys db migrations rollback N
 exe/update.sh
 ```
 
-It will update `master` branch, update bundle, stop server, run migrations
-and start server.
+It will update default (or specified as first argument) branch,
+update bundle, stop server, run migrations and start server.
 
 ### Remotely
 
