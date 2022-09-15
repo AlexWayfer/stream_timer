@@ -23,7 +23,30 @@
 		<fieldset class="name">
 			<legend><%= t.label.configuration.name %></legend>
 
-			<input type="text" name="configuration[name]" value="<%== @form.name %>" required/>
+			<input
+				type="text"
+				name="configuration[name]"
+				value=""
+				data-value-for-countdown="<%
+					if @form.only_countup
+				%><%= @form.class::DEFAULT_TEXTS[:countdown][:name] %><%
+					else
+				%><%==
+					@form.name
+				%><%
+					end
+				%>"
+				data-value-for-only-countup="<%
+					if @form.only_countup
+				%><%==
+					@form.name
+				%><%
+					else
+				%><%= @form.class::DEFAULT_TEXTS[:only_countup][:name] %><%
+					end
+				%>"
+				required
+			/>
 		</fieldset>
 
 		<% if (key = @form.instance.key) %>
@@ -98,7 +121,25 @@
 				<input
 					type="text"
 					name="configuration[countdown_text_before]"
-					value="<%== @form.countdown_text_before %>"
+					value=""
+					data-value-for-countdown="<%
+						if @form.only_countup
+					%><%= @form.class::DEFAULT_TEXTS[:countdown][:countdown_text_before] %><%
+						else
+					%><%==
+						@form.countdown_text_before
+					%><%
+						end
+					%>"
+					data-value-for-only-countup="<%
+						if @form.only_countup
+					%><%==
+						@form.countdown_text_before
+					%><%
+						else
+					%><%= @form.class::DEFAULT_TEXTS[:countdown][:countdown_text_before] %><%
+						end
+					%>"
 					size="12"
 				/>
 
@@ -153,7 +194,25 @@
 				<input
 					type="text"
 					name="configuration[countup_text_before]"
-					value="<%== @form.countup_text_before %>"
+					value=""
+					data-value-for-countdown="<%
+						if @form.only_countup
+					%><%= @form.class::DEFAULT_TEXTS[:countdown][:countup_text_before] %><%
+						else
+					%><%==
+						@form.countup_text_before
+					%><%
+						end
+					%>"
+					data-value-for-only-countup="<%
+						if @form.only_countup
+					%><%==
+						@form.countup_text_before
+					%><%
+						else
+					%><%= @form.class::DEFAULT_TEXTS[:only_countup][:countup_text_before] %><%
+						end
+					%>"
 					size="12"
 				/>
 

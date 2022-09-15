@@ -13,14 +13,32 @@ module StreamTimer
 					seconds: (0..59)
 				}.freeze
 
-				field :name, String, default: 'AFK timer'
+				DEFAULT_TEXTS = {
+					countdown: {
+						name: 'AFK timer',
+						countdown_text_before: 'AFK ',
+						countup_text_before: 'Late for '
+					}.freeze,
+					only_countup: {
+						name: 'Uptime timer',
+						countup_text_before: 'Uptime '
+					}.freeze
+				}.freeze
+
+				field :name, String,
+					default: -> { DEFAULT_TEXTS[only_countup ? :only_countup : :countdown][:name] }
 
 				field :only_countup, :boolean, default: false
 				field :display_countdown_information, :boolean, default: false
 				field :display_countup_time, :boolean, default: true
 
-				field :countdown_text_before, String, default: 'AFK '
-				field :countup_text_before, String, default: 'Late for '
+				field :countdown_text_before, String,
+					default: DEFAULT_TEXTS[:countdown][:countdown_text_before]
+
+				field :countup_text_before, String,
+					default: (lambda do
+						DEFAULT_TEXTS[only_countup ? :only_countup : :countdown][:countup_text_before]
+					end)
 
 				field :specific_time, default: nil
 

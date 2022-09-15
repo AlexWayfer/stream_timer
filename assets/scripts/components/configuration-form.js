@@ -1,6 +1,7 @@
 export default class ConfigurationForm {
 	constructor(form) {
 		const
+			nameInput = form.querySelector('input[name*="[name]"]'),
 			timeline = form.querySelector('fieldset.timeline'),
 			countdownFieldset = timeline.querySelector('fieldset.countdown'),
 			countupFieldset = timeline.querySelector('fieldset.countup'),
@@ -8,6 +9,10 @@ export default class ConfigurationForm {
 			specificTimeCheckbox = timeline.querySelector('label.specific-time input[type="checkbox"]'),
 			specificTimeInput =
 				countdownFieldset.querySelector('input[name*="[specific_time]"]:not([type="hidden"])'),
+			countdownTextBeforeInput =
+				countdownFieldset.querySelector('input[name*="[countdown_text_before]"]'),
+			countupTextBeforeInput =
+				countupFieldset.querySelector('input[name*="[countup_text_before]"]'),
 			displayCountdownInformation = countupFieldset.querySelector('.display-countdown-information'),
 			displayCountupTime = countupFieldset.querySelector('.display-countup-time'),
 			displayCountupTimeCheckbox = displayCountupTime.querySelector('input[type="checkbox"]')
@@ -46,9 +51,22 @@ export default class ConfigurationForm {
 				specificTimeCheckbox.checked = false
 				specificTimeCheckbox.dispatchEvent(new Event('change'))
 			}
+
+			//// Change texts for regular timer and only
+			[nameInput, countdownTextBeforeInput, countupTextBeforeInput].forEach(input => {
+				if (isChecked) {
+					if (!event.initial) input.dataset.valueForCountdown = input.value
+					input.value = input.dataset.valueForOnlyCountup
+				} else {
+					if (!event.initial) input.dataset.valueForOnlyCountup = input.value
+					input.value = input.dataset.valueForCountdown
+				}
+			})
 		})
 
-		onlyCountupCheckbox.dispatchEvent(new Event('change'))
+		let onlyCountupChangeEvent = new Event('change')
+		onlyCountupChangeEvent.initial = true
+		onlyCountupCheckbox.dispatchEvent(onlyCountupChangeEvent)
 
 		// Toggle specific time
 
