@@ -1,7 +1,11 @@
 &.dark-theme {
+	@import "../lib/custom-background-color";
+
 	body {
 		--color: white;
 		--background-color: #151515;
+
+		//// Inputs
 		--input-background-color: #444;
 		--input-border-color: #555;
 
@@ -16,6 +20,38 @@
 
 		a {
 			color: $accent-text-color;
+		}
+
+		button {
+			@include custom-background-color(#444, $dark-theme: true);
+
+			&.primary {
+				@include custom-background-color($accent-background-color, $dark-theme: true);
+			}
+
+			&.warning {
+				@include custom-background-color($warning-background-color, $dark-theme: true);
+			}
+
+			&.danger {
+				@include custom-background-color($danger-background-color, $dark-theme: true);
+			}
+
+			&.success {
+				@include custom-background-color($success-background-color, $dark-theme: true);
+			}
+
+			&.secondary {
+				@include custom-background-color($footer-background-color, $dark-theme: true);
+			}
+
+			// &.tertiary {
+			// 	@include custom-background-color($tertiary-background-color, $dark-theme: true);
+			// }
+
+			&.light {
+				@include custom-background-color(white, $dark-theme: true);
+			}
 		}
 	}
 }

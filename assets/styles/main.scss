@@ -84,25 +84,7 @@ html {
 			}
 		}
 
-		@mixin custom-background-color($background-color) {
-			background: $background-color;
-			border-color: color.adjust($background-color, $lightness: -6%);
-
-			&:focus {
-				$focus-color: color.adjust($background-color, $lightness: -10%);
-
-				background: $focus-color;
-				border-color: $focus-color;
-			}
-
-			&:disabled {
-				$disabled-color: color.mix($background-color, #ddd);
-
-				background: $disabled-color;
-				border-color: $disabled-color;
-			}
-		}
-
+		@import "lib/custom-background-color";
 		@import "lib/small-and-large-elements";
 		@import "lib/input-with-clear-button";
 
@@ -186,56 +168,12 @@ html {
 			}
 		}
 
-		@mixin primary {
-			@include custom-background-color($accent-background-color);
-
-			color: white;
-		}
-
-		@mixin warning {
-			@include custom-background-color($warning-background-color);
-
-			color: white;
-		}
-
-		@mixin danger {
-			@include custom-background-color($danger-background-color);
-
-			color: white;
-		}
-
-		@mixin success {
-			@include custom-background-color($success-background-color);
-
-			color: white;
-		}
-
-		@mixin secondary {
-			@include custom-background-color($footer-background-color);
-
-			color: white;
-		}
-
-		// @mixin tertiary {
-		// 	@include custom-background-color($tertiary-background-color);
-		// }
-
-		@mixin light {
-			@include custom-background-color(white);
-
-			color: $accent-text-color;
-			border-color: $accent-background-color;
-
-			&:focus {
-				border-color: $accent-background-color;
-			}
-		}
-
 		button {
-			@include custom-background-color(white);
-
-			border-color: var(--input-border-color);
+			background: var(--button-background-color);
+			border-color: var(--button-border-color);
 			border-radius: $button-border-radius;
+
+			@include custom-background-color(white);
 
 			&.small {
 				font-size: 0.875em;
@@ -253,31 +191,48 @@ html {
 			}
 
 			&.primary {
-				@include primary;
+				@include custom-background-color($accent-background-color);
+
+				color: white;
 			}
 
 			&.warning {
-				@include warning;
+				@include custom-background-color($warning-background-color);
+
+				color: white;
 			}
 
 			&.danger {
-				@include danger;
+				@include custom-background-color($danger-background-color);
+
+				color: white;
 			}
 
 			&.success {
-				@include success;
+				@include custom-background-color($success-background-color);
+
+				color: white;
 			}
 
 			&.secondary {
-				@include secondary;
+				@include custom-background-color($footer-background-color);
+
+				color: white;
 			}
 
 			// &.tertiary {
-			// 	@include tertiary;
+			// 	@include custom-background-color($tertiary-background-color);
 			// }
 
 			&.light {
-				@include light;
+				@include custom-background-color(white);
+
+				color: $accent-text-color;
+				border-color: $accent-background-color;
+
+				&:focus {
+					border-color: $accent-background-color;
+				}
 			}
 		}
 
