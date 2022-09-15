@@ -18,6 +18,7 @@
 		pre {
 			#{headings()} {
 				text-align: left;
+				white-space: normal;
 			}
 
 			padding: 0.8em 1.6em;
@@ -39,7 +40,7 @@
 			*/
 		/* stylelint-disable plugin/no-unsupported-browser-features */
 		&.development {
-			max-width: none;
+			max-width: 100%;
 
 			padding: {
 				left: 3vw;
