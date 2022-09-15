@@ -216,4 +216,8 @@
 		color: $disabled-text-color;
 		font-size: 0.9em;
 	}
+
+	label {
+		user-select: none;
+	}
 }
