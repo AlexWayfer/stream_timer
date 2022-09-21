@@ -97,7 +97,7 @@ GEM
       alt_memery (~> 2.0)
       gorilla_patch (~> 4.0)
       sentry-ruby (~> 5.4)
-    flame_deploy_toys (0.5.0)
+    flame_deploy_toys (0.6.0)
       toys-core (~> 0.13.0)
     flame_generate_toys (0.10.0)
       dry-inflector (~> 0.3.0)
