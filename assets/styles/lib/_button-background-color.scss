@@ -1,7 +1,11 @@
 @mixin button-background-color($background-color, $dark-theme: false) {
 	--button-background-color: #{$background-color};
+
+	/* https://github.com/stylelint/stylelint/issues/4363 */
+	/* stylelint-disable declaration-colon-space-after */
 	--button-border-color:
 		#{color.adjust($background-color, $lightness: if($dark-theme, 1, -1) * 6%)};
+	/* stylelint-enable declaration-colon-space-after */
 
 	&:focus {
 		$focus-color: color.adjust($background-color, $lightness: if($dark-theme, 1, -1) * 10%);
