@@ -1,4 +1,4 @@
-@mixin custom-background-color($background-color, $dark-theme: false) {
+@mixin button-background-color($background-color, $dark-theme: false) {
 	--button-background-color: #{$background-color};
 	--button-border-color:
 		#{color.adjust($background-color, $lightness: if($dark-theme, 1, -1) * 6%)};

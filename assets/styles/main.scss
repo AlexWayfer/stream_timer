@@ -84,7 +84,7 @@ html {
 			}
 		}
 
-		@import "lib/custom-background-color";
+		@import "lib/button-background-color";
 		@import "lib/small-and-large-elements";
 		@import "lib/input-with-clear-button";
 
@@ -173,7 +173,7 @@ html {
 			border-color: var(--button-border-color);
 			border-radius: $button-border-radius;
 
-			@include custom-background-color(white);
+			@include button-background-color(white);
 
 			&.small {
 				font-size: 0.875em;
@@ -191,41 +191,41 @@ html {
 			}
 
 			&.primary {
-				@include custom-background-color($accent-background-color);
+				@include button-background-color($accent-background-color);
 
 				color: white;
 			}
 
 			&.warning {
-				@include custom-background-color($warning-background-color);
+				@include button-background-color($warning-background-color);
 
 				color: white;
 			}
 
 			&.danger {
-				@include custom-background-color($danger-background-color);
+				@include button-background-color($danger-background-color);
 
 				color: white;
 			}
 
 			&.success {
-				@include custom-background-color($success-background-color);
+				@include button-background-color($success-background-color);
 
 				color: white;
 			}
 
 			&.secondary {
-				@include custom-background-color($footer-background-color);
+				@include button-background-color($footer-background-color);
 
 				color: white;
 			}
 
 			// &.tertiary {
-			// 	@include custom-background-color($tertiary-background-color);
+			// 	@include button-background-color($tertiary-background-color);
 			// }
 
 			&.light {
-				@include custom-background-color(white);
+				@include button-background-color(white);
 
 				color: $accent-text-color;
 				border-color: $accent-background-color;

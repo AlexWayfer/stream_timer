@@ -1,5 +1,5 @@
 &.dark-theme {
-	@import "../lib/custom-background-color";
+	@import "../lib/button-background-color";
 
 	body {
 		--color: white;
@@ -23,34 +23,34 @@
 		}
 
 		button {
-			@include custom-background-color(#444, $dark-theme: true);
+			@include button-background-color(#444, $dark-theme: true);
 
 			&.primary {
-				@include custom-background-color($accent-background-color, $dark-theme: true);
+				@include button-background-color($accent-background-color, $dark-theme: true);
 			}
 
 			&.warning {
-				@include custom-background-color($warning-background-color, $dark-theme: true);
+				@include button-background-color($warning-background-color, $dark-theme: true);
 			}
 
 			&.danger {
-				@include custom-background-color($danger-background-color, $dark-theme: true);
+				@include button-background-color($danger-background-color, $dark-theme: true);
 			}
 
 			&.success {
-				@include custom-background-color($success-background-color, $dark-theme: true);
+				@include button-background-color($success-background-color, $dark-theme: true);
 			}
 
 			&.secondary {
-				@include custom-background-color($footer-background-color, $dark-theme: true);
+				@include button-background-color($footer-background-color, $dark-theme: true);
 			}
 
 			// &.tertiary {
-			// 	@include custom-background-color($tertiary-background-color, $dark-theme: true);
+			// 	@include button-background-color($tertiary-background-color, $dark-theme: true);
 			// }
 
 			&.light {
-				@include custom-background-color(white, $dark-theme: true);
+				@include button-background-color(white, $dark-theme: true);
 			}
 		}
 	}
