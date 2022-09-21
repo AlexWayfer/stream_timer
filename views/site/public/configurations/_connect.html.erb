@@ -1,0 +1,25 @@
+<% current = true if current.nil? %>
+
+<section class="connect">
+	<% if current_user&.twitch_user && current %>
+		<span class="twitch">
+			<img src="<%= current_user.twitch_user.info['image'] %>" alt="Twitch Avatar" />
+
+			<%= current_user.twitch_user.info['name'] %>
+
+			<form
+				class="disconnect"
+				action="<%= path_to ST::Site::Public::DisconnectController, :twitch %>"
+				method="POST"
+			>
+				<%= csrf_tag %>
+				<button type="submit"><%= render :_svg_icon, name: :logout, baseline: true %></button>
+			</form>
+		</span>
+	<% else %>
+		<form class="connect" action="/auth/twitch" method="POST">
+			<%= csrf_tag %>
+			<button type="submit" class="twitch">Connect Twitch</button>
+		</form>
+	<% end %>
+</section>

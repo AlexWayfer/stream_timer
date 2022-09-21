@@ -21,6 +21,14 @@ GIT
       public_suffix (>= 3.0, < 5)
       rack (>= 2.2, < 3.0)
 
+GIT
+  remote: https://github.com/deanpcmad/omniauth-twitch.git
+  revision: 31d4f9b4766619e4d737280789f78fcd48ed9a76
+  branch: fix-auth
+  specs:
+    omniauth-twitch (1.1.0)
+      omniauth-oauth2 (~> 1.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -61,6 +69,10 @@ GEM
       diffy (~> 3.0)
       highline (~> 2.0)
       paint (~> 2.0)
+    faraday (2.5.2)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.0)
     filewatcher (2.0.0)
     filewatcher-matrix (0.2.0)
       filewatcher (>= 2.0.0.beta3, < 3)
@@ -87,9 +99,9 @@ GEM
       sentry-ruby (~> 5.4)
     flame_deploy_toys (0.5.0)
       toys-core (~> 0.13.0)
-    flame_generate_toys (0.9.0)
+    flame_generate_toys (0.10.0)
       dry-inflector (~> 0.3.0)
-      formalism-model_forms (~> 0.8.0)
+      formalism-model_forms (~> 0.9.0)
       toys-core (~> 0.13.1)
     flame_routes_toys (0.5.0)
       alt_memery (~> 2.0)
@@ -102,7 +114,7 @@ GEM
     formalism (0.4.0)
       gorilla_patch (~> 4)
       module_methods (~> 0.1.0)
-    formalism-model_forms (0.8.0)
+    formalism-model_forms (0.9.0)
       alt_memery (~> 2.0)
       flame-pagination (~> 0.3.0)
       formalism (~> 0.4.0)
@@ -117,12 +129,14 @@ GEM
       formalism (~> 0.4.0)
       sequel (~> 5.0)
     gorilla_patch (4.0.0)
+    hashie (5.0.0)
     highline (2.0.3)
     icomoon_toys (0.4.0)
       alt_memery (~> 2.0)
       rubyzip (~> 2.0)
       toys-core (~> 0.13.0)
     json (2.6.2)
+    jwt (2.5.0)
     kramdown (2.4.0)
       rexml
     launchy (2.5.0)
@@ -139,6 +153,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     module_methods (0.1.0)
+    multi_xml (0.6.0)
     net-protocol (0.1.3)
       timeout
     net-smtp (0.3.1)
@@ -146,9 +161,23 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
+    oauth2 (2.0.9)
+      faraday (>= 0.17.3, < 3.0)
+      jwt (>= 1.0, < 3.0)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 4)
+      snaky_hash (~> 2.0)
+      version_gem (~> 1.1)
     oga (3.4)
       ast
       ruby-ll (~> 2.1)
+    omniauth (2.1.0)
+      hashie (>= 3.4.6)
+      rack (>= 2.2.3)
+      rack-protection
+    omniauth-oauth2 (1.8.0)
+      oauth2 (>= 1.4, < 3)
+      omniauth (~> 2.0)
     paint (2.3.0)
     parallel (1.22.1)
     parser (3.1.2.1)
@@ -176,6 +205,8 @@ GEM
       rack-test
     rack-contrib (2.3.0)
       rack (~> 2.0)
+    rack-protection (2.2.2)
+      rack
     rack-slashenforce (0.0.3)
       rack
     rack-test (2.0.2)
@@ -246,6 +277,9 @@ GEM
     shrine (3.4.0)
       content_disposition (~> 1.0)
       down (~> 5.1)
+    snaky_hash (2.0.0)
+      hashie
+      version_gem (~> 1.1)
     static_files_toys (0.4.0)
       highline (~> 2.0)
       toys-core (~> 0.13.0)
@@ -260,6 +294,7 @@ GEM
     unicode-display_width (2.2.0)
     uuid (2.3.9)
       macaddr (~> 1.0)
+    version_gem (1.1.0)
     warning (1.3.0)
 
 PLATFORMS
@@ -293,6 +328,8 @@ DEPENDENCIES
   mail
   net-smtp
   oga
+  omniauth
+  omniauth-twitch!
   pg
   pry-byebug
   psql_toys
@@ -322,4 +359,4 @@ DEPENDENCIES
   warning
 
 BUNDLED WITH
-   2.3.20
+   2.3.21

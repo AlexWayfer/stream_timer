@@ -6,6 +6,8 @@ module StreamTimer
 		class User < Sequel::Model
 			## Associations
 
+			one_to_one :twitch_user
+
 			one_to_many :configurations
 		end
 	end

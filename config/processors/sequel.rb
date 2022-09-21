@@ -21,6 +21,7 @@ module StreamTimer
 					json_serializer
 					dataset_associations
 					association_multi_add_remove
+					update_or_create
 				].freeze
 
 				def initialize(config)

@@ -22,6 +22,9 @@ $disabled-text-color: gray;
 // Links
 $link-text-color: color.adjust($accent-text-color, $lightness: -10%);
 
+// Misc
+$twitch-accent-color: #772ce8;
+
 body {
 	// Common
 	--color: black;

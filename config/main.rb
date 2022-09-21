@@ -45,6 +45,8 @@ class << config
 	end
 end
 
+GorillaPatch::Inflections.acronyms.push 'OmniAuth'
+
 using GorillaPatch::Inflections
 
 config.instance_exec do
@@ -55,11 +57,11 @@ config.instance_exec do
 	self[:stdout_file] = "#{self[:log_dir]}/out"
 	self[:stderr_file] = "#{self[:log_dir]}/err"
 
-	%i[session site].each do |config_name|
+	%i[session site twitch].each do |config_name|
 		load_yaml config_name, required: true
 	end
 
-	%w[Server Sentry R18n Mail Sequel Shrine].each do |processor_name|
+	%w[Server Sentry R18n Mail Sequel Shrine OmniAuth].each do |processor_name|
 		require_relative "processors/#{processor_name.underscore}"
 		ST::Config::Processors.const_get(processor_name).new self
 	end

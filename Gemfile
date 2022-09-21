@@ -91,6 +91,8 @@ group :others do
 	# 	github: 'AlexWayfer/money-oxr', branch: 'add_flock_for_cache'
 	# 	## https://github.com/ooyala/retries/pull/9
 	# 	github: 'AlexWayfer/retries', branch: 'v2'
+	gem 'omniauth'
+	gem 'omniauth-twitch', github: 'deanpcmad/omniauth-twitch', branch: 'fix-auth'
 	gem 'shrine'
 	# gem 'tzinfo'
 	# gem 'tzinfo-data'

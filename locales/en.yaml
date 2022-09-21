@@ -126,6 +126,9 @@ notice:
     created: Configuration has been created!
     updated: Configuration has been updated!
     deleted: Configuration has been deleted!
+  twitch:
+    connected: Twitch account connected!
+    disconnected: Twitch account disconnected.
 
 error:
   unexpected_error:

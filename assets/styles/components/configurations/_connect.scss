@@ -1,0 +1,38 @@
+section.connect {
+	form {
+		display: inline-block;
+
+		&.connect {
+			button.twitch {
+				@include button-background-color($twitch-accent-color);
+
+				color: white;
+			}
+		}
+	}
+
+	span.twitch {
+		padding: 0.4em 0.4em 0.4em 0.8em;
+		border-radius: $button-border-radius;
+
+		background: color.adjust($twitch-accent-color, $lightness: 10%);
+		color: white;
+
+		cursor: default;
+
+		> img {
+			max-height: 1.4em;
+			vertical-align: middle;
+			margin-bottom: 0.2em;
+			border-radius: 3px;
+		}
+
+		form.disconnect {
+			button {
+				background: transparent;
+				border: none;
+				color: #ddd;
+			}
+		}
+	}
+}
