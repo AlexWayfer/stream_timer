@@ -10,13 +10,17 @@
 			<%= t.site.configurations.user_key.hint %>
 		</p>
 
-		<p>
+		<p class="input">
 			<input
 				type="password"
 				class="monospace"
 				value="<%= current_user.key %>"
 				readonly
 			/>
+
+			<button type="button" class="success copy" data-toggle-text="<%= t.button.copied %>">
+				<%= t.button.copy %>
+			</button>
 		</p>
 
 		<form
@@ -29,10 +33,6 @@
 		</form>
 
 		<p>
-			<button type="button" class="success copy" data-toggle-text="<%= t.button.copied %>">
-				<%= t.button.copy %>
-			</button>
-
 			<button type="button" class="show warning" data-toggle-text="<%= t.button.hide %>">
 				<%= t.button.show %>
 			</button>

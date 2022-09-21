@@ -1,7 +1,7 @@
 section.load {
 	width: 100%;
 
-	input {
-		width: 100%;
+	fieldset.user-key {
+		@include small-and-large-elements($small-element-on-right: true);
 	}
 }

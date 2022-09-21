@@ -4,12 +4,12 @@
 	<form action="<%= path_to ST::Site::Public::UsersController, :load %>" method="POST">
 		<%= csrf_tag %>
 
-		<fieldset>
+		<fieldset class="user-key">
 			<legend><%= t.label.user_key %></legend>
 
 			<input type="password" class="monospace" name="user_key" required />
-		</fieldset>
 
-		<button type="submit" class="success"><%= t.button.load %></button>
+			<button type="submit" class="success"><%= t.button.load %></button>
+		</fieldset>
 	</form>
 </section>

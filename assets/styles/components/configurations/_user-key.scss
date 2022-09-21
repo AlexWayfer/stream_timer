@@ -5,7 +5,7 @@ section.user-key {
 		color: $disabled-text-color;
 	}
 
-	input {
-		width: 100%;
+	p.input {
+		@include small-and-large-elements($small-element-on-right: true);
 	}
 }
