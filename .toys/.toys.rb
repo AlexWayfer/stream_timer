@@ -69,5 +69,6 @@ expand IcoMoonToys::Template,
 	extract_map: {
 		'selection.json' => 'assets/icomoon/selection.json',
 		'style.css' => 'public/styles/lib/icomoon.css',
-		'symbol-defs.svg' => 'public/images/icons/symbol-defs.svg'
+		'symbol-defs.svg' => 'public/images/icons/symbol-defs.svg',
+		'svgxuse.min.js' => nil
 	}

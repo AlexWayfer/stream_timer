@@ -118,7 +118,7 @@ GEM
       sequel (~> 5.0)
     gorilla_patch (4.0.0)
     highline (2.0.3)
-    icomoon_toys (0.3.0)
+    icomoon_toys (0.4.0)
       alt_memery (~> 2.0)
       rubyzip (~> 2.0)
       toys-core (~> 0.13.0)
