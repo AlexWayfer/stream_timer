@@ -30,7 +30,8 @@ use Rack::UTF8Sanitizer
 # use Rack::RemoveTrailingSlashes
 
 ## Parse body as pointed out in Content-type
-use Rack::JSONBodyParser
+## https://github.com/rack/rack-contrib/issues/183
+# use Rack::JSONBodyParser
 
 ## CSRF
 ## Rescued and reported by `lowlevel_error_handler` in Puma config
@@ -40,9 +41,13 @@ use Rack::Csrf, raise: true
 use OmniAuth::Builder do
 	## https://github.com/omniauth/omniauth/issues/1087
 	# provider :developer if config[:environment] == 'development'
+
 	provider :twitch,
 		config[:twitch][:client_id], config[:twitch][:client_secret]
 	# redirect_uri: 'http://localhost:3000/auth/twitch/callback'
+
+	provider :google_oauth2,
+		config[:google][:client_id], config[:google][:client_secret]
 end
 
 ## Run application

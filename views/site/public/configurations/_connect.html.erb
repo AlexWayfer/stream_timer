@@ -1,25 +1,36 @@
 <% current = true if current.nil? %>
 
 <section class="connect">
-	<% if current_user&.twitch_user && current %>
-		<span class="twitch">
-			<img src="<%= current_user.twitch_user.info['image'] %>" alt="Twitch Avatar" />
+	<% CONNECT_PROVIDERS.each do |provider| %>
 
-			<%= current_user.twitch_user.info['name'] %>
+		<% if current && (provider_user = current_user&.public_send("#{provider[:name]}_user")) %>
 
-			<form
-				class="disconnect"
-				action="<%= path_to ST::Site::Public::DisconnectController, :twitch %>"
-				method="POST"
-			>
+			<span class="<%= provider[:name] %>">
+				<img src="<%= provider_user.info['image'] %>" alt="<%= provider[:title] %> Avatar" />
+
+				<%= provider_user.info['name'] %>
+
+				<form
+					class="disconnect"
+					action="<%= path_to ST::Site::Public::DisconnectController, provider[:name].to_sym %>"
+					method="POST"
+				>
+					<%= csrf_tag %>
+					<button type="submit"><%= render :_svg_icon, name: :logout, baseline: true %></button>
+				</form>
+			</span>
+
+		<% else %>
+
+			<form class="connect" action="/auth/<%= provider[:path] %>" method="POST">
 				<%= csrf_tag %>
-				<button type="submit"><%= render :_svg_icon, name: :logout, baseline: true %></button>
+
+				<button type="submit" class="<%= provider[:name] %>">
+					<%= t.button.connect(provider_title: provider[:title]) %>
+				</button>
 			</form>
-		</span>
-	<% else %>
-		<form class="connect" action="/auth/twitch" method="POST">
-			<%= csrf_tag %>
-			<button type="submit" class="twitch">Connect Twitch</button>
-		</form>
+
+		<% end %>
+
 	<% end %>
 </section>

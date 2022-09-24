@@ -3,7 +3,7 @@
 ## Require gems
 require 'bundler/setup'
 Bundler.require(
-	:system, :server, :database, :translations, :forms, :views, :assets, :mails, :others
+	:system, :server, :database, :translations, :forms, :views, :assets, :mails, :auth, :others
 )
 
 require 'erubi/capture_end'

@@ -55,6 +55,14 @@
 
 			&.twitch {
 				@include button-background-color($twitch-accent-color, $dark-theme: true);
+
+				color: $twitch-text-color;
+			}
+
+			&.google {
+				@include button-background-color($google-accent-color, $dark-theme: true);
+
+				color: $google-text-color;
 			}
 		}
 	}

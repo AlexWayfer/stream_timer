@@ -109,6 +109,7 @@ button:
   copy: Copy
   copied: Copied!
   regenerate: Regenerate
+  connect: Connect %{provider_title}
 
 confirm:
   user:
@@ -129,6 +130,9 @@ notice:
   twitch:
     connected: Twitch account connected!
     disconnected: Twitch account disconnected.
+  google:
+    connected: Google account connected!
+    disconnected: Google account disconnected.
 
 error:
   unexpected_error:

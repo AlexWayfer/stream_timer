@@ -1,24 +1,44 @@
 section.connect {
+	form,
+	span {
+		margin: 0 0.2em;
+	}
+
 	form {
 		display: inline-block;
+		margin: 0;
 
 		&.connect {
-			button.twitch {
-				@include button-background-color($twitch-accent-color);
+			button {
+				&.twitch {
+					@include button-background-color($twitch-accent-color);
 
-				color: white;
+					color: $twitch-text-color;
+				}
+
+				&.google {
+					@include button-background-color($google-accent-color);
+
+					color: $google-text-color;
+				}
 			}
 		}
 	}
 
-	span.twitch {
-		padding: 0.4em 0.4em 0.4em 0.8em;
+	span {
+		padding: 0.4em 0.2em 0.4em 0.8em;
 		border-radius: $button-border-radius;
-
-		background: color.adjust($twitch-accent-color, $lightness: 10%);
-		color: white;
-
 		cursor: default;
+
+		&.twitch {
+			background: color.adjust($twitch-accent-color, $lightness: 10%);
+			color: $twitch-text-color;
+		}
+
+		&.google {
+			background: color.adjust($google-accent-color, $lightness: -10%);
+			color: $google-text-color;
+		}
 
 		> img {
 			max-height: 1.4em;

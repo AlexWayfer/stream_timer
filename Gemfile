@@ -13,18 +13,35 @@ group :system do
 end
 
 group :server do
-	gem 'flame', '~> 5.0.0.rc6'
-	gem 'flame-flash', '~> 3.0.1.rc1'
+	gem 'flame', '~> 5.0.0.rc8'
+	gem 'flame-flash', '~> 3.0.1.rc2'
 	gem 'flame-menu', github: 'AlexWayfer/flame-menu'
+
 	gem 'puma'
-	gem 'rack-contrib'
+
+	## https://github.com/davidcelis/rack-console/pull/3
+	gem 'rack-console',
+		github: 'AlexWayfer/rack-console',
+		branch: 'update_rack_to_3'
+
+	## https://github.com/rack/rack-contrib/issues/183
+	# gem 'rack-contrib'
+
 	gem 'rack_csrf', require: 'rack/csrf'
+
 	## https://github.com/mwpastore/rack-protection-maximum_cookie/pull/4
 	gem 'rack-protection-maximum_cookie',
 		github: 'AlexWayfer/rack-protection-maximum_cookie',
 		branch: 'update_rack_dependency'
+
+	## https://github.com/rack/rack-session/pull/12#issuecomment-1257034837
+	gem 'rack-session', github: 'rack/rack-session'
+
 	gem 'rack-slashenforce'
-	gem 'rack-utf8_sanitizer'
+
+	## https://github.com/whitequark/rack-utf8_sanitizer/pull/66
+	gem 'rack-utf8_sanitizer',
+		github: 'whitequark/rack-utf8_sanitizer'
 end
 
 group :development do
@@ -69,6 +86,12 @@ group :mails do
 	gem 'net-smtp'
 end
 
+group :auth do
+	gem 'omniauth'
+	gem 'omniauth-google-oauth2'
+	gem 'omniauth-twitch', github: 'deanpcmad/omniauth-twitch', branch: 'fix-auth'
+end
+
 group :test do
 	# gem 'database_cleaner'
 	# gem 'fabrication'
@@ -91,8 +114,6 @@ group :others do
 	# 	github: 'AlexWayfer/money-oxr', branch: 'add_flock_for_cache'
 	# 	## https://github.com/ooyala/retries/pull/9
 	# 	github: 'AlexWayfer/retries', branch: 'v2'
-	gem 'omniauth'
-	gem 'omniauth-twitch', github: 'deanpcmad/omniauth-twitch', branch: 'fix-auth'
 	gem 'shrine'
 	# gem 'tzinfo'
 	# gem 'tzinfo-data'

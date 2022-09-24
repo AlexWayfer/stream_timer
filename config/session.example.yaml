@@ -3,5 +3,5 @@
   # :domain: 'foo.com'
   # :path: '/'
   :expire_after: 31536000 ## 1 year
-  :secret: 'change_me'
-  # :old_secret: 'also_change_me'
+  :secret: 'random symbols 64 min length'
+  # :old_secret: ''

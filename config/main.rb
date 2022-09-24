@@ -45,7 +45,7 @@ class << config
 	end
 end
 
-GorillaPatch::Inflections.acronyms.push 'OmniAuth'
+GorillaPatch::Inflections.acronyms.add 'OmniAuth'
 
 using GorillaPatch::Inflections
 
@@ -57,7 +57,7 @@ config.instance_exec do
 	self[:stdout_file] = "#{self[:log_dir]}/out"
 	self[:stderr_file] = "#{self[:log_dir]}/err"
 
-	%i[session site twitch].each do |config_name|
+	%i[session site twitch google].each do |config_name|
 		load_yaml config_name, required: true
 	end
 

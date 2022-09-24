@@ -15,6 +15,21 @@ module StreamTimer
 					configurations
 				].freeze
 
+				CONNECT_PROVIDERS = [
+					{
+						name: :twitch,
+						title: 'Twitch',
+						path: 'twitch'
+					}.freeze,
+					{
+						name: :google,
+						title: 'Google',
+						path: 'google_oauth2'
+					}.freeze
+				].freeze
+
+				private_constant :CONNECT_PROVIDERS
+
 				protected
 
 				def available?(_controller = self.class)

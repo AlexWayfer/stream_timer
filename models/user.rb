@@ -7,6 +7,7 @@ module StreamTimer
 			## Associations
 
 			one_to_one :twitch_user
+			one_to_one :google_user
 
 			one_to_many :configurations
 		end
