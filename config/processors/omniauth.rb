@@ -14,6 +14,7 @@ module StreamTimer
 						key: 'csrf.token', authenticity_param: '_csrf'
 					)
 
+					::OmniAuth.config.path_prefix = '/connect'
 					::OmniAuth.config.logger = ST::Application.logger
 				end
 			end

@@ -44,7 +44,7 @@ use OmniAuth::Builder do
 
 	provider :twitch,
 		config[:twitch][:client_id], config[:twitch][:client_secret]
-	# redirect_uri: 'http://localhost:3000/auth/twitch/callback'
+	# redirect_uri: 'http://localhost:3000/connect/twitch/callback'
 
 	provider :google_oauth2,
 		config[:google][:client_id], config[:google][:client_secret]

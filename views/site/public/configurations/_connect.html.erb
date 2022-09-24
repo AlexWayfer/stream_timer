@@ -22,11 +22,19 @@
 
 		<% else %>
 
-			<form class="connect" action="/auth/<%= provider[:path] %>" method="POST">
+			<form
+				class="connect"
+				action="/connect/<%= provider[:path] %>/?<%= URI.encode_www_form(current: current) %>"
+				method="POST"
+			>
 				<%= csrf_tag %>
 
 				<button type="submit" class="<%= provider[:name] %>">
-					<%= t.button.connect(provider_title: provider[:title]) %>
+					<%=
+						t.button.public_send(
+							current ? :connect : :sign_in_with, provider_title: provider[:title]
+						)
+					%>
 				</button>
 			</form>
 

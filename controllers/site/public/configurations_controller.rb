@@ -23,7 +23,7 @@ module StreamTimer
 					initialize_configuration_create_form
 
 					if (form_outcome = @form.run).success?
-						update_user_session configuration_form_outcome: form_outcome
+						update_user_session user: form_outcome.result.user
 
 						redirect :edit, key: form_outcome.result.key, notice: t.notice.configuration.created
 					else
@@ -43,7 +43,7 @@ module StreamTimer
 					initialize_configuration_update_form key
 
 					if (form_outcome = @form.run).success?
-						update_user_session configuration_form_outcome: form_outcome
+						update_user_session user: form_outcome.result.user
 
 						redirect :edit, key:, notice: t.notice.configuration.updated
 					else

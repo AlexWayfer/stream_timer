@@ -110,6 +110,7 @@ button:
   copied: Copied!
   regenerate: Regenerate
   connect: Connect %{provider_title}
+  sign_in_with: Sign in with %{provider_title}
 
 confirm:
   user:

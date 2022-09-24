@@ -17,10 +17,8 @@ module StreamTimer
 			form_outcome.result if form_outcome.success?
 		end
 
-		def update_user_session(
-			configuration_form_outcome: nil, user: configuration_form_outcome.result.user
-		)
-			session[:user_key] = user.key
+		def update_user_session(user: nil, user_key: user.key)
+			session[:user_key] = user_key
 		end
 	end
 end
