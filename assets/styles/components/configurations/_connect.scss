@@ -33,11 +33,15 @@ section.connect {
 		&.twitch {
 			background: color.adjust($twitch-accent-color, $lightness: 10%);
 			color: $twitch-text-color;
+
+			--img-alt-color: color.adjust($twitch-text-color, $lightness: -10%);
 		}
 
 		&.google {
 			background: color.adjust($google-accent-color, $lightness: -10%);
 			color: $google-text-color;
+
+			--img-alt-color: color.adjust($google-accent-color, $lightness: -10%);
 		}
 
 		> img {
@@ -45,6 +49,10 @@ section.connect {
 			vertical-align: middle;
 			margin-bottom: 0.2em;
 			border-radius: 3px;
+
+			// Alt text
+			font-size: 0.8em;
+			color: var(--img-alt-color);
 		}
 
 		form.disconnect {
