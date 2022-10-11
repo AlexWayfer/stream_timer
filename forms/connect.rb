@@ -8,11 +8,11 @@ module StreamTimer
 			field :provider_user_model_class, Class
 			nested :current_user, Forms::User::FindOrCreate
 
+			private
+
 			def execute
 				@provider_user.update(info: auth_hash['info'], user: current_user)
 			end
-
-			private
 
 			def validate
 				super
