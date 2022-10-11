@@ -1,0 +1,14 @@
+$disabling-elements: (
+	#{all-horizontal-inputs()},
+	'textarea',
+	'select',
+	'.cccombo > button'
+);
+
+@mixin disabled-styles {
+	#{$disabling-elements} {
+		&:disabled {
+			@content;
+		}
+	}
+}

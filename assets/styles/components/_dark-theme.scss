@@ -2,11 +2,17 @@
 	@import "../lib/button-background-color";
 
 	body {
-		--color: white;
+		$common-text-color: white;
+		--color: #{$common-text-color};
+
 		--background-color: #151515;
 
 		//// Inputs
-		--input-background-color: #444;
+		$input-background-color: #444;
+		--input-background-color: #{$input-background-color};
+
+		$input-text-color: $common-text-color;
+
 		--input-border-color: #555;
 
 		> header {
@@ -20,6 +26,11 @@
 
 		a {
 			color: $accent-text-color;
+		}
+
+		@include disabled-styles {
+			color: color.adjust($input-text-color, $lightness: -20%);
+			background: color.adjust($input-background-color, $lightness: +4%);
 		}
 
 		button {

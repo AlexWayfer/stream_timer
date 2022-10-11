@@ -9,6 +9,7 @@ $footer-text-color: white;
 // $tertiary-background-color: #ffffff;
 
 // Text
+$common-text-color: black;
 $danger-background-color: color.adjust(red, $lightness: 15%);
 $danger-text-color: red;
 $error-color: $danger-text-color;
@@ -22,6 +23,10 @@ $disabled-text-color: gray;
 // Links
 $link-text-color: color.adjust($accent-text-color, $lightness: -10%);
 
+// Inputs
+$input-text-color: $common-text-color;
+$input-background-color: white;
+
 // Auth
 $twitch-accent-color: #772ce8;
 $twitch-text-color: white;
@@ -30,11 +35,11 @@ $google-text-color: white;
 
 body {
 	// Common
-	--color: black;
+	--color: #{$common-text-color};
 	--background-color: #fafafa;
 
 	// Inputs
-	--input-text-color: var(--color);
-	--input-background-color: white;
+	--input-text-color: var(--color); // $input-text-color
+	--input-background-color: #{$input-background-color};
 	--input-border-color: #ccc;
 }

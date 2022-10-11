@@ -5,6 +5,7 @@
 @import "lib/headings";
 @import "lib/clear-fix";
 @import "lib/inputs-with-types";
+@import "lib/disabled-styles";
 @import "lib/disable-password-autocomplete";
 @import "lib/sticky-footer";
 
@@ -94,14 +95,11 @@ html {
 			appearance: none;
 		}
 
-		#{all-horizontal-inputs()},
-		textarea,
-		select,
-		.cccombo > button {
-			&:disabled {
-				color: #333;
-				background: #f5f5f5;
-			}
+		@include disabled-styles {
+			// color: #333;
+			color: color.adjust($input-text-color, $lightness: +20%);
+			// background: #f5f5f5;
+			background: color.adjust($input-background-color, $lightness: -4%);
 		}
 
 		input,
