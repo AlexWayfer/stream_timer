@@ -73,6 +73,15 @@ module StreamTimer
 
 					super
 				end
+
+				private
+
+				using GorillaPatch::Inflections
+
+				def connection_image_url(provider_name, provider_user)
+					Forms.const_get("#{provider_name.to_s.camelize}User", false)::Image::Actualize
+						.run(provider_user:).result
+				end
 			end
 		end
 	end

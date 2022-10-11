@@ -6,7 +6,10 @@
 		<% if current && (provider_user = current_user&.public_send("#{provider[:name]}_user")) %>
 
 			<span class="<%= provider[:name] %>">
-				<img src="<%= provider_user.info['image'] %>" alt="<%= provider[:title] %> Avatar" />
+				<img
+					src="<%= connection_image_url provider[:name], provider_user %>"
+					alt="<%= provider[:title] %> Avatar"
+				/>
 
 				<%= provider_user.info['name'] %>
 

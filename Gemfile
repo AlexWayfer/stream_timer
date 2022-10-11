@@ -90,6 +90,11 @@ group :auth do
 	gem 'omniauth'
 	gem 'omniauth-google-oauth2'
 	gem 'omniauth-twitch', github: 'deanpcmad/omniauth-twitch', branch: 'fix-auth'
+
+	## For updating avatars
+	## Wait for a new release with Faraday 2
+	gem 'twitch-api', github: 'mauricew/ruby-twitch-api'
+	gem 'google-apis-people_v1'
 end
 
 group :test do

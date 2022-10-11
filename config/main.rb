@@ -61,7 +61,7 @@ config.instance_exec do
 		load_yaml config_name, required: true
 	end
 
-	%w[Server Sentry R18n Mail Sequel Shrine OmniAuth].each do |processor_name|
+	%w[Server Sentry R18n Mail Sequel Shrine OmniAuth Twitch Google].each do |processor_name|
 		require_relative "processors/#{processor_name.underscore}"
 		ST::Config::Processors.const_get(processor_name).new self
 	end
