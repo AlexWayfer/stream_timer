@@ -89,7 +89,7 @@ end
 group :auth do
 	gem 'omniauth'
 	gem 'omniauth-google-oauth2'
-	gem 'omniauth-twitch', github: 'deanpcmad/omniauth-twitch', branch: 'fix-auth'
+	gem 'omniauth-twitch'
 
 	## For updating avatars
 	## Wait for a new release with Faraday 2
