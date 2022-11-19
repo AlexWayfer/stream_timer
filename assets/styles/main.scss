@@ -97,7 +97,8 @@ html {
 
 		@include disabled-styles {
 			// color: #333;
-			color: color.adjust($input-text-color, $lightness: +20%);
+			color: color.adjust($input-text-color, $lightness: 20%);
+
 			// background: #f5f5f5;
 			background: color.adjust($input-background-color, $lightness: -4%);
 		}

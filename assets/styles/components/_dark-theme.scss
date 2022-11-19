@@ -3,12 +3,13 @@
 
 	body {
 		$common-text-color: white;
-		--color: #{$common-text-color};
 
+		--color: #{$common-text-color};
 		--background-color: #151515;
 
 		//// Inputs
 		$input-background-color: #444;
+
 		--input-background-color: #{$input-background-color};
 
 		$input-text-color: $common-text-color;
@@ -30,7 +31,7 @@
 
 		@include disabled-styles {
 			color: color.adjust($input-text-color, $lightness: -20%);
-			background: color.adjust($input-background-color, $lightness: +4%);
+			background: color.adjust($input-background-color, $lightness: 4%);
 		}
 
 		button {

@@ -1,8 +1,8 @@
 $disabling-elements: (
 	#{all-horizontal-inputs()},
-	'textarea',
-	'select',
-	'.cccombo > button'
+	"textarea",
+	"select",
+	".cccombo > button"
 );
 
 @mixin disabled-styles {

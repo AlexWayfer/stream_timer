@@ -80,8 +80,3 @@ rules:
         - outline
         ## Let's reconcile with IE 11
         - css-appearance
-
-  scss/dollar-variable-empty-line-before:
-    - never
-    - ignore:
-      - after-comment
