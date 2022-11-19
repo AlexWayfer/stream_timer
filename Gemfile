@@ -92,9 +92,9 @@ group :auth do
 	gem 'omniauth-twitch'
 
 	## For updating avatars
+	gem 'google-apis-people_v1'
 	## Wait for a new release with Faraday 2
 	gem 'twitch-api', github: 'mauricew/ruby-twitch-api'
-	gem 'google-apis-people_v1'
 end
 
 group :test do
