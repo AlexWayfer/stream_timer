@@ -5,7 +5,7 @@ specifiers:
   autoprefixer: '*'
   esbuild: '*'
   eslint: '*'
-  postcss: ^8.4.19
+  postcss: '*'
   postcss-cli: '*'
   postcss-flexbugs-fixes: '*'
   promise-polyfill: '*'
