@@ -17,9 +17,6 @@ require 'English'
 
 require 'logger'
 
-### For PP.pp (differs from `pp` by arguments (width))
-require 'pp'
-
 # require 'money/bank/google_currency'
 
 require_relative 'constants'
