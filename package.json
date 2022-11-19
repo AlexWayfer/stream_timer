@@ -13,7 +13,7 @@
 	},
 	"devDependencies": {
 		"eslint": "*",
-		"postcss": "^8.4.16",
+		"postcss": "*",
 		"remark-cli": "*",
 		"remark-preset-lint-recommended": "*",
 		"stylelint": "*",
