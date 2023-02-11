@@ -256,7 +256,7 @@ GEM
     puma (6.0.0)
       nio4r (~> 2.0)
     r18n-core (5.0.1)
-    rack (3.0.1)
+    rack (3.0.4.1)
     rack-protection (3.0.4)
       rack
     rack-slashenforce (0.0.3)
