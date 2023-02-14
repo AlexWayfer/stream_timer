@@ -19,6 +19,9 @@ module StreamTimer
 
 						new_image_url = request_image_url
 
+						## User can be banned, just skip it then
+						return current_image_url unless new_image_url
+
 						provider_user.update(info: provider_user.info.merge('image' => new_image_url))
 
 						new_image_url
