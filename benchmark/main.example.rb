@@ -47,8 +47,11 @@ def test
   ].each_with_object([]) do |method_name, array|
     array << (result = send method_name)
     puts "Result of #{method_name}:"
+    ## https://github.com/rubocop/rubocop/pull/11564
+    # rubocop:disable Linter/Debugger
     pp result
     puts
+    # rubocop:enable Linter/Debugger
   end
   uniq_size = results.uniq.size
   puts "Uniq results: #{uniq_size}"
