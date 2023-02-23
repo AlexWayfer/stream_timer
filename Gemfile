@@ -13,16 +13,13 @@ group :system do
 end
 
 group :server do
-	gem 'flame', '~> 5.0.0.rc8'
+	gem 'flame', '~> 5.0.0.rc9'
 	gem 'flame-flash', '~> 3.0.1.rc2'
 	gem 'flame-menu', github: 'AlexWayfer/flame-menu'
 
 	gem 'puma'
 
-	## https://github.com/davidcelis/rack-console/pull/3
-	gem 'rack-console',
-		github: 'AlexWayfer/rack-console',
-		branch: 'update_rack_to_3'
+	gem 'rack-console'
 
 	## https://github.com/rack/rack-contrib/issues/183
 	# gem 'rack-contrib'
@@ -30,18 +27,16 @@ group :server do
 	gem 'rack_csrf', require: 'rack/csrf'
 
 	## https://github.com/mwpastore/rack-protection-maximum_cookie/pull/4
+	## https://github.com/mwpastore/rack-protection-maximum_cookie/pull/7
 	gem 'rack-protection-maximum_cookie',
 		github: 'AlexWayfer/rack-protection-maximum_cookie',
-		branch: 'update_rack_dependency'
+		branch: 'improvements'
 
-	## https://github.com/rack/rack-session/pull/12#issuecomment-1257034837
-	gem 'rack-session', github: 'rack/rack-session'
+	gem 'rack-session'
 
 	gem 'rack-slashenforce'
 
-	## https://github.com/whitequark/rack-utf8_sanitizer/pull/66
-	gem 'rack-utf8_sanitizer',
-		github: 'whitequark/rack-utf8_sanitizer'
+	gem 'rack-utf8_sanitizer'
 end
 
 group :development do
