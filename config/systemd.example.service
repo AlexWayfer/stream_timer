@@ -1,6 +1,6 @@
 [Unit]
 Description=Stream Timer Server
-After=network.target
+After=network-online.target
 
 # Uncomment for socket activation (see below)
 # Requires=puma.socket
