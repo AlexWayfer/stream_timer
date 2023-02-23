@@ -1,6 +1,8 @@
 <% if current_user %>
+	<h2><%= t.site.configurations.current_user.header %></h2>
+
 	<section class="user-key">
-		<h2><%= t.site.configurations.user_key.header %></h2>
+		<h3><%= t.site.configurations.user_key.header %></h3>
 
 		<p class="dates">
 			<%= t.site.configurations.user_key.created_at l current_user.created_at, :human %>
@@ -44,7 +46,7 @@
 		</p>
 	</section>
 
-	<%= render :_connect %>
+	<%= render 'third-party/_connect' %>
 
 	<%= render :_list %>
 <% end %>

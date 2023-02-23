@@ -2,8 +2,15 @@ section.user-key {
 	width: max-content;
 	margin-bottom: 2em;
 
+	$margin-between-header-and-dates: 0.4em;
+
+	> h3 {
+		margin-bottom: $margin-between-header-and-dates;
+	}
+
 	.dates {
 		color: $disabled-text-color;
+		margin-top: $margin-between-header-and-dates;
 	}
 
 	p.input {

@@ -1,65 +1,79 @@
 section.connect {
-	form,
-	span {
-		margin: 0 0.2em;
-	}
+	> ul {
+		list-style: none;
+		padding: 0;
+		text-align: left;
 
-	form {
-		display: inline-block;
-		margin: 0;
+		> li {
+			margin: 0.4em 0;
 
-		&.connect {
-			button {
+			> .title {
+				font-weight: bold;
+			}
+
+			form,
+			span {
+				margin: 0 0.2em;
+			}
+
+			form {
+				display: inline-block;
+				margin: 0;
+
+				&.connect {
+					button {
+						&.twitch {
+							@include button-background-color($twitch-accent-color);
+
+							color: $twitch-text-color;
+						}
+
+						&.google {
+							@include button-background-color($google-accent-color);
+
+							color: $google-text-color;
+						}
+					}
+				}
+			}
+
+			span {
+				padding: 0.4em 0.2em 0.4em 0.8em;
+				border-radius: $button-border-radius;
+				cursor: default;
+
 				&.twitch {
-					@include button-background-color($twitch-accent-color);
-
+					background: color.adjust($twitch-accent-color, $lightness: 10%);
 					color: $twitch-text-color;
+
+					--img-alt-color: color.adjust($twitch-text-color, $lightness: -10%);
 				}
 
 				&.google {
-					@include button-background-color($google-accent-color);
-
+					background: color.adjust($google-accent-color, $lightness: -10%);
 					color: $google-text-color;
+
+					--img-alt-color: color.adjust($google-accent-color, $lightness: -10%);
 				}
-			}
-		}
-	}
 
-	span {
-		padding: 0.4em 0.2em 0.4em 0.8em;
-		border-radius: $button-border-radius;
-		cursor: default;
+				> img {
+					max-height: 1.4em;
+					vertical-align: middle;
+					margin-bottom: 0.2em;
+					border-radius: 3px;
 
-		&.twitch {
-			background: color.adjust($twitch-accent-color, $lightness: 10%);
-			color: $twitch-text-color;
+					// Alt text
+					font-size: 0.8em;
+					color: var(--img-alt-color);
+				}
 
-			--img-alt-color: color.adjust($twitch-text-color, $lightness: -10%);
-		}
-
-		&.google {
-			background: color.adjust($google-accent-color, $lightness: -10%);
-			color: $google-text-color;
-
-			--img-alt-color: color.adjust($google-accent-color, $lightness: -10%);
-		}
-
-		> img {
-			max-height: 1.4em;
-			vertical-align: middle;
-			margin-bottom: 0.2em;
-			border-radius: 3px;
-
-			// Alt text
-			font-size: 0.8em;
-			color: var(--img-alt-color);
-		}
-
-		form.disconnect {
-			button {
-				background: transparent;
-				border: none;
-				color: #ddd;
+				form.disconnect {
+					button {
+						background: transparent;
+						border: none;
+						color: #ddd;
+					}
+				}
 			}
 		}
 	}

@@ -43,6 +43,8 @@ site:
     go_to_configurations: Go to configurations
 
   configurations:
+    current_user:
+      header: Current user
     user_key:
       header: User key
       created_at: Created %1
@@ -56,7 +58,9 @@ site:
     update:
       header: Update existing configuration
     load:
-      header: Load existing configurations
+      header: Load existing configuration
+    connect:
+      header: Thirt-party accounts
     form:
       only_countup: Only countup
       specific_time: Specific time
@@ -109,8 +113,8 @@ button:
   copy: Copy
   copied: Copied!
   regenerate: Regenerate
-  connect: Connect %{provider_title}
-  sign_in_with: Sign in with %{provider_title}
+  connect: Connect
+  load_from: Load configurations from %{provider_title}
 
 confirm:
   user:
