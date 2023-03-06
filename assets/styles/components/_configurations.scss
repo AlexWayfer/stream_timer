@@ -1,7 +1,7 @@
 @import "configurations/form";
 @import "configurations/load";
-@import "configurations/user-key";
-@import "configurations/connect";
+@import "configurations/current-user";
+@import "configurations/third-party";
 
 .configurations > ul {
 	width: max-content;

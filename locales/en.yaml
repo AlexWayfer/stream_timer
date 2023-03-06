@@ -45,10 +45,11 @@ site:
   configurations:
     current_user:
       header: Current user
-    user_key:
-      header: User key
-      created_at: Created %1
-      hint: Save this key privately and use it later for your configuration loading!
+      user_key:
+        header: "Save this secret key anonymously for later usage to load the configuration:"
+        created_at: Created %1
+      connect:
+        header: "Or use third-party accounts to synchronize your configurations:"
     list:
       header: List of your configurations
       created_at: Created %1
@@ -59,8 +60,10 @@ site:
       header: Update existing configuration
     load:
       header: Load existing configuration
-    connect:
-      header: Thirt-party accounts
+      user_key:
+        header: "Load by previously saved secret key:"
+      connect:
+        header: "Or by previosly connected third-party accounts:"
     form:
       only_countup: Only countup
       specific_time: Specific time

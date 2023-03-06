@@ -1,22 +1,15 @@
 <% if current_user %>
-	<h2><%= t.site.configurations.current_user.header %></h2>
+	<section class="current-user">
+		<h2><%= t.site.configurations.current_user.header %></h2>
 
-	<section class="user-key">
-		<h3><%= t.site.configurations.user_key.header %></h3>
+		<h4><%= t.site.configurations.current_user.user_key.header %></h4>
 
-		<p class="dates">
-			<%= t.site.configurations.user_key.created_at l current_user.created_at, :human %>
-		</p>
-
-		<p>
-			<%= t.site.configurations.user_key.hint %>
-		</p>
-
-		<p class="input">
+		<span class="input">
 			<input
 				type="password"
 				class="monospace"
 				value="<%= current_user.key %>"
+				size="36"
 				readonly
 				disabled
 			/>
@@ -24,7 +17,7 @@
 			<button type="button" class="success copy" data-toggle-text="<%= t.button.copied %>">
 				<%= t.button.copy %>
 			</button>
-		</p>
+		</span>
 
 		<form
 			id="regenerate-user-key"
@@ -35,20 +28,70 @@
 			<%= csrf_tag %>
 		</form>
 
-		<p>
-			<button type="button" class="show warning" data-toggle-text="<%= t.button.hide %>">
-				<%= t.button.show %>
-			</button>
+		<button type="button" class="show warning" data-toggle-text="<%= t.button.hide %>">
+			<%= t.button.show %>
+		</button>
 
-			<button type="submit" form="regenerate-user-key" class="danger">
-				<%= t.button.regenerate %>
-			</button>
+		<button type="submit" form="regenerate-user-key" class="danger">
+			<%= t.button.regenerate %>
+		</button>
+
+		<p class="dates">
+			<%=
+				t.site.configurations.current_user.user_key.created_at l current_user.created_at, :human
+			%>
 		</p>
+
+		<h4><%= t.site.configurations.current_user.connect.header %></h4>
+
+		<ul class="third-party">
+			<% CONNECT_PROVIDERS.each do |provider| %>
+				<li>
+					<span class="title"><%= provider[:title] %>:</span>
+
+					<% if (provider_user = current_user&.public_send("#{provider[:name]}_user")) %>
+
+						<span class="provider <%= provider[:name] %>">
+							<img
+								src="<%= connection_image_url provider[:name], provider_user %>"
+								alt="<%= provider[:title] %> Avatar"
+							/>
+
+							<%= provider_user.info['name'] %>
+						</span>
+
+						<form
+							class="disconnect"
+							action="<%= path_to ST::Site::Public::DisconnectController, provider[:name].to_sym %>"
+							method="POST"
+						>
+							<%= csrf_tag %>
+							<button type="submit">Disconnect</button>
+						</form>
+
+					<% else %>
+
+						<form
+							class="connect"
+							action="/connect/<%= provider[:path] %>/?<%= URI.encode_www_form(current: true) %>"
+							method="POST"
+						>
+							<%= csrf_tag %>
+
+							<button type="submit" class="<%= provider[:name] %>">
+								<%= t.button.connect %>
+							</button>
+						</form>
+
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
 	</section>
 
-	<%= render 'third-party/_connect' %>
-
-	<%= render :_list %>
+	<% if current_user.configurations.any? %>
+		<%= render :_list %>
+	<% end %>
 <% end %>
 
 <%= yield %>
