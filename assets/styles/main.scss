@@ -261,8 +261,6 @@ html {
 				max-width: 100%;
 				margin: 2em auto 4em;
 			}
-
-			@import "components/configurations";
 		}
 
 		@import "components/header";
@@ -271,9 +269,10 @@ html {
 		@import "components/forms";
 		@import "components/page";
 
-		@import "components/timer";
-
 		@include sticky-footer;
+
+		@import "components/user";
+		@import "components/timers";
 	}
 
 	@import "components/dark-theme";

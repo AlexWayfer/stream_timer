@@ -1,0 +1,24 @@
+@import "timers/form";
+@import "timers/show";
+
+.timers > ul {
+	width: max-content;
+	max-width: 100%;
+	text-align: initial;
+
+	> li {
+		margin: 1.2em 0;
+
+		> h3 {
+			margin: 0;
+		}
+
+		> p {
+			margin: 0.4em 0;
+
+			&.dates {
+				color: $disabled-text-color;
+			}
+		}
+	}
+}

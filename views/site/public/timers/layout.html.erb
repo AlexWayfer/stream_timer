@@ -1,0 +1,97 @@
+<% if current_user %>
+	<section class="user current">
+		<h2><%= t.site.users.current.header %></h2>
+
+		<h4><%= t.site.users.current.key.header %></h4>
+
+		<span class="input">
+			<input
+				type="password"
+				class="monospace"
+				value="<%= current_user.key %>"
+				size="36"
+				readonly
+				disabled
+			/>
+
+			<button type="button" class="success copy" data-toggle-text="<%= t.button.copied %>">
+				<%= t.button.copy %>
+			</button>
+		</span>
+
+		<form
+			id="regenerate-user-key"
+			action="<%= path_to ST::Site::Public::UsersController, :regenerate_key %>"
+			method="POST"
+			data-confirm="<%= t.confirm.user.regenerate_key %>"
+		>
+			<%= csrf_tag %>
+		</form>
+
+		<button type="button" class="show warning" data-toggle-text="<%= t.button.hide %>">
+			<%= t.button.show %>
+		</button>
+
+		<button type="submit" form="regenerate-user-key" class="danger">
+			<%= t.button.regenerate %>
+		</button>
+
+		<p class="dates">
+			<%=
+				t.site.users.current.key.created_at l current_user.created_at, :human
+			%>
+		</p>
+
+		<h4><%= t.site.users.current.connect.header %></h4>
+
+		<ul class="user third-party">
+			<% CONNECT_PROVIDERS.each do |provider| %>
+				<li>
+					<span class="title"><%= provider[:title] %>:</span>
+
+					<% if (provider_user = current_user&.public_send("#{provider[:name]}_user")) %>
+
+						<span class="provider <%= provider[:name] %>">
+							<img
+								src="<%= connection_image_url provider[:name], provider_user %>"
+								alt="<%= provider[:title] %> Avatar"
+							/>
+
+							<%= provider_user.info['name'] %>
+						</span>
+
+						<form
+							class="disconnect"
+							action="<%= path_to ST::Site::Public::DisconnectController, provider[:name].to_sym %>"
+							method="POST"
+						>
+							<%= csrf_tag %>
+							<button type="submit">Disconnect</button>
+						</form>
+
+					<% else %>
+
+						<form
+							class="connect"
+							action="/connect/<%= provider[:path] %>/?<%= URI.encode_www_form(current: true) %>"
+							method="POST"
+						>
+							<%= csrf_tag %>
+
+							<button type="submit" class="<%= provider[:name] %>">
+								<%= t.button.connect %>
+							</button>
+						</form>
+
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+	</section>
+
+	<% if current_user.timers.any? %>
+		<%= render :_list %>
+	<% end %>
+<% end %>
+
+<%= yield %>

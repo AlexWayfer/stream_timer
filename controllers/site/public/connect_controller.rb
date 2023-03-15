@@ -18,9 +18,9 @@ module StreamTimer
 							if (form_outcome = @form.run).success?
 								update_user_session user: @form.current_user
 
-								redirect ConfigurationsController, notice: t.notice[provider[:name]].connected
+								redirect TimersController, notice: t.notice[provider[:name]].connected
 							else
-								redirect ConfigurationsController, error: form_outcome.errors.translations
+								redirect TimersController, error: form_outcome.errors.translations
 							end
 						end
 					)

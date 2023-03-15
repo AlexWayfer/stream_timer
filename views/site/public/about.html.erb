@@ -21,16 +21,16 @@
 
 <% if current_user %>
 
-	<section class="configuration">
-		<a href="<%= path_to ST::Site::Public::ConfigurationsController %>"><h2><%=
-			t.site.about.go_to_configurations
+	<section class="timers">
+		<a href="<%= path_to ST::Site::Public::TimersController %>"><h2><%=
+			t.site.about.go_to_timers
 		%></h2></a>
 	</section>
 
 <% else %>
 
-	<%= render 'configurations/_new_link' %>
+	<%= render 'timers/_new_link' %>
 
-	<%= render 'configurations/_load' %>
+	<%= render 'user/_load' %>
 
 <% end %>

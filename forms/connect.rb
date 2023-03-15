@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'user/find_or_create'
+
 module StreamTimer
 	module Forms
 		## Form for OmniAuth connections

@@ -3,7 +3,7 @@ site:
     nav:
       root:
         about: About
-        configurations: Configurations
+        timers: Timers
 
   about:
     header: About
@@ -40,29 +40,22 @@ site:
       developer: Developer's website
       icons8: Icons8
 
-    go_to_configurations: Go to configurations
+    go_to_timers: Go to timers
 
-  configurations:
-    current_user:
-      header: Current user
-      user_key:
-        header: "Save this secret key anonymously for later usage to load the configuration:"
-        created_at: Created %1
-      connect:
-        header: "Or use third-party accounts to synchronize your configurations:"
+  timers:
     list:
-      header: List of your configurations
+      header: List of your timers
       created_at: Created %1
       updated_at: updated %1
     create:
-      header: Create a new configuration
+      header: Create a new timer
     update:
-      header: Update existing configuration
+      header: Update existing timer
     load:
-      header: Load existing configuration
+      header: Load existing timer
       user_key:
         header: "Load by previously saved secret key:"
-      connect:
+      third_party:
         header: "Or by previosly connected third-party accounts:"
     form:
       only_countup: Only countup
@@ -77,9 +70,18 @@ site:
         minutes: minutes
         seconds: seconds
 
+  users:
+    current:
+      header: Current user
+      key:
+        header: "Save this secret key anonymously for later usage to load current timers:"
+        created_at: Created %1
+      connect:
+        header: "Or use third-party accounts to synchronize your timers:"
+
 label:
   user_key: User key
-  configuration:
+  timer:
     name: Name
     text:
       common: Text
@@ -117,24 +119,24 @@ button:
   copied: Copied!
   regenerate: Regenerate
   connect: Connect
-  load_from: Load configurations from %{provider_title}
+  load_from: Load timers from %{provider_title}
 
 confirm:
   user:
     regenerate_key: Regenerate user key?
-  configuration:
-    delete: Delete configuration "%{name}"?
+  timer:
+    delete: Delete timer "%{name}"?
 
 notice:
   user:
     itself:
-      loaded: User configurations have been loaded!
+      loaded: User timers have been loaded!
     key:
       regenerated: User key has been regenerated!
-  configuration:
-    created: Configuration has been created!
-    updated: Configuration has been updated!
-    deleted: Configuration has been deleted!
+  timer:
+    created: Timer has been created!
+    updated: Timer has been updated!
+    deleted: Timer has been deleted!
   twitch:
     connected: Twitch account connected!
     disconnected: Twitch account disconnected.
@@ -154,10 +156,10 @@ error:
 
   user:
     not_found:
-      by_given_key: User configurations not found by given key
-      by_key_from_cookies: User configurations not found by key from cookies
+      by_given_key: User not found by given key
+      by_key_from_cookies: Use not found by key from cookies
 
-  configuration:
+  timers:
     itself:
-      not_found: Configuration not found.
-      not_available: This configuration belongs to another user.
+      not_found: Timer not found.
+      not_available: This timer belongs to another user.

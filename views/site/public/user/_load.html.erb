@@ -1,0 +1,17 @@
+<section class="load">
+	<h2><%= t.site.timers.load.header %></h2>
+
+	<h4><%= t.site.timers.load.user_key.header %></h4>
+
+	<form action="<%= path_to ST::Site::Public::UsersController, :load %>" method="POST">
+		<%= csrf_tag %>
+
+		<p class="user-key">
+			<input type="password" class="monospace" name="user_key" size="36" required />
+
+			<button type="submit" class="success"><%= t.button.load %></button>
+		</p>
+	</form>
+
+	<%= render '_third-party/_load' %>
+</section>

@@ -10,7 +10,7 @@ module StreamTimer
 				protected
 
 				def execute(action)
-					halt redirect ConfigurationsController if current_user
+					halt redirect TimersController if current_user
 
 					super
 				end
