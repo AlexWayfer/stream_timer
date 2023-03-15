@@ -1,0 +1,28 @@
+<section class="timers">
+	<h2><%= t.site.timers.list.header %></h2>
+
+	<ul>
+		<% current_user.timers.each do |timer| %>
+			<% key = timer.key %>
+			<li>
+				<h3>
+					<% if params[:key] == key %>
+						<%== timer.name %>
+					<% else %>
+						<a href="<%= path_to :edit, key: key %>">
+							<%== timer.name %>
+						</a>
+					<% end %>
+				</h3>
+
+				<p class="dates">
+					<%=
+						t.site.timers.list.created_at l(timer.created_at, :human)
+					%><% if timer.updated_at %>, <%=
+						t.site.timers.list.updated_at l(timer.updated_at, :human)
+					%><% end %>
+				</p>
+			</li>
+		<% end %>
+	</ul>
+</section>

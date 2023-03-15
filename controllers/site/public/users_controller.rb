@@ -10,7 +10,7 @@ module StreamTimer
 
 					update_user_session user: @found
 
-					redirect ConfigurationsController, :index, notice: t.notice.user.itself.loaded
+					redirect TimersController, :index, notice: t.notice.user.itself.loaded
 				end
 
 				post def regenerate_key

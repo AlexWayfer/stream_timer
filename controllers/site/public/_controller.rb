@@ -12,7 +12,7 @@ module StreamTimer
 
 				MENU_ITEMS = %i[
 					about
-					configurations
+					timers
 				].freeze
 
 				CONNECT_PROVIDERS = [

@@ -1,8 +1,0 @@
-section.load {
-	width: 100%;
-	margin-bottom: 2em;
-
-	fieldset.user-key {
-		@include small-and-large-elements($small-element-on-right: true);
-	}
-}

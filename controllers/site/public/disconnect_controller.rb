@@ -10,7 +10,7 @@ module StreamTimer
 						define_method(provider[:name]) do
 							current_user.public_send("#{provider[:name]}_user").destroy
 
-							redirect ConfigurationsController, notice: t.notice[provider[:name]].disconnected
+							redirect TimersController, notice: t.notice[provider[:name]].disconnected
 						end
 					)
 				end

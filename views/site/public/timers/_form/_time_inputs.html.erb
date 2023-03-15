@@ -1,0 +1,28 @@
+<fieldset class="time-inputs">
+	<%
+		%i[hours minutes seconds].each do |time_component|
+			time_limits = @form.class::TIME_LIMITS[time_component]
+	%>
+		<label>
+			<% value = @form.public_send(time_component) %>
+			<span
+				><input
+					type="number"
+					name="timer[<%= time_component %>]"
+					value="<%= !@form.only_countup && countup ? 0 : value %>"
+					min="<%= time_limits.begin %>"
+					<% if (max = time_limits.end) %>
+						max="<%= max %>"
+					<% end %>
+					required
+				/></span
+			><span
+				><%= t.site.timers.form.time[time_component] %><%
+					unless time_component == :seconds
+						%>,<%
+					end
+				%>
+			</span>
+		</label>
+	<% end %>
+</fieldset>
