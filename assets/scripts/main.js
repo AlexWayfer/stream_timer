@@ -1,7 +1,6 @@
 import ShowPasswordButton from './components/show-password-button'
 import CopyButton from './components/copy-button'
-import ConfigurationForm from './components/configuration-form'
-import Timer from './components/timer'
+import * as Timers from './components/timers'
 
 document.addEventListener('DOMContentLoaded', () => {
 	// Prevent double form submission
@@ -96,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('button.copy').forEach(button => new CopyButton(button))
 
 	document.querySelectorAll('.configuration.change form:not(.delete)')
-		.forEach(form => new ConfigurationForm(form))
+		.forEach(form => new Timers.Form(form))
 
-	document.querySelectorAll('.timer').forEach(container => new Timer(container))
+	document.querySelectorAll('.timer').forEach(container => new Timers.Show(container))
 })

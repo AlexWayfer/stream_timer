@@ -1,4 +1,4 @@
-export default class ConfigurationForm {
+export class Form {
 	constructor(form) {
 		const
 			nameInput = form.querySelector('input[name*="[name]"]'),

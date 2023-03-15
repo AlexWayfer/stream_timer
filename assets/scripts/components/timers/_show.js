@@ -1,4 +1,4 @@
-export default class Timer {
+export class Show {
 	constructor(container) {
 		const actualTimer = container.querySelector('p:not(.countdown-information)')
 
