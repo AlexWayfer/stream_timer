@@ -124,6 +124,9 @@ button:
 confirm:
   user:
     regenerate_key: Regenerate user key?
+    third_party:
+      disconnect: Do you actually want to unbind this account?
+      load: Do you actually want to switch from the current account to a new one?
   timer:
     delete: Delete timer "%{name}"?
 

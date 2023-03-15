@@ -64,6 +64,7 @@
 							class="disconnect"
 							action="<%= path_to ST::Site::Public::DisconnectController, provider[:name].to_sym %>"
 							method="POST"
+							data-confirm="<%= t.confirm.user.third_party.disconnect %>"
 						>
 							<%= csrf_tag %>
 							<button type="submit">Disconnect</button>
