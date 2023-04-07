@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/AlexWayfer/flame-menu.git
-  revision: 652c45e9257e8a9f6f269ff4acee7e403b91cef5
+  revision: 4f7fd0691ba29e526fc6770bfaaa8b051b3d5d0c
   specs:
     flame-menu (0.0.0)
       flame (~> 5.0.0.rc6)
@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/mauricew/ruby-twitch-api.git
-  revision: be26dfd8d3caae2d926ee4353d3a8e402b95c06c
+  revision: 87866315a318593b23b2b9a9b5c3c049b93c3b7d
   specs:
     twitch-api (0.4.0)
       faraday (~> 2.3)
@@ -34,7 +34,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.8.1)
+    addressable (2.8.3)
       public_suffix (>= 2.0.2, < 6.0)
     alt_memery (2.1.0)
       module_methods (~> 0.1.0)
@@ -147,7 +147,7 @@ GEM
       webrick
     google-apis-people_v1 (0.36.0)
       google-apis-core (>= 0.11.0, < 2.a)
-    googleauth (1.3.0)
+    googleauth (1.5.0)
       faraday (>= 0.17.3, < 3.a)
       jwt (>= 1.4, < 3.0)
       memoist (~> 0.16)
@@ -195,7 +195,7 @@ GEM
       timeout
     net-smtp (0.3.3)
       net-protocol
-    nio4r (2.5.8)
+    nio4r (2.5.9)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
@@ -223,7 +223,7 @@ GEM
     os (1.1.4)
     paint (2.3.0)
     parallel (1.22.1)
-    parser (3.2.1.1)
+    parser (3.2.2.0)
       ast (~> 2.4.1)
     pg (1.4.6)
     pry (0.14.2)
@@ -239,7 +239,7 @@ GEM
     psych (5.1.0)
       stringio
     public_suffix (5.0.1)
-    puma (6.1.1)
+    puma (6.2.1)
       nio4r (~> 2.0)
     r18n-core (5.0.1)
     rack (3.0.7)
@@ -278,21 +278,21 @@ GEM
     rspec-expectations (3.12.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
-    rspec-mocks (3.12.4)
+    rspec-mocks (3.12.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.0)
-    rubocop (1.48.1)
+    rubocop (1.49.0)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.2.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.26.0, < 2.0)
+      rubocop-ast (>= 1.28.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.27.0)
+    rubocop-ast (1.28.0)
       parser (>= 3.2.1.0)
     rubocop-capybara (2.17.1)
       rubocop (~> 1.41)
@@ -312,7 +312,7 @@ GEM
     rubyzip (2.3.2)
     sentry-ruby (5.8.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
-    sequel (5.66.0)
+    sequel (5.67.0)
     sequel-enum_values (1.2.1)
       sequel (>= 4.1.0, <= 6)
     sequel_migrations_toys (0.4.0)
@@ -344,9 +344,9 @@ GEM
     thor (1.2.1)
     tilt (2.1.0)
     timeout (0.3.2)
-    toys (0.14.4)
-      toys-core (= 0.14.4)
-    toys-core (0.14.4)
+    toys (0.14.5)
+      toys-core (= 0.14.5)
+    toys-core (0.14.5)
     trailblazer-option (0.1.2)
     twitch_oauth2 (0.4.0)
       faraday (~> 2.3)
