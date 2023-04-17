@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/AlexWayfer/flame-menu.git
-  revision: 4f7fd0691ba29e526fc6770bfaaa8b051b3d5d0c
+  revision: 84d0a2425433607c3000131cf574b51967f18588
   specs:
     flame-menu (0.0.0)
       flame (~> 5.0.0.rc6)
@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/mauricew/ruby-twitch-api.git
-  revision: 87866315a318593b23b2b9a9b5c3c049b93c3b7d
+  revision: 408da6fbc61067ecb5a3c4ff48690bdb5329b996
   specs:
     twitch-api (0.4.0)
       faraday (~> 2.3)
@@ -147,7 +147,7 @@ GEM
       webrick
     google-apis-people_v1 (0.36.0)
       google-apis-core (>= 0.11.0, < 2.a)
-    googleauth (1.5.0)
+    googleauth (1.5.2)
       faraday (>= 0.17.3, < 3.a)
       jwt (>= 1.4, < 3.0)
       memoist (~> 0.16)
@@ -246,7 +246,7 @@ GEM
     rack-console (1.4.0)
       rack (~> 3.0)
       rack-test
-    rack-protection (3.0.5)
+    rack-protection (3.0.6)
       rack
     rack-session (2.0.0)
       rack (>= 3.0.0)
@@ -282,7 +282,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.0)
-    rubocop (1.49.0)
+    rubocop (1.50.1)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.2.0.0)
@@ -339,7 +339,7 @@ GEM
     static_files_toys (0.5.0)
       highline (~> 2.0)
       toys-core (~> 0.14.2)
-    stringio (3.0.5)
+    stringio (3.0.6)
     systemu (2.6.5)
     thor (1.2.1)
     tilt (2.1.0)
