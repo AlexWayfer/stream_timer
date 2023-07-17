@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/AlexWayfer/flame-menu.git
-  revision: 7137618e343faf40c83b1455a0c61d7dcf3b3f16
+  revision: 6f4b7d0ccc2b1e7640af682df34479671f1f6e5d
   specs:
     flame-menu (0.0.0)
       flame (~> 5.0.0.rc6)
@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/mauricew/ruby-twitch-api.git
-  revision: 169bf985397fbb8a2faeb977773c79d9f9952cb2
+  revision: 3f4d197fa2a3398727fb27d18173563f42633f13
   specs:
     twitch-api (0.4.0)
       faraday (~> 2.3)
@@ -41,7 +41,7 @@ GEM
       ruby2_keywords (~> 0.0.2)
     ansi (1.5.0)
     ast (2.4.2)
-    bcrypt (3.1.18)
+    bcrypt (3.1.19)
     benchmark-ips (2.12.0)
     benchmark-memory (0.2.0)
       memory_profiler (~> 1)
@@ -72,7 +72,7 @@ GEM
       diffy (~> 3.0)
       highline (~> 2.0)
       paint (~> 2.0)
-    faraday (2.7.6)
+    faraday (2.7.10)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
@@ -147,7 +147,7 @@ GEM
       webrick
     google-apis-people_v1 (0.36.0)
       google-apis-core (>= 0.11.0, < 2.a)
-    googleauth (1.5.2)
+    googleauth (1.6.0)
       faraday (>= 0.17.3, < 3.a)
       jwt (>= 1.4, < 3.0)
       memoist (~> 0.16)
@@ -166,6 +166,7 @@ GEM
     jwt (2.7.1)
     kramdown (2.4.0)
       rexml
+    language_server-protocol (3.17.0.3)
     launchy (2.5.2)
       addressable (~> 2.8)
     letter_opener (1.8.1)
@@ -233,18 +234,18 @@ GEM
     pry-byebug (3.10.1)
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
-    psql_toys (0.6.0)
+    psql_toys (0.7.0)
       alt_memery (~> 2.0)
       gorilla_patch (> 3, < 6)
       toys-core (~> 0.14.2)
     psych (5.1.0)
       stringio
-    public_suffix (5.0.1)
+    public_suffix (5.0.3)
     puma (6.3.0)
       nio4r (~> 2.0)
     r18n-core (5.0.1)
-    racc (1.7.0)
-    rack (3.0.7)
+    racc (1.7.1)
+    rack (3.0.8)
     rack-console (1.4.0)
       rack (~> 3.0)
       rack-test
@@ -256,7 +257,7 @@ GEM
       rack
     rack-test (2.1.0)
       rack (>= 1.3)
-    rack-utf8_sanitizer (1.8.0)
+    rack-utf8_sanitizer (1.9.0)
       rack (>= 1.0, < 4.0)
     rack_console_toys (0.3.0)
       rack-console (~> 1.3)
@@ -280,12 +281,13 @@ GEM
     rspec-expectations (3.12.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
-    rspec-mocks (3.12.5)
+    rspec-mocks (3.12.6)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
-    rspec-support (3.12.0)
-    rubocop (1.52.1)
+    rspec-support (3.12.1)
+    rubocop (1.54.2)
       json (~> 2.3)
+      language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
       parser (>= 3.2.2.3)
       rainbow (>= 2.2.2, < 4.0)
@@ -315,9 +317,9 @@ GEM
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
-    sentry-ruby (5.9.0)
+    sentry-ruby (5.10.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
-    sequel (5.69.0)
+    sequel (5.70.0)
     sequel-enum_values (1.2.1)
       sequel (>= 4.1.0, <= 6)
     sequel_migrations_toys (0.4.0)
@@ -330,7 +332,7 @@ GEM
     sequel_secure_password (0.2.15)
       bcrypt (>= 3.1, < 4.0)
       sequel (>= 4.1.0, < 6.0)
-    shrine (3.4.0)
+    shrine (3.5.0)
       content_disposition (~> 1.0)
       down (~> 5.1)
     signet (0.17.0)
@@ -348,10 +350,10 @@ GEM
     systemu (2.6.5)
     thor (1.2.2)
     tilt (2.2.0)
-    timeout (0.3.2)
-    toys (0.14.5)
-      toys-core (= 0.14.5)
-    toys-core (0.14.5)
+    timeout (0.4.0)
+    toys (0.14.6)
+      toys-core (= 0.14.6)
+    toys-core (0.14.6)
     trailblazer-option (0.1.2)
     twitch_oauth2 (0.4.0)
       faraday (~> 2.3)
