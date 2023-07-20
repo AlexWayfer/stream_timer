@@ -11,15 +11,12 @@
 ## Deployment
 
 1.  Install [PostgreSQL](https://www.postgresql.org/).
-2.  Database setup
-    1.  Create a project user:
-        `createuser -U postgres stream_timer`
-        (with `-P` for network-open databases)
-3.  Install [`rbenv`](https://github.com/rbenv/rbenv).
-4.  Install [`nodenv`](https://github.com/nodenv/nodenv).
-5.  Set the [`EDITOR` environment variable][1] (`nano`, `vim`, `mcedit`, etc.).
-6.  Clone this repository and checkout to directory.
-7.  Run `exe/setup.sh` to install Ruby (with gems), Node.js (with modules) and fill configs.
+2.  Install [`rbenv`](https://github.com/rbenv/rbenv).
+3.  Install [`nodenv`](https://github.com/nodenv/nodenv).
+4.  Set the [`EDITOR` environment variable][1] (`nano`, `vim`, `mcedit`, etc.).
+5.  Clone this repository and checkout to directory.
+6.  Run `exe/setup.sh` to install Ruby (with gems), Node.js (with modules) and fill configs.
+7.  Run `toys db create_user` to create database user.
 8.  Run `toys db create` to create database.
 9.  Run `toys db migrate` to run database migrations.
 
