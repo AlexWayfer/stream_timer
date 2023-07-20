@@ -6,7 +6,7 @@ module StreamTimer
 		class Base
 			extend Forwardable
 
-			def_delegators :@controller, :config, :request, :flash, :path_to, :url_to
+			def_delegators :@controller, :config, :request, :flash, :path_to, :url_to, :current_user
 
 			def initialize(controller)
 				@controller = controller

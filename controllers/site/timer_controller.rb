@@ -7,13 +7,15 @@ module StreamTimer
 			def index(key)
 				find_form_outcome = Forms::Timer::Find.new(key:).run
 
-				# binding.pry
-
-				if find_form_outcome.success? && (timer = find_form_outcome.result)
-					view :index, scope: transform_to_view_object(timer)
+				if find_form_outcome.success? && (@timer = find_form_outcome.result)
+					view :index, scope: transform_to_view_object(@timer)
 				else
 					halt 404
 				end
+			end
+
+			def current_user
+				@timer&.user
 			end
 		end
 	end
