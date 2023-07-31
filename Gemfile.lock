@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/AlexWayfer/flame-menu.git
-  revision: 6f4b7d0ccc2b1e7640af682df34479671f1f6e5d
+  revision: 52a799f974251153749d0cf0b83e4d5917dd9307
   specs:
     flame-menu (0.0.0)
       flame (~> 5.0.0.rc6)
@@ -23,13 +23,13 @@ GIT
 
 GIT
   remote: https://github.com/mauricew/ruby-twitch-api.git
-  revision: 3f4d197fa2a3398727fb27d18173563f42633f13
+  revision: 418034eee3dfcd6cd389137d718b53a4779202db
   specs:
     twitch-api (0.4.0)
       faraday (~> 2.3)
       faraday-parse_dates (~> 0.1.1)
       faraday-retry (~> 2.0)
-      twitch_oauth2 (~> 0.4.0)
+      twitch_oauth2 (~> 0.5.0)
 
 GEM
   remote: https://rubygems.org/
@@ -187,7 +187,7 @@ GEM
     module_methods (0.1.0)
     multi_json (1.15.0)
     multi_xml (0.6.0)
-    net-imap (0.3.6)
+    net-imap (0.3.7)
       date
       net-protocol
     net-pop (0.1.2)
@@ -271,7 +271,7 @@ GEM
       trailblazer-option (>= 0.1.1, < 0.2.0)
       uber (< 0.2.0)
     retriable (3.1.2)
-    rexml (3.2.5)
+    rexml (3.2.6)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
@@ -285,7 +285,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.1)
-    rubocop (1.54.2)
+    rubocop (1.55.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -293,7 +293,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.28.0, < 2.0)
+      rubocop-ast (>= 1.28.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.29.0)
@@ -305,7 +305,7 @@ GEM
     rubocop-performance (1.18.0)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rspec (2.22.0)
+    rubocop-rspec (2.23.0)
       rubocop (~> 1.33)
       rubocop-capybara (~> 2.17)
       rubocop-factory_bot (~> 2.22)
@@ -355,7 +355,7 @@ GEM
       toys-core (= 0.14.7)
     toys-core (0.14.7)
     trailblazer-option (0.1.2)
-    twitch_oauth2 (0.4.0)
+    twitch_oauth2 (0.5.0)
       faraday (~> 2.3)
       faraday-parse_dates (~> 0.1.0)
     uber (0.1.0)
