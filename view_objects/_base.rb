@@ -14,8 +14,8 @@ module StreamTimer
 
 			private
 
-			def render(*args, **kwargs)
-				@controller.send(__method__, *args, **kwargs, scope: self)
+			def render(*, **)
+				@controller.send(__method__, *, **, scope: self)
 			end
 		end
 	end

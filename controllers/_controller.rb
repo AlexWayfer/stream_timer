@@ -43,10 +43,10 @@ module StreamTimer
 		end
 
 		def view_validation_errors(
-			template, form_outcome = nil, errors: form_outcome.errors.translations, **options
+			template, form_outcome = nil, errors: form_outcome.errors.translations, **
 		)
 			status 422
-			view template, error: errors, **options
+			view template, error: errors, **
 		end
 	end
 end
