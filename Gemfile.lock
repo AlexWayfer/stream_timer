@@ -21,16 +21,6 @@ GIT
       public_suffix (>= 3.0, < 6)
       rack (>= 2.2, < 4.0)
 
-GIT
-  remote: https://github.com/mauricew/ruby-twitch-api.git
-  revision: 418034eee3dfcd6cd389137d718b53a4779202db
-  specs:
-    twitch-api (0.4.0)
-      faraday (~> 2.3)
-      faraday-parse_dates (~> 0.1.1)
-      faraday-retry (~> 2.0)
-      twitch_oauth2 (~> 0.5.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -355,6 +345,11 @@ GEM
       toys-core (= 0.14.7)
     toys-core (0.14.7)
     trailblazer-option (0.1.2)
+    twitch-api (1.0.0)
+      faraday (~> 2.3)
+      faraday-parse_dates (~> 0.1.1)
+      faraday-retry (~> 2.0)
+      twitch_oauth2 (~> 0.5.0)
     twitch_oauth2 (0.5.0)
       faraday (~> 2.3)
       faraday-parse_dates (~> 0.1.0)
@@ -426,7 +421,7 @@ DEPENDENCIES
   shrine
   static_files_toys
   toys
-  twitch-api!
+  twitch-api
   uuid
   voight_kampff!
   warning

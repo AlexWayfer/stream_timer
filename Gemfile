@@ -88,8 +88,7 @@ group :auth do
 
 	## For updating avatars
 	gem 'google-apis-people_v1'
-	## Wait for a new release with Faraday 2
-	gem 'twitch-api', github: 'mauricew/ruby-twitch-api'
+	gem 'twitch-api'
 end
 
 group :test do
