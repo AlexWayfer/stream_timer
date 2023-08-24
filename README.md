@@ -36,6 +36,7 @@
 *   Install [Certbot](https://certbot.eff.org/) and generate certificates.
     *   Optional `openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096`.
 *   Copy `config/systemd.service` to the `~/.config/systemd/user/` directory and enable it.
+    *   Don't forget to enable user services after logout: `loginctl enable-linger stream_timer`.
 
 -----
 
