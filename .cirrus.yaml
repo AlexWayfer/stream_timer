@@ -3,7 +3,7 @@ os_setup: &os_setup
     image: archlinux
   os_setup_script:
     - pacman -Syu --noconfirm
-    - pacman -S --noconfirm git gcc make libyaml postgresql-libs
+    - pacman -S --needed --noconfirm git gcc make libyaml postgresql-libs
 
 env:
   ## To suppress flood of warnings:
