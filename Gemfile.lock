@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/AlexWayfer/flame-menu.git
-  revision: 52a799f974251153749d0cf0b83e4d5917dd9307
+  revision: 3baeb5b51605b96ff637691fd22f1c2d4b4228e9
   specs:
     flame-menu (0.0.0)
       flame (~> 5.0.0.rc6)
@@ -24,13 +24,14 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.8.4)
+    addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
     alt_memery (2.1.0)
       module_methods (~> 0.1.0)
       ruby2_keywords (~> 0.0.2)
     ansi (1.5.0)
     ast (2.4.2)
+    base64 (0.1.1)
     bcrypt (3.1.19)
     benchmark-ips (2.12.0)
     benchmark-memory (0.2.0)
@@ -173,7 +174,7 @@ GEM
     memoist (0.16.2)
     memory_profiler (1.0.1)
     method_source (1.0.0)
-    mini_mime (1.1.2)
+    mini_mime (1.1.5)
     module_methods (0.1.0)
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -275,7 +276,8 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.1)
-    rubocop (1.55.1)
+    rubocop (1.56.1)
+      base64 (~> 0.1.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -292,10 +294,10 @@ GEM
       rubocop (~> 1.41)
     rubocop-factory_bot (2.23.1)
       rubocop (~> 1.33)
-    rubocop-performance (1.18.0)
+    rubocop-performance (1.19.0)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rspec (2.23.0)
+    rubocop-rspec (2.23.2)
       rubocop (~> 1.33)
       rubocop-capybara (~> 2.17)
       rubocop-factory_bot (~> 2.22)
@@ -309,7 +311,7 @@ GEM
     rubyzip (2.3.2)
     sentry-ruby (5.10.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
-    sequel (5.70.0)
+    sequel (5.71.0)
     sequel-enum_values (1.2.1)
       sequel (>= 4.1.0, <= 6)
     sequel_migrations_toys (0.4.0)
@@ -336,7 +338,7 @@ GEM
     static_files_toys (0.5.0)
       highline (~> 2.0)
       toys-core (~> 0.14.2)
-    stringio (3.0.7)
+    stringio (3.0.8)
     systemu (2.6.5)
     thor (1.2.2)
     tilt (2.2.0)
