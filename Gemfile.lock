@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/AlexWayfer/flame-menu.git
-  revision: 3baeb5b51605b96ff637691fd22f1c2d4b4228e9
+  revision: b4f9f4052a4014e6fb1aefd067cc21c4fc07e756
   specs:
     flame-menu (0.0.0)
       flame (~> 5.0.0.rc6)
@@ -139,10 +139,9 @@ GEM
       webrick
     google-apis-people_v1 (0.36.0)
       google-apis-core (>= 0.11.0, < 2.a)
-    googleauth (1.7.0)
+    googleauth (1.8.0)
       faraday (>= 0.17.3, < 3.a)
       jwt (>= 1.4, < 3.0)
-      memoist (~> 0.16)
       multi_json (~> 1.11)
       os (>= 0.9, < 2.0)
       signet (>= 0.16, < 2.a)
@@ -172,7 +171,6 @@ GEM
       net-imap
       net-pop
       net-smtp
-    memoist (0.16.2)
     memory_profiler (1.0.1)
     method_source (1.0.0)
     mini_mime (1.1.5)
@@ -298,7 +296,7 @@ GEM
     rubocop-performance (1.19.0)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rspec (2.23.2)
+    rubocop-rspec (2.24.0)
       rubocop (~> 1.33)
       rubocop-capybara (~> 2.17)
       rubocop-factory_bot (~> 2.22)
@@ -310,7 +308,7 @@ GEM
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
-    sentry-ruby (5.10.0)
+    sentry-ruby (5.11.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
     sequel (5.72.0)
       bigdecimal
@@ -329,7 +327,7 @@ GEM
     shrine (3.5.0)
       content_disposition (~> 1.0)
       down (~> 5.1)
-    signet (0.17.0)
+    signet (0.18.0)
       addressable (~> 2.8)
       faraday (>= 0.17.5, < 3.a)
       jwt (>= 1.5, < 3.0)
