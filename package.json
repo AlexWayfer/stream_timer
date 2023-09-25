@@ -14,7 +14,7 @@
 	"devDependencies": {
 		"eslint": "^8.45.0",
 		"postcss": "^8.4.26",
-		"remark-cli": "^11.0.0",
+		"remark-cli": "^12.0.0",
 		"remark-preset-lint-recommended": "^6.1.3",
 		"stylelint": "^15.10.1",
 		"stylelint-config-standard": "^34.0.0",
