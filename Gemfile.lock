@@ -140,7 +140,7 @@ GEM
       webrick
     google-apis-people_v1 (0.36.0)
       google-apis-core (>= 0.11.0, < 2.a)
-    googleauth (1.8.0)
+    googleauth (1.8.1)
       faraday (>= 0.17.3, < 3.a)
       jwt (>= 1.4, < 3.0)
       multi_json (~> 1.11)
@@ -185,7 +185,7 @@ GEM
       net-protocol
     net-protocol (0.2.1)
       timeout
-    net-smtp (0.3.3)
+    net-smtp (0.4.0)
       net-protocol
     nio4r (2.5.9)
     oauth2 (2.0.9)
@@ -232,7 +232,7 @@ GEM
     psych (5.1.0)
       stringio
     public_suffix (5.0.3)
-    puma (6.3.1)
+    puma (6.4.0)
       nio4r (~> 2.0)
     r18n-core (5.0.1)
     racc (1.7.1)
@@ -290,14 +290,14 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.29.0)
       parser (>= 3.2.1.0)
-    rubocop-capybara (2.18.0)
+    rubocop-capybara (2.19.0)
       rubocop (~> 1.41)
-    rubocop-factory_bot (2.23.1)
+    rubocop-factory_bot (2.24.0)
       rubocop (~> 1.33)
     rubocop-performance (1.19.1)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rspec (2.24.0)
+    rubocop-rspec (2.24.1)
       rubocop (~> 1.33)
       rubocop-capybara (~> 2.17)
       rubocop-factory_bot (~> 2.22)
