@@ -9,7 +9,7 @@
 		"promise-polyfill": "^8.3.0",
 		"rollup": "^3.26.3",
 		"sass": "^1.63.6",
-		"whatwg-fetch": "^3.6.2"
+		"whatwg-fetch": "^3.6.20"
 	},
 	"devDependencies": {
 		"eslint": "^8.45.0",
