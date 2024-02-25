@@ -236,7 +236,7 @@ GEM
       nio4r (~> 2.0)
     r18n-core (5.0.1)
     racc (1.7.1)
-    rack (3.0.8)
+    rack (3.0.9.1)
     rack-console (1.4.0)
       rack (~> 3.0)
       rack-test
