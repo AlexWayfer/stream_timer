@@ -11,7 +11,7 @@ module StreamTimer
 			)
 
 			def initialize(controller, model)
-				super controller
+				super(controller)
 
 				@model = model
 			end
@@ -31,7 +31,7 @@ module StreamTimer
 			end
 
 			%i[hours minutes seconds].each do |time_component|
-				define_method "padded_#{time_component}" do
+				define_method :"padded_#{time_component}" do
 					@model.public_send(time_component).to_s.rjust(2, '0')
 				end
 			end

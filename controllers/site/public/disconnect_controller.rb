@@ -8,7 +8,7 @@ module StreamTimer
 				CONNECT_PROVIDERS.each do |provider|
 					post(
 						define_method(provider[:name]) do
-							current_user.public_send("#{provider[:name]}_user").destroy
+							current_user.public_send(:"#{provider[:name]}_user").destroy
 
 							redirect TimersController, notice: t.notice[provider[:name]].disconnected
 						end
