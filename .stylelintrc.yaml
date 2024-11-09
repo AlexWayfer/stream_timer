@@ -81,3 +81,14 @@ rules:
         - outline
         ## Let's reconcile with IE 11
         - css-appearance
+
+overrides:
+  - files:
+      - '**/*.scss'
+    rules:
+      plugin/no-unsupported-browser-features:
+        - true
+        - severity: warning
+          ignore:
+            - css3-cursors
+            - css-nesting
