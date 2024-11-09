@@ -13,14 +13,14 @@ $breakpoints: (
 
 @mixin media-to($breakpoint) {
 	/* stylelint-disable-next-line media-query-no-invalid -- SASS */
-	@media screen and (max-width: map-get($breakpoints, $breakpoint) - 1px) {
+	@media screen and (max-width: map.get($breakpoints, $breakpoint) - 1px) {
 		@content;
 	}
 }
 
 @mixin media-from($breakpoint) {
 	/* stylelint-disable-next-line media-query-no-invalid -- SASS */
-	@media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+	@media screen and (min-width: map.get($breakpoints, $breakpoint)) {
 		@content;
 	}
 }
