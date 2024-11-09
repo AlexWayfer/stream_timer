@@ -3,6 +3,11 @@ require:
   - rubocop-rspec
   - rubocop-sequel
 
+inherit_mode:
+  merge:
+    - Include
+    - Exclude
+
 Layout/IndentationStyle:
   EnforcedStyle: tabs
   IndentationWidth: 2
@@ -33,6 +38,10 @@ Layout/MultilineHashBraceLayout:
 
 AllCops:
   NewCops: enable
+  Exclude:
+    <% `git status --ignored --porcelain`.lines.grep(/^!! /).each do |path| %>
+      - <%= path.sub(/^!! /, '') %>
+    <% end %>
 
 Metrics/BlockLength:
   Exclude:
