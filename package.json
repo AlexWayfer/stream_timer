@@ -15,6 +15,7 @@
 		"eslint": "^9.14.0",
 		"postcss": "^8.4.47",
 		"remark-cli": "^12.0.1",
+		"remark-gfm": "^4.0.0",
 		"remark-lint-list-item-indent": "^4.0.0",
 		"remark-preset-lint-recommended": "^7.0.0",
 		"stylelint": "^16.10.0",
