@@ -1,6 +1,7 @@
 extends:
   - stylelint-config-standard
   - stylelint-config-standard-scss
+  - '@stylistic/stylelint-config'
 
 ignorePath: .gitignore
 
@@ -8,10 +9,10 @@ plugins:
   - stylelint-no-unsupported-browser-features
 
 rules:
-  indentation:
+  '@stylistic/indentation':
     - tab
 
-  max-line-length:
+  '@stylistic/max-line-length':
     - 100
     - ignorePattern: /// https?:///
 
@@ -28,15 +29,15 @@ rules:
       ignoreAtRules:
         - else
 
-  block-closing-brace-newline-after:
+  '@stylistic/block-closing-brace-newline-after':
     - always
     - ignoreAtRules:
         - if
         - else
 
-  declaration-colon-newline-after: null
+  '@stylistic/declaration-colon-newline-after': null
 
-  function-comma-newline-after: null
+  '@stylistic/function-comma-newline-after': null
 
   declaration-empty-line-before:
     - always
@@ -50,7 +51,7 @@ rules:
     - true
     - severity: warning
 
-  declaration-colon-space-after:
+  '@stylistic/declaration-colon-space-after':
     - always-single-line
 
   ## This selectors could not be sorted by specificity:
