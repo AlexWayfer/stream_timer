@@ -7,7 +7,7 @@ module StreamTimer
 			class ConnectController < Site::Public::Controller
 				CONNECT_PROVIDERS.each do |provider|
 					get "/#{provider[:path]}/callback", (
-						define_method("#{provider[:name]}_callback") do
+						define_method(:"#{provider[:name]}_callback") do
 							## Sign in with provider
 							if request.env['omniauth.params'].fetch('current', 'true') == 'false'
 								update_user_session user_key: nil

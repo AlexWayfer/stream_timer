@@ -54,7 +54,7 @@ module StreamTimer
 
 				def specific_time=(value)
 					value = nil if value&.empty?
-					super value
+					super
 				end
 
 				private
