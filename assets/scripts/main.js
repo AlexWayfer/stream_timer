@@ -29,11 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// `input[type="number"]` should allow only numbers
 	// https://stackoverflow.com/a/469362/2630849
-	const number_input_filter = value => /^-?\d*[.,]?\d*$/.test(value)
+	const number_input_filter = value => (/^-?\d*[.,]?\d*$/).test(value)
 	document.querySelectorAll('input[type="number"]').forEach(number_input => {
 		[
-			'input', 'keydown', 'keyup', 'mousedown', 'mouseup', 'select',
-			'contextmenu', 'drop'
+			'input',
+			'keydown',
+			'keyup',
+			'mousedown',
+			'mouseup',
+			'select',
+			'contextmenu',
+			'drop'
 		].forEach(event_type => {
 			number_input.addEventListener(event_type, () => {
 				if (number_input_filter(number_input.value)) {
