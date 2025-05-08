@@ -250,14 +250,15 @@ GEM
       nio4r (~> 2.0)
     r18n-core (5.0.1)
     racc (1.8.1)
-    rack (3.1.12)
+    rack (3.1.14)
     rack-console (1.4.1)
       rack (~> 3.0)
       rack-test
     rack-protection (4.0.0)
       base64 (>= 0.1.0)
       rack (>= 3.0.0, < 4)
-    rack-session (2.0.0)
+    rack-session (2.1.1)
+      base64 (>= 0.1.0)
       rack (>= 3.0.0)
     rack-slashenforce (0.0.3)
       rack
