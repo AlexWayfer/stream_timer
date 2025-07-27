@@ -35,6 +35,8 @@ module StreamTimer
 						.then { |regexp_template| /(#{regexp_template})/ }
 						.freeze
 
+				private_constant :APP_DIRS_PATTERN
+
 				def configure_sentry
 					::Sentry.init do |sentry_config|
 						sentry_config.enabled_environments = %w[production demo].freeze

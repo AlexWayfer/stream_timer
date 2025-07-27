@@ -13,7 +13,7 @@ describe '/' do
 		it { is_expected.to be_ok }
 
 		describe 'body' do
-			subject { Oga.parse_html super().body }
+			subject { Nokogiri::HTML super().body }
 
 			describe '<title>' do
 				subject { super().css('title').text }
