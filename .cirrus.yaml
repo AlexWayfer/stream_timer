@@ -131,6 +131,23 @@ eslint_task:
       'browserslist', '.eslint*', 'assets/scripts/**', '*.js'
     )
 
+bundle-audit_task:
+  <<: *os_setup
+
+  always:
+    <<: *rbenv_cache
+
+  <<: *bundle_cache
+
+  audit_script:
+    - source ~/.bashrc
+    - bundle audit check --update
+
+  only_if: ($CIRRUS_BRANCH == 'main') ||
+    changesInclude(
+      '.cirrus.yaml', '.gitignore', '.ruby-version', 'Gemfile', 'Gemfile.lock'
+    )
+
 rubocop_task:
   <<: *os_setup
 
