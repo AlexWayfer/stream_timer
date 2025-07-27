@@ -11,6 +11,7 @@ module StreamTimer
 		## Base class for forms
 		class Base < Formalism::Form
 			extend Forwardable
+
 			def_delegators 'self.class', :instance_name
 
 			include Memery
