@@ -7,11 +7,9 @@ require 'warning'
 Warning.ignore(:missing_ivar, Gem.loaded_specs['sequel'].full_gem_path)
 
 ## They're generated
-%w[css xpath].each do |lexer_type|
-	Warning.ignore(
-		%i[mismatched_indentations unused_var]
-	)
-end
+Warning.ignore(
+	%i[mismatched_indentations unused_var]
+)
 
 shared_context 'with Rack Test' do
 	include Rack::Test::Methods

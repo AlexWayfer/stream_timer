@@ -4,6 +4,7 @@ module StreamTimer
 	## Base controller for any others controllers
 	class Controller < Flame::Controller
 		include Flame::R18n::Initialization
+
 		R18n::Filters.on(:named_variables)
 
 		include ST::ViewObjectHelper
