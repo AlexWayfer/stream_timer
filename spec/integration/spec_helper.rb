@@ -9,8 +9,7 @@ Warning.ignore(:missing_ivar, Gem.loaded_specs['sequel'].full_gem_path)
 ## They're generated
 %w[css xpath].each do |lexer_type|
 	Warning.ignore(
-		%i[mismatched_indentations unused_var],
-		"#{Gem.loaded_specs['oga'].full_gem_path}/lib/oga/#{lexer_type}/lexer.rb"
+		%i[mismatched_indentations unused_var]
 	)
 end
 
