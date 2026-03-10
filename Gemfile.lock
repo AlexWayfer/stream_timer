@@ -65,12 +65,12 @@ GEM
       diffy (~> 3.0)
       highline (~> 3.0)
       paint (~> 2.0)
-    faraday (2.13.4)
+    faraday (2.14.1)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
-    faraday-net_http (3.4.1)
-      net-http (>= 0.5.0)
+    faraday-net_http (3.4.2)
+      net-http (~> 0.5)
     faraday-parse_dates (0.1.1)
       faraday (~> 2.0)
     faraday-retry (2.3.2)
@@ -164,7 +164,7 @@ GEM
       rubyzip (~> 2.0)
       toys-core (~> 0.15.3)
     io-console (0.8.1)
-    json (2.13.2)
+    json (2.18.1)
     jwt (2.10.2)
       base64
     kramdown (2.5.1)
@@ -195,8 +195,8 @@ GEM
     multi_xml (0.7.2)
       bigdecimal (~> 3.1)
     mutex_m (0.3.0)
-    net-http (0.6.0)
-      uri
+    net-http (0.9.1)
+      uri (>= 0.11.1)
     net-imap (0.5.9)
       date
       net-protocol
@@ -381,7 +381,7 @@ GEM
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
-    uri (1.0.3)
+    uri (1.1.1)
     uuid (2.3.9)
       macaddr (~> 1.0)
     version_gem (1.1.8)
