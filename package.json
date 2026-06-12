@@ -3,7 +3,7 @@
 	"dependencies": {
 		"@sentry/browser": "^9.42.0",
 		"autoprefixer": "^10.4.21",
-		"esbuild": "^0.25.8",
+		"esbuild": "^0.28.1",
 		"postcss-cli": "^11.0.1",
 		"postcss-flexbugs-fixes": "^5.0.2",
 		"promise-polyfill": "^8.3.0",
